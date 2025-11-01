@@ -89,24 +89,7 @@ Built with modern web technologies, this project combines clean UI/UX design wit
 - **Animation System** - Coordinated motion design with Framer Motion
 - **State Management** - Efficient React hooks and context
 
-## **Pages & Navigation**
 
-1. **Home (Roadmap)** - Interactive tree view of the learning path
-2. **Topics View** - Grid of topic cards with progress indicators
-3. **Problems View** - List of all problems with filters
-4. **Problem Detail** - Individual problem with solution and visualization
-5. **Topic Detail** - Problems grouped by topic
-
-## **UI/UX Features**
-
-- **Dark Theme** - Professional dark color scheme with green accents
-- **Smooth Animations** - Framer Motion powered transitions
-- **Responsive Design** - Works seamlessly on all devices
-- **Interactive Elements** - Hover effects and micro-interactions
-- **Glass Morphism** - Modern glassmorphic design elements
-- **Gradient Text** - Subtle gradient text effects
-- **Scroll Effects** - Smooth scroll behavior
-- **Accessibility** - Semantic HTML and ARIA labels
 
 ## **Project Structure**
 
@@ -141,29 +124,6 @@ leetcode-visualizer/
 └── README.md                # Project documentation
 ```
 
-## **My Solutions Showcased**
-
-### **1. Contains Duplicate Visualizer**
-
-- **My Approach** - Array-to-set conversion solution I implemented
-- **Visual Concept** - Shows how duplicates are detected and discarded
-- **Real-time Animation** - Characters move from array to set
-- **Auto-looping** - Continuous demonstration of my algorithm
-- **Custom Input** - Test with different arrays
-
-### **2. Valid Anagram Visualizer**
-
-- **My Solution** - Lexicographical sorting approach I used
-- **Side-by-side Comparison** - Both strings sorted simultaneously
-- **Step-by-step Animation** - Character-by-character sorting process
-- **Comparison Result** - Visual indication of anagram status
-
-### **3. Interactive Roadmap**
-
-- **Hierarchical Structure** - Topics organized by prerequisites
-- **Progress Visualization** - Green progress bars for each topic
-- **Full-screen Map** - Maximized view for better navigation
-- **Smooth Navigation** - Click to navigate to topic pages
 
 ## **NeetCode 150 Topics Covered**
 
@@ -186,76 +146,8 @@ leetcode-visualizer/
 17. **Math & Geometry** - Mathematical problems
 18. **Bit Manipulation** - Bitwise operations
 
-## **Code Quality**
 
-- **TypeScript** - Full type safety throughout
-- **ESLint** - Code linting with Next.js config
-- **Component-based Architecture** - Reusable, maintainable components
-- **Responsive Design** - Mobile-first approach
-- **Clean Code** - Well-documented and organized
-- **Performance Optimized** - Efficient rendering and animations
 
-## **Development**
-
-### **Available Scripts**
-
-```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-
-# Run linter
-npm run lint
-```
-
-### **Adding New Solutions**
-
-As I solve more problems, I add them to `data/problems.ts`. To document a new solution:
-
-1. Add the problem object to the `problems` array
-2. Include my solution code, explanation, and complexity analysis
-3. Assign appropriate topics and difficulty
-4. Create a custom visualizer component if needed for the algorithm
-5. Link the visualizer in the problem detail page
-
-## **Custom Visualizers**
-
-The project supports custom algorithm visualizers. Current visualizers:
-
-- **ContainsDuplicateVisualizer** - Set conversion visualization
-- **AnagramSortVisualizer** - Sorting-based anagram check
-
-To create a new visualizer:
-
-1. Create a component in `components/`
-2. Implement animation logic with Framer Motion
-3. Add to problem detail page conditionally
-4. Follow existing visualizer patterns
-
-## **Contributing**
-
-I welcome contributions and feedback! Please feel free to:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## **Future Enhancements**
-
-- [ ] Add more algorithm visualizers
-- [ ] User authentication and personal progress tracking
-- [ ] Code execution and testing
-- [ ] Discussion forums
-- [ ] Mobile app version
-- [ ] Export progress reports
-- [ ] Social sharing features
 
 ## **Acknowledgments**
 
