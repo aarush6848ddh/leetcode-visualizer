@@ -1,0 +1,278 @@
+'use client';
+
+import { use } from 'react';
+import { notFound } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { ArrowLeft, ExternalLink, Code, BookOpen } from 'lucide-react';
+import Link from 'next/link';
+import { getProblemById } from '@/data/problems';
+import { getDifficultyColor, getDifficultyBgColor } from '@/lib/utils';
+import AlgorithmVisualizer from '@/components/AlgorithmVisualizer';
+import ContainsDuplicateVisualizer from '@/components/ContainsDuplicateVisualizer';
+import AnagramSortVisualizer from '@/components/AnagramSortVisualizer';
+
+interface ProblemPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function ProblemPage({ params }: ProblemPageProps) {
+  const { id } = use(params);
+  const problem = getProblemById(id);
+
+  if (!problem) {
+    notFound();
+  }
+
+  // Placeholder steps for visualization - will be customized per problem
+  const visualizationSteps = [
+    {
+      description: 'Initialize variables',
+      variables: { i: 0, result: 0 },
+    },
+    {
+      description: 'Process first element',
+      variables: { i: 1, result: 1 },
+    },
+    {
+      description: 'Continue processing',
+      variables: { i: 2, result: 2 },
+    },
+    {
+      description: 'Algorithm complete',
+      variables: { i: 3, result: 3 },
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Header */}
+      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-6 py-4">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-4"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Gallery
+          </Link>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-6 py-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* Problem Header */}
+          <div className="mb-8">
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex-1">
+                <h1 className="text-4xl font-bold mb-4">{problem.title}</h1>
+                <div className="flex items-center gap-4 flex-wrap">
+                  <span
+                    className={`px-3 py-1 rounded-lg text-sm font-medium border ${getDifficultyBgColor(
+                      problem.difficulty
+                    )} ${getDifficultyColor(problem.difficulty)}`}
+                  >
+                    {problem.difficulty}
+                  </span>
+                  {problem.topics.map((topic) => (
+                    <span
+                      key={topic}
+                      className="px-3 py-1 rounded-lg text-sm text-gray-300 bg-gray-800 border border-gray-700"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                  {problem.leetcodeUrl && (
+                    <a
+                      href={problem.leetcodeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-sm text-blue-400 hover:text-blue-300 bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View on LeetCode
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-5 space-y-8">
+              {/* Explanation */}
+              {problem.explanation && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                >
+                  <div className="flex items-center gap-2 mb-4">
+                    <BookOpen className="w-5 h-5 text-green-400" />
+                    <h2 className="text-2xl font-bold">Explanation</h2>
+                  </div>
+                  <div className="prose prose-invert max-w-none">
+                    <div className="text-gray-300 leading-relaxed space-y-4">
+                      {problem.explanation.split('\n\n').map((paragraph, pIdx) => {
+                        // Handle bold headings
+                        if (paragraph.includes('**') && paragraph.split('\n').length === 1) {
+                          const text = paragraph.replace(/\*\*/g, '');
+                          return (
+                            <p key={pIdx} className="font-semibold text-white text-lg">
+                              {text}
+                            </p>
+                          );
+                        }
+                        
+                        // Split into lines for this paragraph
+                        const lines = paragraph.split('\n').filter(l => l.trim());
+                        
+                        return (
+                          <div key={pIdx} className="space-y-2">
+                            {lines.map((line, lIdx) => {
+                              // Handle numbered list items
+                              if (line.match(/^\d+\./)) {
+                                return (
+                                  <p key={lIdx} className="ml-4">
+                                    {line}
+                                  </p>
+                                );
+                              }
+                              // Handle bullet points
+                              if (line.trim().startsWith('-')) {
+                                return (
+                                  <p key={lIdx} className="ml-4">
+                                    {line}
+                                  </p>
+                                );
+                              }
+                              // Regular line
+                              return (
+                                <p key={lIdx}>
+                                  {line}
+                                </p>
+                              );
+                            })}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Solution Code */}
+              {problem.code && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                >
+                  <div className="flex items-center gap-2 mb-4">
+                    <Code className="w-5 h-5 text-green-400" />
+                    <h2 className="text-2xl font-bold">Solution</h2>
+                  </div>
+                  <pre className="overflow-x-auto">
+                    <code className="text-sm text-gray-300 font-mono">
+                      {problem.code}
+                    </code>
+                  </pre>
+                </motion.div>
+              )}
+
+              {/* Complexity and Status - Moved here but separate */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Complexity */}
+                {(problem.timeComplexity || problem.spaceComplexity) && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                  >
+                    <h3 className="text-lg font-bold mb-4">Complexity</h3>
+                    <div className="space-y-3">
+                      {problem.timeComplexity && (
+                        <div>
+                          <div className="text-sm text-gray-400 mb-1">
+                            Time Complexity
+                          </div>
+                          <div className="text-green-400 font-mono font-bold">
+                            {problem.timeComplexity}
+                          </div>
+                        </div>
+                      )}
+                      {problem.spaceComplexity && (
+                        <div>
+                          <div className="text-sm text-gray-400 mb-1">
+                            Space Complexity
+                          </div>
+                          <div className="text-green-400 font-mono font-bold">
+                            {problem.spaceComplexity}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Status */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                >
+                  <h3 className="text-lg font-bold mb-4">Status</h3>
+                  <div className="flex items-center gap-2">
+                    {problem.status === 'solved' ? (
+                      <>
+                        <div className="w-4 h-4 rounded bg-green-500 flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-green-400 font-medium">Solved</span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-4 h-4 border-2 border-gray-600 rounded" />
+                        <span className="text-gray-400">Not Solved</span>
+                      </>
+                    )}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Right Sidebar - Algorithm Visualization */}
+            <div className="lg:col-span-7">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="lg:sticky lg:top-24"
+              >
+                {problem.id === 'contains-duplicate' ? (
+                  <ContainsDuplicateVisualizer />
+                ) : problem.id === 'valid-anagram' ? (
+                  <AnagramSortVisualizer />
+                ) : (
+                  <AlgorithmVisualizer
+                    steps={visualizationSteps}
+                    title="Algorithm Execution"
+                  />
+                )}
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </main>
+    </div>
+  );
+}
+
