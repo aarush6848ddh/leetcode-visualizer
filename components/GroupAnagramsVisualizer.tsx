@@ -282,7 +282,7 @@ export default function GroupAnagramsVisualizer() {
               <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 7 ? 'bg-emerald-500/20 border-l-2 border-emerald-400' : ''}`}>
                 {'                '}<span className="text-orange-400">my_hashmap</span>[<span className="text-orange-400">s_sort</span>].<span className="text-blue-400">append</span>(<span className="text-orange-400">s</span>)
               </div>
-              <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 8 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className="px-2 py-1.5 rounded transition-colors">
                 {'            '}<span className="text-purple-400">else</span>:
               </div>
               <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 9 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
