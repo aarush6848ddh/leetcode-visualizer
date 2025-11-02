@@ -199,19 +199,19 @@ export default function TwoIntegerSumIIVisualizer() {
               <div className={`px-2 py-1 rounded transition-colors ${currentLine === 3 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 {'        '}<span className="text-orange-400">my_hashmap</span> = {'{}'}
               </div>
-              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 4 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 2 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 {'        '}<span className="text-purple-400">for</span> <span className="text-orange-400">i</span>, <span className="text-orange-400">n</span> <span className="text-purple-400">in</span> <span className="text-blue-400">enumerate</span>(<span className="text-orange-400">numbers</span>):
               </div>
-              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 5 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 3 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 {'            '}<span className="text-orange-400">diff</span> = <span className="text-orange-400">target</span> - <span className="text-orange-400">n</span>
               </div>
-              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 6 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 4 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 {'            '}<span className="text-purple-400">if</span> <span className="text-orange-400">diff</span> <span className="text-purple-400">in</span> <span className="text-orange-400">my_hashmap</span>:
               </div>
-              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 7 ? 'bg-emerald-500/20 border-l-2 border-emerald-400' : ''}`}>
+              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 5 ? 'bg-emerald-500/20 border-l-2 border-emerald-400' : ''}`}>
                 {'                '}<span className="text-purple-400">return</span> [<span className="text-orange-400">my_hashmap</span>[<span className="text-orange-400">diff</span>] + <span className="text-cyan-400">1</span>, <span className="text-orange-400">i</span> + <span className="text-cyan-400">1</span>]
               </div>
-              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 8 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className={`px-2 py-1 rounded transition-colors ${currentLine === 6 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 {'            '}<span className="text-orange-400">my_hashmap</span>[<span className="text-orange-400">n</span>] = <span className="text-orange-400">i</span>
               </div>
             </code>
