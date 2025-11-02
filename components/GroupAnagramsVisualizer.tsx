@@ -264,10 +264,10 @@ export default function GroupAnagramsVisualizer() {
               <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
               </div>
-              <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 2 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className="px-2 py-1.5 rounded transition-colors">
                 {'    '}<span className="text-purple-400">def</span> <span className="text-blue-400">groupAnagrams</span>(<span className="text-green-400">self</span>, <span className="text-orange-400">strs</span>: <span className="text-blue-400">List</span>[<span className="text-blue-400">str</span>]) <span className="text-purple-400">-&gt;</span> <span className="text-blue-400">List</span>[<span className="text-blue-400">List</span>[<span className="text-blue-400">str</span>]]:
               </div>
-              <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 3 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <div className="px-2 py-1.5 rounded transition-colors">
                 {'        '}<span className="text-orange-400">my_hashmap</span> = {'{}'}
               </div>
               <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 4 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
