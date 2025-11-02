@@ -122,6 +122,41 @@ This approach is straightforward and leverages Python's built-in sorting functio
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(n)',
         starred: false
+    },
+    {
+        id: 'two-sum',
+        title: 'Two Sum',
+        difficulty: 'Easy',
+        topics: [
+            'Arrays & Hashing'
+        ],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/two-sum/',
+        explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target.
+
+**How it works:**
+1. Initialize an empty hashmap to store numbers and their indices as we iterate through the array.
+2. For each number at index i, calculate the difference (diff = target - n) needed to reach the target.
+3. Check if this difference already exists in the hashmap. If it does, we've found our pair - return the stored index of the difference and the current index.
+4. If the difference doesn't exist in the hashmap, store the current number and its index in the hashmap for future lookups.
+
+**Why this works:**
+By storing each number we've seen along with its index, we can check in constant time O(1) if its complement (the number needed to reach the target) has already been encountered. This eliminates the need for nested loops:
+- Without hashmap: O(n²) time complexity (checking all pairs)
+- With hashmap: O(n) time complexity (single pass through array)
+
+The hashmap allows us to "remember" previous numbers and their positions, making it possible to find the solution in a single iteration through the array.`,
+        code: `class Solution:
+    def twoSum(self, nums, target):
+        my_hashmap = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in my_hashmap:
+                return [my_hashmap[diff], i]
+            my_hashmap[n] = i`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false
     }
 ];
 const topics = [
@@ -195,7 +230,41 @@ This approach is straightforward and leverages Python's built-in sorting functio
                 spaceComplexity: 'O(n)',
                 starred: false
             },
-            createProblem('Two Sum', 'Easy', 'Arrays & Hashing'),
+            {
+                id: 'two-sum',
+                title: 'Two Sum',
+                difficulty: 'Easy',
+                topics: [
+                    'Arrays & Hashing'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/two-sum/',
+                explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target.
+
+**How it works:**
+1. Initialize an empty hashmap to store numbers and their indices as we iterate through the array.
+2. For each number at index i, calculate the difference (diff = target - n) needed to reach the target.
+3. Check if this difference already exists in the hashmap. If it does, we've found our pair - return the stored index of the difference and the current index.
+4. If the difference doesn't exist in the hashmap, store the current number and its index in the hashmap for future lookups.
+
+**Why this works:**
+By storing each number we've seen along with its index, we can check in constant time O(1) if its complement (the number needed to reach the target) has already been encountered. This eliminates the need for nested loops:
+- Without hashmap: O(n²) time complexity (checking all pairs)
+- With hashmap: O(n) time complexity (single pass through array)
+
+The hashmap allows us to "remember" previous numbers and their positions, making it possible to find the solution in a single iteration through the array.`,
+                code: `class Solution:
+    def twoSum(self, nums, target):
+        my_hashmap = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in my_hashmap:
+                return [my_hashmap[diff], i]
+            my_hashmap[n] = i`,
+                timeComplexity: 'O(n)',
+                spaceComplexity: 'O(n)',
+                starred: false
+            },
             createProblem('Group Anagrams', 'Medium', 'Arrays & Hashing'),
             createProblem('Top K Frequent Elements', 'Medium', 'Arrays & Hashing'),
             createProblem('Encode and Decode Strings', 'Medium', 'Arrays & Hashing'),
@@ -1347,11 +1416,24 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 ;
 ;
 ;
+/** VISUAL IDEA
+ * 1) Raw strings -> list(list(s)), list(list(t))
+ * 2) Animated sort of both lists
+ * 3) Compare arrays -> banner TRUE / FALSE
+ */ const Button = ({ children, onClick, disabled, variant = "default" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+        onClick: onClick,
+        disabled: disabled,
+        className: `px-3 py-1.5 rounded-lg text-sm font-medium transition border
+      ${variant === "accent" ? "bg-indigo-500/90 border-indigo-400/20 text-white hover:bg-indigo-500" : variant === "ghost" ? "bg-transparent border-white/10 text-white hover:bg-white/10" : "bg-white/10 border-white/10 text-white hover:bg-white/15 disabled:opacity-50"}`,
+        children: children
+    }, void 0, false, {
+        fileName: "[project]/components/AnagramSortVisualizer.tsx",
+        lineNumber: 13,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
 function useInterval(cb, delay) {
     const saved = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(cb);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        saved.current = cb;
-    }, [
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>void (saved.current = cb), [
         cb
     ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
@@ -1365,15 +1447,15 @@ function useInterval(cb, delay) {
 const Chip = ({ id, ch, active })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
         layout: true,
         layoutId: id,
-        className: `rounded-md px-3 py-2 text-sm font-bold shadow-lg min-w-[50px] flex items-center justify-center
-                ${active ? "bg-amber-500 shadow-amber-500/50" : "bg-slate-700 shadow-slate-700/50"} text-white`,
+        className: `rounded-md px-4 py-2 text-sm font-semibold shadow min-w-[48px] flex items-center justify-center
+                ${active ? "bg-amber-500" : "bg-slate-700"} text-white`,
         initial: {
             opacity: 0,
             scale: 0.9
         },
         animate: {
             opacity: 1,
-            scale: active ? 1.1 : 1
+            scale: active ? 1.06 : 1
         },
         transition: {
             type: "spring",
@@ -1383,15 +1465,14 @@ const Chip = ({ id, ch, active })=>/*#__PURE__*/ (0, __TURBOPACK__imported__modu
         children: ch
     }, void 0, false, {
         fileName: "[project]/components/AnagramSortVisualizer.tsx",
-        lineNumber: 21,
+        lineNumber: 40,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 function AnagramSortVisualizer() {
     // inputs
     const [s, setS] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("racecar");
     const [t, setT] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("carrace");
-    const speed = 800; // Fixed speed
-    const AUTO_LOOP = true;
+    const [speed, setSpeed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(800);
     // derived
     const sChars = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>s.split(""), [
         s
@@ -1402,540 +1483,554 @@ function AnagramSortVisualizer() {
     // viz state
     const [phase, setPhase] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("idle");
     const [i, setI] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0); // step inside sorting
-    const [sSorted, setSSorted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [tSorted, setTSorted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [sArr, setSArr] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [tArr, setTArr] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [result, setResult] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [playing, setPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const AUTO_LOOP = true;
     const reset = ()=>{
         setPhase("idle");
         setI(0);
-        setSSorted([]);
-        setTSorted([]);
+        setSArr([]);
+        setTArr([]);
         setResult(null);
+        setPlaying(true);
     };
-    // step machine - animate sorting lexicographically
+    // step machine
     const step = ()=>{
         if (phase === "idle") {
-            // Start sorting string s
-            setPhase("sorting_s");
-            setI(0);
-            setSSorted([
+            setPhase("split");
+            setSArr([
                 ...sChars
             ]);
-            setTSorted([
+            setTArr([
                 ...tChars
             ]);
             return;
         }
-        if (phase === "sorting_s") {
-            // Sort string s lexicographically - animate step by step
-            const nextI = i + 1;
-            const partiallySorted = [
-                ...sSorted
-            ];
-            // Insertion sort animation: move current character to correct position
-            if (nextI <= partiallySorted.length) {
-                // Sort up to nextI elements
-                const sortedPortion = partiallySorted.slice(0, nextI).sort();
-                const remaining = partiallySorted.slice(nextI);
-                setSSorted([
-                    ...sortedPortion,
-                    ...remaining
-                ]);
-                setI(nextI);
-                if (nextI >= sSorted.length) {
-                    // Finished sorting s, move to sorting t
-                    setSSorted([
-                        ...sSorted
-                    ].sort());
-                    setPhase("sorting_t");
-                    setI(0);
-                }
-            }
+        if (phase === "split") {
+            setPhase("sorting");
+            setI(0);
             return;
         }
-        if (phase === "sorting_t") {
-            // Sort string t lexicographically - animate step by step
+        if (phase === "sorting") {
+            // "sorted(list(s)) / sorted(list(t))" — animate by doing one insertion per tick
             const nextI = i + 1;
-            const partiallySorted = [
-                ...tSorted
-            ];
-            if (nextI <= partiallySorted.length) {
-                // Sort up to nextI elements
-                const sortedPortion = partiallySorted.slice(0, nextI).sort();
-                const remaining = partiallySorted.slice(nextI);
-                setTSorted([
-                    ...sortedPortion,
-                    ...remaining
+            const sSorted = [
+                ...sArr
+            ].slice(0, nextI).sort();
+            const tSorted = [
+                ...tArr
+            ].slice(0, nextI).sort();
+            setSArr((prev)=>[
+                    ...sSorted,
+                    ...prev.slice(nextI)
                 ]);
-                setI(nextI);
-                if (nextI >= tSorted.length) {
-                    // Finished sorting t, move to compare
-                    setTSorted([
-                        ...tSorted
+            setTArr((prev)=>[
+                    ...tSorted,
+                    ...prev.slice(nextI)
+                ]);
+            setI(nextI);
+            if (nextI >= Math.max(sArr.length, tArr.length)) {
+                // final sort
+                setSArr((prev)=>[
+                        ...prev
                     ].sort());
-                    setPhase("compare");
-                }
+                setTArr((prev)=>[
+                        ...prev
+                    ].sort());
+                setPhase("compare");
             }
             return;
         }
         if (phase === "compare") {
-            const ok = sSorted.length === tSorted.length && sSorted.every((c, k)=>c === tSorted[k]);
+            const ok = sArr.length === tArr.length && sArr.every((c, k)=>c === tArr[k]);
             setResult(ok);
             setPhase("done");
             return;
         }
     };
-    useInterval(()=>step(), phase !== "done" ? speed : null);
-    // auto-loop after finish
+    useInterval(()=>step(), playing ? speed : null);
+    // Auto-start on mount
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (phase !== "done" || !AUTO_LOOP) return;
-        const t = setTimeout(reset, 1500);
-        return ()=>clearTimeout(t);
-    }, [
-        phase
-    ]);
-    // Auto-start when input changes
+        if (phase === "idle" && s && t) {
+            step();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    // Reset when inputs change
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (s && t) {
             reset();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         s,
         t
     ]);
-    const renderRow = (label, arr, isSorting, highlightIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-            className: "rounded-xl border border-white/10 bg-white/5 p-5 mb-4",
+    // auto-loop after finish
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (phase !== "done" || !AUTO_LOOP) return;
+        const t = setTimeout(reset, 1400);
+        return ()=>clearTimeout(t);
+    }, [
+        phase
+    ]);
+    // render helpers
+    const renderRow = (label, arr, highlightIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+            className: "rounded-xl border border-white/10 bg-white/5 p-4",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-3 flex items-center justify-between",
+                    className: "mb-2 flex items-center justify-between",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "text-sm uppercase tracking-widest text-white/70 font-semibold",
+                            className: "text-sm uppercase tracking-widest text-white/60",
                             children: label
                         }, void 0, false, {
                             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                            lineNumber: 142,
+                            lineNumber: 154,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "text-xs text-white/60 font-mono",
-                            children: isSorting ? "sorting lexicographically…" : phase === "compare" || phase === "done" ? "sorted()" : ""
+                            className: "text-xs text-white/60",
+                            children: phase === "sorting" ? "sorting…" : phase === "split" ? "list(s)" : ""
                         }, void 0, false, {
                             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                            lineNumber: 143,
+                            lineNumber: 155,
                             columnNumber: 9
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                    lineNumber: 141,
+                    lineNumber: 153,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex flex-wrap gap-2 min-h-[56px] items-center",
-                    children: arr.length > 0 ? arr.map((ch, idx)=>{
-                        // Highlight characters that have been sorted
-                        const isSorted = isSorting && idx < (highlightIndex || 0);
-                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Chip, {
+                    className: "flex flex-wrap gap-2 min-h-[48px]",
+                    children: arr.map((ch, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Chip, {
                             id: `${label}-${idx}-${ch}`,
                             ch: ch,
-                            active: isSorted
-                        }, `${label}-${idx}-${ch}-${arr.length}-${phase}-${isSorted}`, false, {
+                            active: idx === highlightIndex
+                        }, `${label}-${idx}-${ch}`, false, {
                             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                            lineNumber: 153,
-                            columnNumber: 15
-                        }, this);
-                    }) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "text-white/30 text-sm italic",
-                        children: "Empty"
-                    }, void 0, false, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 162,
-                        columnNumber: 11
-                    }, this)
+                            lineNumber: 161,
+                            columnNumber: 11
+                        }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                    lineNumber: 147,
+                    lineNumber: 159,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-            lineNumber: 140,
+            lineNumber: 152,
             columnNumber: 5
         }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full bg-[#0c0f14] text-white rounded-xl border border-gray-800 p-8 shadow-xl",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mb-6",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-3xl font-bold mb-3",
-                        children: "Valid Anagram — Sorting Visualizer"
-                    }, void 0, false, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 172,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-white/60 text-sm mb-4 leading-relaxed",
-                        children: [
-                            "Algorithm shown: ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                className: "bg-white/10 px-2 py-1 rounded text-sm",
-                                children: "sorted(list(s)) == sorted(list(t))"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 174,
-                                columnNumber: 28
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 173,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                lineNumber: 171,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mb-8 flex items-center gap-4 flex-wrap",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-3",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "text-sm text-white/70 font-medium",
-                                children: "s:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 181,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                value: s,
-                                onChange: (e)=>setS(e.target.value),
-                                className: "rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 font-mono min-w-[150px]"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 182,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 180,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-3",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "text-sm text-white/70 font-medium",
-                                children: "t:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 189,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                value: t,
-                                onChange: (e)=>setT(e.target.value),
-                                className: "rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 font-mono min-w-[150px]"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 190,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 188,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                lineNumber: 179,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$LayoutGroup$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutGroup"], {
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                        className: "rounded-xl border border-white/10 bg-white/5 p-5 mb-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "mb-3",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "text-sm uppercase tracking-widest text-white/70 font-semibold mb-3",
-                                    children: "Original Strings"
+        className: "w-full bg-[#0b0e13] text-white p-6 rounded-xl border border-gray-800",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "mx-auto max-w-5xl space-y-4",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+                    className: "flex items-center justify-between flex-wrap gap-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-2xl font-bold",
+                                    children: "Valid Anagram — Sorting Visualizer"
                                 }, void 0, false, {
                                     fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                    lineNumber: 202,
+                                    lineNumber: 172,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-white/60 text-sm mt-1",
+                                    children: [
+                                        "Algorithm shown: ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                            className: "bg-white/10 px-2 py-1 rounded",
+                                            children: "sorted(list(s)) == sorted(list(t))"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                            lineNumber: 174,
+                                            columnNumber: 32
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 201,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 171,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center gap-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Button, {
+                                    onClick: ()=>setPlaying((p)=>!p),
+                                    variant: "accent",
+                                    children: playing ? "Pause" : "Play"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 178,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Button, {
+                                    onClick: step,
+                                    disabled: phase === "done",
+                                    children: "Step"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 181,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Button, {
+                                    onClick: reset,
+                                    variant: "ghost",
+                                    children: "Reset"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 182,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 177,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                    lineNumber: 170,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex flex-wrap gap-3 items-center",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                            className: "text-sm text-white/70",
+                            children: "s:"
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 188,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            value: s,
+                            onChange: (e)=>setS(e.target.value),
+                            className: "rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 189,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                            className: "text-sm text-white/70",
+                            children: "t:"
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 194,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            value: t,
+                            onChange: (e)=>setT(e.target.value),
+                            className: "rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 195,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                            className: "text-sm text-white/70",
+                            children: "Speed"
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 200,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "range",
+                            min: 200,
+                            max: 1500,
+                            step: 100,
+                            value: speed,
+                            onChange: (e)=>setSpeed(parseInt(e.target.value)),
+                            className: "w-32"
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 201,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                    lineNumber: 187,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$LayoutGroup$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutGroup"], {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                            className: "rounded-xl border border-white/10 bg-transparent p-4",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-2 gap-4",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-xs text-white/60 mb-2 uppercase tracking-widest font-semibold",
-                                                children: "s"
+                                                className: "text-xs text-white/60 mb-1",
+                                                children: "s (string)"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                                lineNumber: 206,
-                                                columnNumber: 15
+                                                lineNumber: 217,
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "rounded-lg bg-slate-800/80 px-4 py-3 font-mono text-lg",
-                                                children: s || "(empty)"
+                                                className: "rounded-lg bg-slate-800/80 px-3 py-2 font-mono",
+                                                children: s
                                             }, void 0, false, {
                                                 fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                                lineNumber: 207,
-                                                columnNumber: 15
+                                                lineNumber: 218,
+                                                columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                        lineNumber: 205,
-                                        columnNumber: 13
+                                        lineNumber: 216,
+                                        columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-xs text-white/60 mb-2 uppercase tracking-widest font-semibold",
-                                                children: "t"
+                                                className: "text-xs text-white/60 mb-1",
+                                                children: "t (string)"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                                lineNumber: 210,
-                                                columnNumber: 15
+                                                lineNumber: 221,
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "rounded-lg bg-slate-800/80 px-4 py-3 font-mono text-lg",
-                                                children: t || "(empty)"
+                                                className: "rounded-lg bg-slate-800/80 px-3 py-2 font-mono",
+                                                children: t
                                             }, void 0, false, {
                                                 fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                                lineNumber: 211,
-                                                columnNumber: 15
+                                                lineNumber: 222,
+                                                columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                        lineNumber: 209,
-                                        columnNumber: 13
+                                        lineNumber: 220,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 204,
-                                columnNumber: 11
+                                lineNumber: 215,
+                                columnNumber: 13
                             }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 200,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center justify-center my-4",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: {
-                                opacity: 0,
-                                y: -6
-                            },
-                            animate: {
-                                opacity: 1,
-                                y: 0
-                            },
-                            className: "text-white/60 text-base",
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 214,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center justify-center my-2",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                initial: {
+                                    opacity: 0,
+                                    y: -6
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    y: 0
+                                },
+                                className: "text-white/60 text-sm",
+                                children: [
+                                    "▼ convert with ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                        children: "list()"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                        lineNumber: 234,
+                                        columnNumber: 30
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                lineNumber: 229,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 228,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "grid grid-cols-1 md:grid-cols-2 gap-4",
                             children: [
-                                "▼ sorting lexicographically with ",
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                    className: "bg-white/10 px-2 py-1 rounded",
-                                    children: "sorted()"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                    lineNumber: 223,
-                                    columnNumber: 46
-                                }, this)
+                                renderRow("list(s)", sArr, phase === "sorting" ? i : undefined),
+                                renderRow("list(t)", tArr, phase === "sorting" ? i : undefined)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                            lineNumber: 218,
+                            lineNumber: 239,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center justify-center my-2",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                initial: {
+                                    opacity: 0,
+                                    y: -6
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    y: 0
+                                },
+                                className: "text-white/60 text-sm",
+                                children: [
+                                    "▼ apply ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                        children: "sorted()"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                        lineNumber: 251,
+                                        columnNumber: 23
+                                    }, this),
+                                    " to both"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                lineNumber: 246,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 245,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                            children: phase === "done" && result !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                initial: {
+                                    y: 20,
+                                    opacity: 0
+                                },
+                                animate: {
+                                    y: 0,
+                                    opacity: 1
+                                },
+                                exit: {
+                                    opacity: 0
+                                },
+                                className: `mt-2 rounded-xl border p-4 text-center text-lg font-semibold ${result ? "bg-emerald-500/10 border-emerald-400/20 text-emerald-200" : "bg-rose-500/10 border-rose-400/20 text-rose-200"}`,
+                                children: result ? "sorted(list(s)) == sorted(list(t)) → True (anagram)" : "Not equal → False (not an anagram)"
+                            }, void 0, false, {
+                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                lineNumber: 258,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                            lineNumber: 256,
                             columnNumber: 11
                         }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 217,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4 mb-4",
-                        children: [
-                            renderRow("sorted(s)", sSorted, phase === "sorting_s", i),
-                            renderRow("sorted(t)", tSorted, phase === "sorting_t", i)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 228,
-                        columnNumber: 9
-                    }, this),
-                    (phase === "compare" || phase === "done") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center justify-center my-4",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: {
-                                opacity: 0,
-                                y: -6
-                            },
-                            animate: {
-                                opacity: 1,
-                                y: 0
-                            },
-                            className: "text-white/60 text-base",
-                            children: "▼ compare sorted strings"
-                        }, void 0, false, {
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                    lineNumber: 212,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
+                    className: "text-xs text-white/60 mt-4 grid gap-1",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                    children: "Time:"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 276,
+                                    columnNumber: 14
+                                }, this),
+                                " O(n log n) for the sorts. ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                    children: "Space:"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 276,
+                                    columnNumber: 53
+                                }, this),
+                                " O(n)."
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                            lineNumber: 236,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 235,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                        children: phase === "done" && result !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: {
-                                y: 20,
-                                opacity: 0
-                            },
-                            animate: {
-                                y: 0,
-                                opacity: 1
-                            },
-                            exit: {
-                                opacity: 0
-                            },
-                            className: `mt-4 rounded-xl border-2 p-4 text-center text-lg font-semibold ${result ? "bg-emerald-500/10 border-emerald-400/30 text-emerald-200" : "bg-rose-500/10 border-rose-400/30 text-rose-200"}`,
-                            children: result ? "sorted(list(s)) == sorted(list(t)) → True (anagram)" : "Not equal → False (not an anagram)"
-                        }, void 0, false, {
+                            lineNumber: 276,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            children: [
+                                "Try examples: s=",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                    children: '"jar"'
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 277,
+                                    columnNumber: 30
+                                }, this),
+                                ", t=",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                    children: '"jam"'
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 277,
+                                    columnNumber: 52
+                                }, this),
+                                " or s=",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                    children: '"anagram"'
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 277,
+                                    columnNumber: 76
+                                }, this),
+                                ", t=",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                    children: '"nagaram"'
+                                }, void 0, false, {
+                                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                                    lineNumber: 277,
+                                    columnNumber: 102
+                                }, this),
+                                "."
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                            lineNumber: 249,
-                            columnNumber: 13
+                            lineNumber: 277,
+                            columnNumber: 11
                         }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 247,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                lineNumber: 198,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-8 pt-6 border-t border-white/10 space-y-2 text-sm text-white/60 leading-relaxed",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-semibold text-white/80",
-                                children: "Time:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 270,
-                                columnNumber: 11
-                            }, this),
-                            " O(n log n) for the sorts. ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-semibold text-white/80",
-                                children: "Space:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 270,
-                                columnNumber: 96
-                            }, this),
-                            " O(n)."
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 269,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-semibold text-white/80",
-                                children: "Tip:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 273,
-                                columnNumber: 11
-                            }, this),
-                            " Try examples: s=",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                className: "bg-white/10 px-1.5 py-0.5 rounded font-mono",
-                                children: '"jar"'
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 273,
-                                columnNumber: 85
-                            }, this),
-                            ", t=",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                className: "bg-white/10 px-1.5 py-0.5 rounded font-mono",
-                                children: '"jam"'
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 273,
-                                columnNumber: 163
-                            }, this),
-                            " or s=",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                className: "bg-white/10 px-1.5 py-0.5 rounded font-mono",
-                                children: '"anagram"'
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 273,
-                                columnNumber: 243
-                            }, this),
-                            ", t=",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                className: "bg-white/10 px-1.5 py-0.5 rounded font-mono",
-                                children: '"nagaram"'
-                            }, void 0, false, {
-                                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                                lineNumber: 273,
-                                columnNumber: 325
-                            }, this),
-                            "."
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                        lineNumber: 272,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/AnagramSortVisualizer.tsx",
-                lineNumber: 268,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/AnagramSortVisualizer.tsx",
+                    lineNumber: 275,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/components/AnagramSortVisualizer.tsx",
+            lineNumber: 169,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/components/AnagramSortVisualizer.tsx",
-        lineNumber: 169,
+        lineNumber: 168,
         columnNumber: 5
     }, this);
 }
@@ -2025,24 +2120,24 @@ function ProblemPage({ params }) {
                                 className: "w-4 h-4"
                             }, void 0, false, {
                                 fileName: "[project]/app/problems/[id]/page.tsx",
-                                lineNumber: 55,
+                                lineNumber: 56,
                                 columnNumber: 13
                             }, this),
                             "Back to Gallery"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/problems/[id]/page.tsx",
-                        lineNumber: 51,
+                        lineNumber: 52,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/problems/[id]/page.tsx",
-                    lineNumber: 50,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/problems/[id]/page.tsx",
-                lineNumber: 49,
+                lineNumber: 50,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -2070,7 +2165,7 @@ function ProblemPage({ params }) {
                                             children: problem.title
                                         }, void 0, false, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 71,
+                                            lineNumber: 72,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2081,7 +2176,7 @@ function ProblemPage({ params }) {
                                                     children: problem.difficulty
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 73,
+                                                    lineNumber: 74,
                                                     columnNumber: 19
                                                 }, this),
                                                 problem.topics.map((topic)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2089,7 +2184,7 @@ function ProblemPage({ params }) {
                                                         children: topic
                                                     }, topic, false, {
                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                        lineNumber: 81,
+                                                        lineNumber: 82,
                                                         columnNumber: 21
                                                     }, this)),
                                                 problem.leetcodeUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2102,36 +2197,36 @@ function ProblemPage({ params }) {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 95,
+                                                            lineNumber: 96,
                                                             columnNumber: 23
                                                         }, this),
                                                         "View on LeetCode"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 89,
+                                                    lineNumber: 90,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 72,
+                                            lineNumber: 73,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                    lineNumber: 70,
+                                    lineNumber: 71,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/problems/[id]/page.tsx",
-                                lineNumber: 69,
+                                lineNumber: 70,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/problems/[id]/page.tsx",
-                            lineNumber: 68,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2161,7 +2256,7 @@ function ProblemPage({ params }) {
                                                             className: "w-5 h-5 text-green-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 116,
+                                                            lineNumber: 117,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2169,13 +2264,13 @@ function ProblemPage({ params }) {
                                                             children: "Explanation"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 117,
+                                                            lineNumber: 118,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 115,
+                                                    lineNumber: 116,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2191,7 +2286,7 @@ function ProblemPage({ params }) {
                                                                     children: text
                                                                 }, pIdx, false, {
                                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                    lineNumber: 126,
+                                                                    lineNumber: 127,
                                                                     columnNumber: 29
                                                                 }, this);
                                                             }
@@ -2207,7 +2302,7 @@ function ProblemPage({ params }) {
                                                                             children: line
                                                                         }, lIdx, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 141,
+                                                                            lineNumber: 142,
                                                                             columnNumber: 35
                                                                         }, this);
                                                                     }
@@ -2218,7 +2313,7 @@ function ProblemPage({ params }) {
                                                                             children: line
                                                                         }, lIdx, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 149,
+                                                                            lineNumber: 150,
                                                                             columnNumber: 35
                                                                         }, this);
                                                                     }
@@ -2227,30 +2322,30 @@ function ProblemPage({ params }) {
                                                                         children: line
                                                                     }, lIdx, false, {
                                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                        lineNumber: 156,
+                                                                        lineNumber: 157,
                                                                         columnNumber: 33
                                                                     }, this);
                                                                 })
                                                             }, pIdx, false, {
                                                                 fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                lineNumber: 136,
+                                                                lineNumber: 137,
                                                                 columnNumber: 27
                                                             }, this);
                                                         })
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                        lineNumber: 120,
+                                                        lineNumber: 121,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 119,
+                                                    lineNumber: 120,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 109,
+                                            lineNumber: 110,
                                             columnNumber: 17
                                         }, this),
                                         problem.code && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2274,7 +2369,7 @@ function ProblemPage({ params }) {
                                                             className: "w-5 h-5 text-green-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 178,
+                                                            lineNumber: 179,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2282,13 +2377,13 @@ function ProblemPage({ params }) {
                                                             children: "Solution"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 179,
+                                                            lineNumber: 180,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 177,
+                                                    lineNumber: 178,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("pre", {
@@ -2298,18 +2393,18 @@ function ProblemPage({ params }) {
                                                         children: problem.code
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                        lineNumber: 182,
+                                                        lineNumber: 183,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 181,
+                                                    lineNumber: 182,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 171,
+                                            lineNumber: 172,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2334,7 +2429,7 @@ function ProblemPage({ params }) {
                                                             children: "Complexity"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 199,
+                                                            lineNumber: 200,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2347,7 +2442,7 @@ function ProblemPage({ params }) {
                                                                             children: "Time Complexity"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 203,
+                                                                            lineNumber: 204,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2355,13 +2450,13 @@ function ProblemPage({ params }) {
                                                                             children: problem.timeComplexity
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 206,
+                                                                            lineNumber: 207,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                    lineNumber: 202,
+                                                                    lineNumber: 203,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 problem.spaceComplexity && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2371,7 +2466,7 @@ function ProblemPage({ params }) {
                                                                             children: "Space Complexity"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 213,
+                                                                            lineNumber: 214,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2379,25 +2474,25 @@ function ProblemPage({ params }) {
                                                                             children: problem.spaceComplexity
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 216,
+                                                                            lineNumber: 217,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                    lineNumber: 212,
+                                                                    lineNumber: 213,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 200,
+                                                            lineNumber: 201,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 193,
+                                                    lineNumber: 194,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2419,7 +2514,7 @@ function ProblemPage({ params }) {
                                                             children: "Status"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 232,
+                                                            lineNumber: 233,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2433,12 +2528,12 @@ function ProblemPage({ params }) {
                                                                             children: "✓"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                            lineNumber: 237,
+                                                                            lineNumber: 238,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                        lineNumber: 236,
+                                                                        lineNumber: 237,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2446,7 +2541,7 @@ function ProblemPage({ params }) {
                                                                         children: "Solved"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                        lineNumber: 239,
+                                                                        lineNumber: 240,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
@@ -2456,7 +2551,7 @@ function ProblemPage({ params }) {
                                                                         className: "w-4 h-4 border-2 border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                        lineNumber: 243,
+                                                                        lineNumber: 244,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2464,32 +2559,32 @@ function ProblemPage({ params }) {
                                                                         children: "Not Solved"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                                                        lineNumber: 244,
+                                                                        lineNumber: 245,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                                            lineNumber: 233,
+                                                            lineNumber: 234,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                                    lineNumber: 226,
+                                                    lineNumber: 227,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 190,
+                                            lineNumber: 191,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2509,51 +2604,51 @@ function ProblemPage({ params }) {
                                         className: "lg:sticky lg:top-24",
                                         children: problem.id === 'contains-duplicate' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ContainsDuplicateVisualizer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 261,
+                                            lineNumber: 262,
                                             columnNumber: 19
                                         }, this) : problem.id === 'valid-anagram' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$AnagramSortVisualizer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 263,
+                                            lineNumber: 264,
                                             columnNumber: 19
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$AlgorithmVisualizer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                             steps: visualizationSteps,
                                             title: "Algorithm Execution"
                                         }, void 0, false, {
                                             fileName: "[project]/app/problems/[id]/page.tsx",
-                                            lineNumber: 265,
+                                            lineNumber: 266,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/problems/[id]/page.tsx",
-                                        lineNumber: 254,
+                                        lineNumber: 255,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/problems/[id]/page.tsx",
-                                    lineNumber: 253,
+                                    lineNumber: 254,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/problems/[id]/page.tsx",
-                            lineNumber: 104,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/problems/[id]/page.tsx",
-                    lineNumber: 62,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/problems/[id]/page.tsx",
-                lineNumber: 61,
+                lineNumber: 62,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/problems/[id]/page.tsx",
-        lineNumber: 47,
+        lineNumber: 48,
         columnNumber: 5
     }, this);
 }

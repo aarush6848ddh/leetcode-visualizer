@@ -98,6 +98,114 @@ This approach is straightforward and leverages Python's built-in sorting functio
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(n)',
         starred: false
+    },
+    {
+        id: 'two-sum',
+        title: 'Two Sum',
+        difficulty: 'Easy',
+        topics: [
+            'Arrays & Hashing'
+        ],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/two-sum/',
+        explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target.
+
+**How it works:**
+1. Initialize an empty hashmap to store numbers and their indices as we iterate through the array.
+2. For each number at index i, calculate the difference (diff = target - n) needed to reach the target.
+3. Check if this difference already exists in the hashmap. If it does, we've found our pair - return the stored index of the difference and the current index.
+4. If the difference doesn't exist in the hashmap, store the current number and its index in the hashmap for future lookups.
+
+**Why this works:**
+By storing each number we've seen along with its index, we can check in constant time O(1) if its complement (the number needed to reach the target) has already been encountered. This eliminates the need for nested loops:
+- Without hashmap: O(n²) time complexity (checking all pairs)
+- With hashmap: O(n) time complexity (single pass through array)
+
+The hashmap allows us to "remember" previous numbers and their positions, making it possible to find the solution in a single iteration through the array.`,
+        code: `class Solution:
+    def twoSum(self, nums, target):
+        my_hashmap = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in my_hashmap:
+                return [my_hashmap[diff], i]
+            my_hashmap[n] = i`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false
+    },
+    {
+        id: 'group-anagrams',
+        title: 'Group Anagrams',
+        difficulty: 'Medium',
+        topics: [
+            'Arrays & Hashing'
+        ],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/group-anagrams/',
+        explanation: `This solution groups anagrams together using a hashmap with sorted character keys.
+
+**How it works:**
+1. Initialize an empty hashmap to store groups of anagrams.
+2. For each string in the input array, sort its characters to create a canonical key. Anagrams will produce the same sorted key.
+3. If the sorted key already exists in the hashmap, append the current string to that group.
+4. If the sorted key doesn't exist, create a new entry in the hashmap with the sorted key as the key and a list containing the current string as the value.
+5. Return all the groups (values) from the hashmap.
+
+**Why this works:**
+Anagrams contain the same characters in different orders. By sorting each string's characters, we create a unique identifier that all anagrams share. This allows us to group them efficiently:
+- Same sorted key = anagrams → group together
+- Different sorted key = not anagrams → separate groups
+
+The hashmap enables O(1) lookup and insertion, making the grouping process efficient.`,
+        code: `class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        my_hashmap = {}
+        for i, s in enumerate(strs):
+            s_sort = "".join(sorted(s))
+            if s_sort in my_hashmap:
+                my_hashmap[s_sort].append(s)
+            else:
+                my_hashmap[s_sort] = [s]
+        
+        return list(my_hashmap.values())`,
+        timeComplexity: 'O(n * k log k)',
+        spaceComplexity: 'O(n * k)',
+        starred: false
+    },
+    {
+        id: 'valid-palindrome',
+        title: 'Valid Palindrome',
+        difficulty: 'Easy',
+        topics: [
+            'Two Pointers'
+        ],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/valid-palindrome/',
+        explanation: `This solution checks if a string is a palindrome by filtering to alphanumeric characters, converting to lowercase, and comparing with its reversed version.
+
+**How it works:**
+1. Filter the string to keep only alphanumeric characters (letters and numbers), removing spaces, punctuation, and special characters.
+2. Convert the filtered string to lowercase to ignore case differences.
+3. Compare the lowercase string with its reversed version. If they are identical, the string is a palindrome.
+
+**Why this works:**
+A palindrome reads the same forwards and backwards, ignoring case and non-alphanumeric characters. By filtering and normalizing the string, we can directly compare it with its reverse:
+- If string == reversed: palindrome → return True
+- If string != reversed: not a palindrome → return False
+
+This approach is straightforward and leverages Python's string manipulation capabilities.`,
+        code: `class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        new_s = "".join([char for char in s if char.isalnum()])
+        lower_s = new_s.lower()
+        print(lower_s)
+        if lower_s[::-1] == lower_s:
+            return True
+        return False`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false
     }
 ];
 const topics = [
@@ -171,8 +279,80 @@ This approach is straightforward and leverages Python's built-in sorting functio
                 spaceComplexity: 'O(n)',
                 starred: false
             },
-            createProblem('Two Sum', 'Easy', 'Arrays & Hashing'),
-            createProblem('Group Anagrams', 'Medium', 'Arrays & Hashing'),
+            {
+                id: 'two-sum',
+                title: 'Two Sum',
+                difficulty: 'Easy',
+                topics: [
+                    'Arrays & Hashing'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/two-sum/',
+                explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target.
+
+**How it works:**
+1. Initialize an empty hashmap to store numbers and their indices as we iterate through the array.
+2. For each number at index i, calculate the difference (diff = target - n) needed to reach the target.
+3. Check if this difference already exists in the hashmap. If it does, we've found our pair - return the stored index of the difference and the current index.
+4. If the difference doesn't exist in the hashmap, store the current number and its index in the hashmap for future lookups.
+
+**Why this works:**
+By storing each number we've seen along with its index, we can check in constant time O(1) if its complement (the number needed to reach the target) has already been encountered. This eliminates the need for nested loops:
+- Without hashmap: O(n²) time complexity (checking all pairs)
+- With hashmap: O(n) time complexity (single pass through array)
+
+The hashmap allows us to "remember" previous numbers and their positions, making it possible to find the solution in a single iteration through the array.`,
+                code: `class Solution:
+    def twoSum(self, nums, target):
+        my_hashmap = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in my_hashmap:
+                return [my_hashmap[diff], i]
+            my_hashmap[n] = i`,
+                timeComplexity: 'O(n)',
+                spaceComplexity: 'O(n)',
+                starred: false
+            },
+            {
+                id: 'group-anagrams',
+                title: 'Group Anagrams',
+                difficulty: 'Medium',
+                topics: [
+                    'Arrays & Hashing'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/group-anagrams/',
+                explanation: `This solution groups anagrams together using a hashmap with sorted character keys.
+
+**How it works:**
+1. Initialize an empty hashmap to store groups of anagrams.
+2. For each string in the input array, sort its characters to create a canonical key. Anagrams will produce the same sorted key.
+3. If the sorted key already exists in the hashmap, append the current string to that group.
+4. If the sorted key doesn't exist, create a new entry in the hashmap with the sorted key as the key and a list containing the current string as the value.
+5. Return all the groups (values) from the hashmap.
+
+**Why this works:**
+Anagrams contain the same characters in different orders. By sorting each string's characters, we create a unique identifier that all anagrams share. This allows us to group them efficiently:
+- Same sorted key = anagrams → group together
+- Different sorted key = not anagrams → separate groups
+
+The hashmap enables O(1) lookup and insertion, making the grouping process efficient.`,
+                code: `class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        my_hashmap = {}
+        for i, s in enumerate(strs):
+            s_sort = "".join(sorted(s))
+            if s_sort in my_hashmap:
+                my_hashmap[s_sort].append(s)
+            else:
+                my_hashmap[s_sort] = [s]
+        
+        return list(my_hashmap.values())`,
+                timeComplexity: 'O(n * k log k)',
+                spaceComplexity: 'O(n * k)',
+                starred: false
+            },
             createProblem('Top K Frequent Elements', 'Medium', 'Arrays & Hashing'),
             createProblem('Encode and Decode Strings', 'Medium', 'Arrays & Hashing'),
             createProblem('Product of Array Except Self', 'Medium', 'Arrays & Hashing'),
@@ -185,8 +365,75 @@ This approach is straightforward and leverages Python's built-in sorting functio
         id: 'two-pointers',
         name: 'Two Pointers',
         problems: [
-            createProblem('Valid Palindrome', 'Easy', 'Two Pointers'),
-            createProblem('Two Sum II Input Array Is Sorted', 'Medium', 'Two Pointers'),
+            {
+                id: 'valid-palindrome',
+                title: 'Valid Palindrome',
+                difficulty: 'Easy',
+                topics: [
+                    'Two Pointers'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/valid-palindrome/',
+                explanation: `This solution checks if a string is a palindrome by filtering to alphanumeric characters, converting to lowercase, and comparing with its reversed version.
+
+**How it works:**
+1. Filter the string to keep only alphanumeric characters (letters and numbers), removing spaces, punctuation, and special characters.
+2. Convert the filtered string to lowercase to ignore case differences.
+3. Compare the lowercase string with its reversed version. If they are identical, the string is a palindrome.
+
+**Why this works:**
+A palindrome reads the same forwards and backwards, ignoring case and non-alphanumeric characters. By filtering and normalizing the string, we can directly compare it with its reverse:
+- If string == reversed: palindrome → return True
+- If string != reversed: not a palindrome → return False
+
+This approach is straightforward and leverages Python's string manipulation capabilities.`,
+                code: `class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        new_s = "".join([char for char in s if char.isalnum()])
+        lower_s = new_s.lower()
+        print(lower_s)
+        if lower_s[::-1] == lower_s:
+            return True
+        return False`,
+                timeComplexity: 'O(n)',
+                spaceComplexity: 'O(n)',
+                starred: false
+            },
+            {
+                id: 'two-integer-sum-ii',
+                title: 'Two Integer Sum II',
+                difficulty: 'Medium',
+                topics: [
+                    'Two Pointers'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/',
+                explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target in a sorted array.
+
+**How it works:**
+1. Initialize an empty hashmap to store numbers and their indices as we iterate through the array.
+2. For each number at index i, calculate the difference (diff = target - n) needed to reach the target.
+3. Check if this difference already exists in the hashmap. If it does, we've found our pair - return the stored index of the difference and the current index, both incremented by 1 for 1-indexing.
+4. If the difference doesn't exist in the hashmap, store the current number and its index in the hashmap for future lookups.
+
+**Why this works:**
+By storing each number we've seen along with its index, we can check in constant time O(1) if its complement (the number needed to reach the target) has already been encountered. Since the array is sorted, we can efficiently find pairs:
+- Without hashmap: O(n²) time complexity (checking all pairs)
+- With hashmap: O(n) time complexity (single pass through array)
+
+The solution returns 1-indexed positions as required by the problem.`,
+                code: `class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        my_hashmap = {}
+        for i, n in enumerate(numbers):
+            diff = target - n
+            if diff in my_hashmap:
+                return [my_hashmap[diff] + 1, i + 1]
+            my_hashmap[n] = i`,
+                timeComplexity: 'O(n)',
+                spaceComplexity: 'O(n)',
+                starred: false
+            },
             createProblem('3Sum', 'Medium', 'Two Pointers'),
             createProblem('Container With Most Water', 'Medium', 'Two Pointers'),
             createProblem('Trapping Rain Water', 'Hard', 'Two Pointers')

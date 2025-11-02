@@ -1,8 +1,409 @@
-[00:00:01.626] Server  LOG      ✓ Ready in 1200ms
-[00:00:11.364] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:11.364] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:16.992] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:01:16.167] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:01:16.167] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:01:39.649] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:01:39.649] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[00:00:02.660] Server  LOG      ✓ Ready in 2.3s
+[00:00:09.461] Server  LOG      ○ Compiling / ...
+[00:00:11.638] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[00:00:11.638] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[00:00:21.504] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:07:50.444] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:07:50.444] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:08:57.347] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:08:57.347] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:10:01.090] Server  LOG      ✓ Compiled in 67ms
+[01:10:12.079] Server  LOG      ✓ Compiled in 25ms
+[01:10:15.384] Server  LOG      ✓ Compiled in 47ms
+[01:16:46.754] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:16:46.755] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:16:46.755] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:17:03.972] Server  LOG      ✓ Compiled in 25ms
+[01:17:14.335] Server  LOG      ✓ Compiled in 24ms
+[01:17:20.554] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:17:20.554] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:17:20.554] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:17:36.200] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:17:36.200] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:24.617] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:24.617] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:30.315] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:30.315] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:35.608] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:35.608] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:18:41.917] Server  LOG      ✓ Compiled in 96ms
+[01:19:04.519] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:19:04.519] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:19:04.519] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:19:18.070] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:19:18.070] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[01:22:52.726] Server  LOG      ✓ Compiled in 42ms
+[01:22:56.069] Server  LOG      ✓ Compiled in 21ms
+[01:22:57.013] Server  LOG      ✓ Compiled in 52ms
+[01:23:30.469] Server  LOG      ✓ Compiled in 19ms
+[01:23:37.341] Server  LOG      ✓ Compiled in 19ms
+[01:23:48.723] Server  LOG      ✓ Compiled in 26ms
+[01:23:55.785] Server  LOG      ✓ Compiled in 43ms
+[01:24:02.435] Server  LOG      ✓ Compiled in 40ms
+[01:24:11.953] Server  LOG      ✓ Compiled in 43ms
+[01:24:15.827] Server  LOG      ✓ Compiled in 45ms
+[01:24:58.198] Server  LOG      ✓ Compiled in 21ms
+[01:25:07.790] Server  LOG      ✓ Compiled in 25ms
+[01:25:15.493] Server  LOG      ✓ Compiled in 23ms
+[01:25:21.411] Server  LOG      ✓ Compiled in 27ms
+[01:26:24.314] Server  LOG      ✓ Compiled in 21ms
+[01:26:26.972] Server  LOG      ✓ Compiled in 23ms
+[14:50:05.015] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[14:50:05.015] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[14:50:05.015] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[16:05:35.192] Server  LOG      ✓ Compiled in 240ms
+[16:05:55.199] Server  LOG      ✓ Compiled in 152ms
+[16:06:08.715] Server  LOG      ✓ Compiled in 28ms
+[16:06:15.417] Server  LOG      ✓ Compiled in 37ms
+[16:07:58.166] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:07:58.166] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:08:28.853] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:08:28.853] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:08:39.493] Server  LOG      ✓ Compiled in 42ms
+[16:08:48.263] Server  LOG      ✓ Compiled in 56ms
+[16:08:55.417] Server  LOG      ✓ Compiled in 37ms
+[16:08:56.355] Server  LOG      ✓ Compiled in 24ms
+[16:09:05.114] Server  LOG      ✓ Compiled in 62ms
+[16:09:12.135] Server  LOG      ✓ Compiled in 27ms
+[16:09:51.715] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:09:51.715] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:12:00.701] Server  LOG      ✓ Compiled in 23ms
+[16:12:06.514] Server  LOG      ✓ Compiled in 27ms
+[16:12:09.886] Server  LOG      ✓ Compiled in 27ms
+[16:13:07.236] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:13:07.236] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:13:07.236] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[16:14:10.083] Server  LOG      ✓ Compiled in 65ms
+[16:14:21.535] Server  LOG      ✓ Compiled in 1ms
+[16:14:56.227] Server  LOG      ✓ Compiled in 22ms
+[16:15:23.971] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:15:23.971] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[16:16:53.847] Server  LOG      ✓ Compiled in 57ms
+[16:16:54.451] Server  LOG      ✓ Compiled in 38ms
+[16:17:00.975] Server  LOG      ✓ Compiled in 22ms
+[16:17:41.303] Server  LOG      ✓ Compiled in 63ms
+[16:17:46.043] Server  LOG      ✓ Compiled in 23ms
+[16:17:48.388] Server  LOG      ✓ Compiled in 141ms
+[16:28:34.064] Server  LOG      ✓ Compiled in 54ms
+[16:30:40.558] Server  LOG      ✓ Compiled in 52ms
+[16:30:41.190] Server  LOG      ✓ Compiled in 64ms
+[16:30:42.698] Server  LOG      ✓ Compiled in 22ms
+[16:30:47.018] Server  LOG      ✓ Compiled in 21ms
+[16:30:52.303] Server  LOG      ✓ Compiled in 46ms
+[16:30:58.258] Server  LOG      ✓ Compiled in 24ms
+[16:31:00.098] Server  LOG      ✓ Compiled in 22ms
+[16:31:04.628] Server  LOG      ✓ Compiled in 21ms
+[16:31:06.491] Server  LOG      ✓ Compiled in 23ms
+[16:31:08.904] Server  LOG      ✓ Compiled in 25ms
+[16:31:26.386] Server  LOG      ✓ Compiled in 45ms
+[16:33:11.011] Server  LOG      ✓ Compiled in 103ms
+[16:33:13.678] Server  LOG      ✓ Compiled in 26ms
+[16:33:18.609] Server  LOG      ✓ Compiled in 47ms
+[16:33:24.783] Server  LOG      ✓ Compiled in 52ms
+[16:33:32.490] Server  LOG      ✓ Compiled in 57ms
+[16:33:43.910] Server  LOG      ✓ Compiled in 54ms
+[16:33:47.407] Server  LOG      ✓ Compiled in 28ms
+[16:33:51.822] Server  LOG      ✓ Compiled in 31ms
+[16:34:21.428] Server  LOG      ✓ Compiled in 130ms
+[16:34:27.857] Server  LOG      ✓ Compiled in 113ms
+[16:34:45.500] Server  LOG      ✓ Compiled in 33ms
+[16:35:29.114] Server  LOG      ✓ Compiled in 114ms
+[16:35:29.746] Server  LOG      ✓ Compiled in 27ms
+[16:35:51.422] Server  LOG      ✓ Compiled in 30ms
+[16:36:01.950] Server  LOG      ✓ Compiled in 52ms
+[16:37:31.177] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:38:40.773] Server  LOG      ✓ Compiled in 65ms
+[16:38:43.172] Server  LOG      ✓ Compiled in 32ms
+[16:38:47.180] Server  LOG      ✓ Compiled in 34ms
+[16:38:51.262] Server  LOG      ✓ Compiled in 32ms
+[16:38:56.246] Server  LOG      ✓ Compiled in 64ms
+[16:39:03.402] Server  LOG      ✓ Compiled in 89ms
+[16:39:04.854] Server  LOG      ✓ Compiled in 34ms
+[16:39:06.422] Server  LOG      ✓ Compiled in 43ms
+[16:39:07.666] Server  LOG      ✓ Compiled in 300ms
+[16:39:23.208] Server  LOG      ✓ Compiled in 64ms
+[16:39:25.900] Server  LOG      ✓ Compiled in 30ms
+[16:39:28.455] Server  LOG      ✓ Compiled in 33ms
+[16:39:57.562] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:40:32.261] Server  LOG      ✓ Compiled in 80ms
+[16:40:32.365] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:330:6
+Parsing ecmascript source code failed
+  328 |         </aside>
+  329 |       </div>
+> 330 |     </div>
+      |      ^^^^^
+  331 |   );
+  332 | }
+  333 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:40:33.252] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:330:6
+Parsing ecmascript source code failed
+  328 |         </aside>
+  329 |       </div>
+> 330 |     </div>
+      |      ^^^^^
+  331 |   );
+  332 | }
+  333 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:40:43.988] Server  LOG      ✓ Compiled in 147ms
+[16:40:44.093] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:330:6
+Parsing ecmascript source code failed
+  328 |         </aside>
+  329 |       </div>
+> 330 |     </div>
+      |      ^^^^^
+  331 |   );
+  332 | }
+  333 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:40:44.251] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:330:6
+Parsing ecmascript source code failed
+  328 |         </aside>
+  329 |       </div>
+> 330 |     </div>
+      |      ^^^^^
+  331 |   );
+  332 | }
+  333 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:43:11.105] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:43:18.388] Server  LOG      ✓ Compiled in 33ms
+[16:43:31.099] Server  LOG      ✓ Compiled in 73ms
+[16:43:37.850] Server  LOG      ✓ Compiled in 32ms
+[16:43:47.532] Server  LOG      ✓ Compiled in 35ms
+[16:43:52.560] Server  LOG      ✓ Compiled in 36ms
+[16:44:17.130] Server  LOG      ✓ Compiled in 33ms
+[16:45:55.595] Server  LOG      ✓ Compiled in 40ms
+[16:45:56.563] Server  LOG      ✓ Compiled in 70ms
+[16:46:11.102] Server  LOG      ✓ Compiled in 71ms
+[16:46:54.759] Server  LOG      ✓ Compiled in 34ms
+[16:49:49.692] Server  LOG      ✓ Compiled in 68ms
+[16:49:49.795] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:329:1
+Parsing ecmascript source code failed
+  327 |     </div>
+  328 |   );
+> 329 | }
+      | ^
+  330 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:49:50.251] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:329:1
+Parsing ecmascript source code failed
+  327 |     </div>
+  328 |   );
+> 329 | }
+      | ^
+  330 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:50:11.587] Server  LOG      ✓ Compiled in 70ms
+[16:54:06.207] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:54:23.128] Server  LOG      ✓ Compiled in 168ms
+[16:54:24.101] Server  LOG      ✓ Compiled in 63ms
+[16:56:41.046] Server  LOG      ✓ Compiled in 33ms
+[16:56:41.151] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:330:8
+Parsing ecmascript source code failed
+  328 |           </aside>
+  329 |         </div>
+> 330 |       </div>
+      |        ^^^^^
+  331 |     </div>
+  332 |   );
+  333 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:56:41.283] Browser ERROR   ./components/GroupAnagramsVisualizer.tsx:330:8
+Parsing ecmascript source code failed
+  328 |           </aside>
+  329 |         </div>
+> 330 |       </div>
+      |        ^^^^^
+  331 |     </div>
+  332 |   );
+  333 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/GroupAnagramsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[16:59:01.526] Server  LOG      ✓ Compiled in 70ms
+[16:59:04.854] Server  LOG      ✓ Compiled in 68ms
+[17:00:06.553] Server  LOG      ✓ Compiled in 94ms
+[17:01:16.200] Server  LOG      ✓ Compiled in 72ms
+[17:02:54.259] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[17:02:57.974] Server  LOG      ✓ Compiled in 36ms
+[17:03:03.154] Server  LOG      ✓ Compiled in 88ms
+[17:03:04.124] Server  LOG      ✓ Compiled in 172ms
+[17:03:06.468] Server  LOG      ✓ Compiled in 71ms
+[17:03:07.490] Server  LOG      ✓ Compiled in 34ms
+[17:03:23.710] Server  LOG      ✓ Compiled in 33ms
+[17:03:25.920] Server  LOG      ✓ Compiled in 75ms
+[17:04:26.259] Server  LOG      ✓ Compiled in 77ms
+[17:04:35.803] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:04:35.803] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:04:35.803] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:04:55.666] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:04:55.667] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:10:04.960] Server  LOG      ✓ Compiled in 36ms
+[17:10:05.090] Browser ERROR   uncaughtError: ReferenceError: arrInput is not defined
+[17:10:05.251] Browser ERROR   uncaughtError: ReferenceError: arrInput is not defined
+[17:10:05.819] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[17:10:05.934] Server  LOG      ✓ Compiled in 36ms
+[17:10:06.108] Server  ERROR    ⨯ ReferenceError: arrInput is not defined
+[17:10:06.129] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[17:10:06.129] Browser ERROR   uncaughtError: ReferenceError: arrInput is not defined
+[17:10:06.259] Server  ERROR    ⨯ ReferenceError: arrInput is not defined
+[17:10:06.564] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[17:10:06.806] Browser ERROR   uncaughtError: ReferenceError: arrInput is not defined
+[17:10:07.256] Browser ERROR   uncaughtError: ReferenceError: arrInput is not defined
+[17:10:09.307] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[17:10:09.319] Server  LOG      ✓ Compiled in 40ms
+[17:10:09.322] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[17:10:09.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[17:10:14.856] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:10:14.857] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:10:14.857] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:10:16.761] Server  LOG      ✓ Compiled in 37ms
+[17:10:25.038] Server  LOG      ✓ Compiled in 43ms
+[17:10:35.618] Server  LOG      ✓ Compiled in 35ms
+[17:10:37.853] Server  LOG      ✓ Compiled in 53ms
+[17:10:44.089] Server  LOG      ✓ Compiled in 37ms
+[17:10:55.584] Server  LOG      ✓ Compiled in 39ms
+[17:10:56.705] Server  LOG      ✓ Compiled in 46ms
+[17:10:56.812] Browser ERROR   uncaughtError: ReferenceError: input is not defined
+[17:11:14.605] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[17:11:14.614] Server  LOG      ✓ Compiled in 34ms
+[17:11:15.167] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[17:11:16.050] Server  LOG      ✓ Compiled in 54ms
+[17:11:32.824] Server  LOG      ✓ Compiled in 39ms
+[17:11:35.212] Server  LOG      ✓ Compiled in 37ms
+[17:12:09.886] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:12:09.886] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:12:09.886] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:12:17.510] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:12:17.510] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:12:31.683] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:12:31.683] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:23:47.771] Server  LOG      ✓ Compiled in 72ms
+[17:24:02.047] Server  LOG      ✓ Compiled in 39ms
+[17:24:05.956] Server  LOG      ✓ Compiled in 160ms
+[17:24:07.198] Server  LOG      ✓ Compiled in 33ms
+[17:24:09.339] Server  LOG      ✓ Compiled in 88ms
+[17:24:43.348] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[17:24:43.348] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:56:24.653] Server  LOG      ✓ Compiled in 45ms
+[18:56:48.103] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:56:48.103] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:57:51.642] Server  LOG      ✓ Compiled in 37ms
+[18:58:11.227] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:58:11.227] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:58:17.220] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:58:17.220] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:58:27.485] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:58:27.485] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[18:59:47.064] Server  LOG      ✓ Compiled in 183ms
+[18:59:48.001] Server  LOG      ✓ Compiled in 37ms
+[18:59:50.331] Server  LOG      ✓ Compiled in 74ms
+[19:00:05.110] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[19:00:05.110] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[19:00:59.123] Server  LOG      ✓ Compiled in 32ms
+[21:06:54.195] Server  LOG      ✓ Compiled in 86ms
+[21:23:07.232] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:23:18.434] Server  LOG      ✓ Compiled in 77ms
+[21:23:24.271] Server  LOG      ✓ Compiled in 65ms
+[21:23:30.791] Server  LOG      ✓ Compiled in 82ms
+[38:31:52.420] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[38:31:52.420] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[38:31:52.420] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[38:32:08.057] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[38:32:08.057] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002

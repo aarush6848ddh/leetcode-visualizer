@@ -10,6 +10,10 @@ import { getDifficultyColor, getDifficultyBgColor } from '@/lib/utils';
 import AlgorithmVisualizer from '@/components/AlgorithmVisualizer';
 import ContainsDuplicateVisualizer from '@/components/ContainsDuplicateVisualizer';
 import AnagramSortVisualizer from '@/components/AnagramSortVisualizer';
+import TwoSumVisualizer from '@/components/TwoSumVisualizer';
+import GroupAnagramsVisualizer from '@/components/GroupAnagramsVisualizer';
+import ValidPalindromeVisualizer from '@/components/ValidPalindromeVisualizer';
+import TwoIntegerSumIIVisualizer from '@/components/TwoIntegerSumIIVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -261,6 +265,14 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <ContainsDuplicateVisualizer />
                 ) : problem.id === 'valid-anagram' ? (
                   <AnagramSortVisualizer />
+                ) : problem.id === 'two-sum' ? (
+                  <TwoSumVisualizer />
+                ) : problem.id === 'group-anagrams' ? (
+                  <GroupAnagramsVisualizer />
+                ) : problem.id === 'valid-palindrome' ? (
+                  <ValidPalindromeVisualizer />
+                ) : problem.id === 'two-integer-sum-ii' ? (
+                  <TwoIntegerSumIIVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}

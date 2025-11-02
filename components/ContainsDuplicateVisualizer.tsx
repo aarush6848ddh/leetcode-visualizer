@@ -53,20 +53,13 @@ function useInterval(cb: () => void, delay: number | null) {
 }
 
 export default function ContainsDuplicateVisualizer() {
-  const [input, setInput] = useState("[1,2,3,1,2,4,5,3]");
-  const parsed = useMemo(() => {
-    try {
-      const v = JSON.parse(input);
-      return Array.isArray(v) ? v : [];
-    } catch {
-      return [];
-    }
-  }, [input]);
+  const parsed = [1, 2, 3, 1, 2, 4, 5, 3];
 
   // simulation state
   const [i, setI] = useState(0);
   const [seen, setSeen] = useState<number[]>([]); // set contents (unique)
   const [result, setResult] = useState<boolean | null>(null);
+  const [activeLine, setActiveLine] = useState<number | null>(null);
   const speed = 800; // Fixed animation speed
   const AUTO_LOOP = true;
 
@@ -74,26 +67,46 @@ export default function ContainsDuplicateVisualizer() {
     setI(0);
     setSeen([]);
     setResult(null);
+    setActiveLine(null);
   };
 
   // step: convert array to set - duplicates are automatically discarded
   const step = () => {
     if (result !== null) return; // finished
-    if (i >= parsed.length) {
-      // Finished processing - compare lengths
-      setResult(seen.length < parsed.length);
+    
+    // First step: initialize length
+    if (i === 0 && seen.length === 0 && activeLine === null) {
+      setActiveLine(3); // length = len(nums)
       return;
     }
-    const val = parsed[i];
-    // Add to set only if not already present (set automatically discards duplicates)
-    if (!seen.includes(val)) {
-      setSeen((s) => [...s, val]);
+    
+    // Second step: convert to set
+    if (i === 0 && seen.length === 0 && activeLine === 3) {
+      setActiveLine(4); // my_set = set(nums)
+      // Process all elements at once for the set conversion
+      const uniqueSet = Array.from(new Set(parsed));
+      setSeen(uniqueSet);
+      setI(parsed.length);
+      return;
     }
-    // Move to next element
-    setI((k) => k + 1);
+    
+    // Finished processing - compare lengths
+    if (i >= parsed.length && result === null && seen.length > 0) {
+      setActiveLine(5); // if length > len(my_set):
+      const hasDuplicate = seen.length < parsed.length;
+      setResult(hasDuplicate);
+      if (hasDuplicate) {
+        setActiveLine(6); // return True
+      } else {
+        setActiveLine(7); // return False
+      }
+      // Keep line visible for a moment, then clear
+      setTimeout(() => setActiveLine(null), 500);
+      return;
+    }
   };
 
-  useInterval(() => step(), result === null ? speed : null);
+  useInterval(() => step(), result === null && i <= parsed.length ? speed : null);
 
   // auto-loop after a short pause
   useEffect(() => {
@@ -115,21 +128,41 @@ export default function ContainsDuplicateVisualizer() {
         </p>
       </div>
 
-      {/* Input Row */}
-      <div className="mb-8 flex items-center gap-3">
-        <label className="text-sm text-white/70 font-medium">Input:</label>
-        <input
-          className="flex-1 rounded-lg bg-white/5 border border-white/10 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 font-mono"
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-            reset();
-          }}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') reset();
-          }}
-        />
-      </div>
+
+      {/* Code Display with Line-by-Line Highlighting */}
+      <section className="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
+          <span className="text-xs text-white/60">
+            {activeLine ? `Line ${activeLine} executing...` : 'Ready'}
+          </span>
+        </div>
+        <pre className="bg-slate-900/80 rounded-lg p-4 overflow-x-auto border border-white/5">
+          <code className="text-sm font-mono text-white/90 leading-relaxed">
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
+            </div>
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 2 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              {'    '}<span className="text-purple-400">def</span> <span className="text-blue-400">hasDuplicate</span>(<span className="text-green-400">self</span>, <span className="text-orange-400">nums</span>: <span className="text-blue-400">List</span>[<span className="text-blue-400">int</span>]) <span className="text-purple-400">-&gt;</span> <span className="text-blue-400">bool</span>:
+            </div>
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 3 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              {'        '}<span className="text-orange-400">length</span> = <span className="text-blue-400">len</span>(<span className="text-orange-400">nums</span>)
+            </div>
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 4 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              {'        '}<span className="text-orange-400">my_set</span> = <span className="text-blue-400">set</span>(<span className="text-orange-400">nums</span>)
+            </div>
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 5 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
+              {'        '}<span className="text-purple-400">if</span> <span className="text-orange-400">length</span> &gt; <span className="text-blue-400">len</span>(<span className="text-orange-400">my_set</span>):
+            </div>
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 6 ? 'bg-emerald-500/20 border-l-2 border-emerald-400' : ''}`}>
+              {'            '}<span className="text-purple-400">return</span> <span className="text-blue-400">True</span>
+            </div>
+            <div className={`px-2 py-1 rounded transition-colors ${activeLine === 7 ? 'bg-rose-500/20 border-l-2 border-rose-400' : ''}`}>
+              {'        '}<span className="text-purple-400">return</span> <span className="text-blue-400">False</span>
+            </div>
+          </code>
+        </pre>
+      </section>
 
       <LayoutGroup>
         {/* Array Section */}
@@ -230,9 +263,6 @@ export default function ContainsDuplicateVisualizer() {
       <div className="mt-8 pt-6 border-t border-white/10 space-y-2 text-sm text-white/60 leading-relaxed">
         <p>
           <span className="font-semibold text-white/80">Visualization logic</span> mirrors the Python set approach: iterate through the entire array from left to right, adding unique elements to the Set (duplicates are automatically discarded). After processing all elements, compare the set size to the array size. If set size &lt; array size, duplicates existed.
-        </p>
-        <p>
-          <span className="font-semibold text-white/80">Tip:</span> try inputs like <code className="bg-white/10 px-1.5 py-0.5 rounded font-mono">[1,2,3,4]</code> (all unique) or <code className="bg-white/10 px-1.5 py-0.5 rounded font-mono">[9,9,9]</code> (all duplicates) to see different outcomes.
         </p>
       </div>
     </div>
