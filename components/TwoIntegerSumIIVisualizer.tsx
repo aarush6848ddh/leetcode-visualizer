@@ -42,8 +42,8 @@ const Chip = ({ id, v, tone = "slate", pulse = false, floatingText }: { id: stri
     </motion.div>
     {floatingText && (
       <motion.div
-        className="absolute -top-3 -right-3 rounded-md px-1.5 py-[2px] text-[10px] font-mono bg-white/90 text-black"
-        initial={{ opacity: 0, y: -6 }}
+        className="absolute -top-6 left-1/2 -translate-x-1/2 rounded-md px-1.5 py-[2px] text-[10px] font-mono bg-white/90 text-black shadow-sm z-10 whitespace-nowrap"
+        initial={{ opacity: 0, y: -4 }}
         animate={{ opacity: 1, y: 0 }}
       >
         {floatingText}
@@ -234,14 +234,14 @@ export default function TwoIntegerSumIIVisualizer() {
 
         <LayoutGroup>
           {/* Array row */}
-          <section className="rounded-xl border border-white/10 bg-white/5 p-4">
-            <div className="mb-2 flex items-center justify-between">
+          <section className="rounded-xl border border-white/10 bg-white/5 px-4 pt-8 pb-4">
+            <div className="mb-8 flex items-center justify-between">
               <h3 className="text-sm uppercase tracking-widest text-white/60">Array (sorted)</h3>
               <span className="text-xs text-white/60">
                 i = {Math.min(i, numbers.length)}
               </span>
             </div>
-            <div className="flex flex-wrap gap-2 min-h-[48px]">
+            <div className="flex flex-wrap gap-2 min-h-[80px] items-center pt-8">
               {numbers.map((v, idx) => {
                 let tone: any = "slate";
                 let pulse = false;

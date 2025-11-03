@@ -461,3 +461,22 @@ Import traces:
 [39:22:07.534] Server  LOG      ✓ Compiled in 110ms
 [39:24:26.390] Server  LOG      ✓ Compiled in 62ms
 [39:24:36.921] Server  LOG      ✓ Compiled in 39ms
+[43:58:58.448] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[43:58:58.448] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[43:59:00.224] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[43:59:51.639] Server  LOG      ✓ Compiled in 122ms
+[43:59:53.357] Server  LOG      ✓ Compiled in 95ms
+[44:00:29.601] Server  LOG      ✓ Compiled in 83ms
+[44:00:39.961] Server  LOG      ✓ Compiled in 40ms
+[44:01:38.372] Server  LOG      ✓ Compiled in 92ms
+[44:01:40.184] Server  LOG      ✓ Compiled in 68ms
+[44:02:05.675] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[44:02:22.661] Server  LOG      ✓ Compiled in 101ms
+[44:03:14.144] Server  LOG      ✓ Compiled in 39ms
+[44:04:00.644] Server  LOG      ✓ Compiled in 77ms
+[44:04:06.916] Server  LOG      ✓ Compiled in 81ms
+[44:04:12.140] Server  LOG      ✓ Compiled in 89ms
+[44:04:27.615] Server  LOG      ✓ Compiled in 40ms
+[44:06:45.640] Server  LOG      ✓ Compiled in 94ms
+[44:07:01.377] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[44:08:58.578] Server  LOG      ✓ Compiled in 38ms
