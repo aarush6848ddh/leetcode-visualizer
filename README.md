@@ -2,6 +2,12 @@
 
 <div align="center">
 
+**🌐 [Visit Site](https://leetcode-visualizer-4y1003fjm-aarushs684-7927s-projects.vercel.app/problems/contains-duplicate)**
+
+</div>
+
+<div align="center">
+
 ![LeetCode Visualizer](https://img.shields.io/badge/LeetCode%20Visualizer-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)
 
 ![Built with Passion](https://img.shields.io/badge/Built%20with-Passion-EC4899?style=for-the-badge)

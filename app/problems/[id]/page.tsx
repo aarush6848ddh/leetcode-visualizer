@@ -3,7 +3,7 @@
 import { use } from 'react';
 import { notFound } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Code, BookOpen } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Code, BookOpen, Play } from 'lucide-react';
 import Link from 'next/link';
 import { getProblemById } from '@/data/problems';
 import { getDifficultyColor, getDifficultyBgColor } from '@/lib/utils';
@@ -107,14 +107,14 @@ export default function ProblemPage({ params }: ProblemPageProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Main Content */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-8 flex flex-col items-center">
               {/* Explanation */}
               {problem.explanation && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 w-full max-w-full"
                 >
                   <div className="flex items-center gap-2 mb-4">
                     <BookOpen className="w-5 h-5 text-green-400" />
@@ -176,7 +176,7 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 w-full max-w-full"
                 >
                   <div className="flex items-center gap-2 mb-4">
                     <Code className="w-5 h-5 text-green-400" />
@@ -191,7 +191,7 @@ export default function ProblemPage({ params }: ProblemPageProps) {
               )}
 
               {/* Complexity and Status - Moved here but separate */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 w-full max-w-full">
                 {/* Complexity */}
                 {(problem.timeComplexity || problem.spaceComplexity) && (
                   <motion.div
@@ -254,12 +254,12 @@ export default function ProblemPage({ params }: ProblemPageProps) {
             </div>
 
             {/* Right Sidebar - Algorithm Visualization */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 flex flex-col items-center space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="lg:sticky lg:top-24"
+                className="w-full"
               >
                 {problem.id === 'contains-duplicate' ? (
                   <ContainsDuplicateVisualizer />
@@ -280,6 +280,43 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   />
                 )}
               </motion.div>
+
+              {/* Video */}
+              {problem.videoUrl && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-8 w-full"
+                >
+                  <div className="flex items-center gap-2 mb-6">
+                    <Play className="w-6 h-6 text-green-400" />
+                    <h2 className="text-3xl font-bold">Video Explanation</h2>
+                  </div>
+                  <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
+                    <iframe
+                      src={(() => {
+                        const url = problem.videoUrl;
+                        let videoId = '';
+                        if (url.includes('youtube.com/watch?v=')) {
+                          videoId = url.split('v=')[1]?.split('&')[0] || '';
+                        } else if (url.includes('youtu.be/')) {
+                          videoId = url.split('youtu.be/')[1]?.split('?')[0] || '';
+                        } else if (url.includes('youtube.com/embed/')) {
+                          videoId = url.split('embed/')[1]?.split('?')[0] || '';
+                        }
+                        return `https://www.youtube.com/embed/${videoId}?enablejsapi=1&modestbranding=1&rel=0`;
+                      })()}
+                      title="Video Explanation"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                      frameBorder="0"
+                      style={{ border: 'none' }}
+                    />
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         </motion.div>

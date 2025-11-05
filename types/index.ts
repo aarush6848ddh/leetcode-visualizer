@@ -9,6 +9,7 @@ export interface Problem {
   topics: string[];
   status: ProblemStatus;
   leetcodeUrl?: string;
+  videoUrl?: string;
   solution?: string;
   explanation?: string;
   code?: string;

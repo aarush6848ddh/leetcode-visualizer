@@ -48,6 +48,7 @@ const problems = [
         ],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/contains-duplicate/',
+        videoUrl: 'https://www.youtube.com/watch?v=e_gugWmMt6U',
         explanation: `This solution efficiently checks for duplicates by leveraging the properties of a Python set.
 
 **How it works:**
@@ -81,26 +82,26 @@ This approach is elegant because it lets Python's built-in data structure handle
         ],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/valid-anagram/',
-        explanation: `This solution checks if two strings are anagrams by sorting and comparing them.
+        videoUrl: 'https://www.youtube.com/watch?v=N_yShHLVskk',
+        explanation: `This solution checks if two strings are anagrams by first verifying their lengths, then sorting and comparing them.
 
 **How it works:**
-1. Convert both strings s and t into lists of characters.
-2. Sort both lists lexicographically (alphabetically). When calling the sort function on a string converted to a list, Python sorts the characters in lexicographic (dictionary) order.
-3. Compare the sorted lists. If they are identical, the strings are anagrams.
+1. First, check if the lengths of strings s and t are equal. If they're not, they cannot be anagrams, so return False immediately.
+2. If the lengths are equal, sort both strings and compare them directly. In Python, sorted() can be called directly on strings, which returns a sorted list of characters.
+3. If the sorted strings are equal, the strings are anagrams → return True. Otherwise, return False.
 
 **Why this works:**
-Anagrams contain the exact same characters, just in different orders. When sorted lexicographically, both strings will produce the same sequence of characters. By comparing the sorted versions, we can determine if they contain the same characters:
-- If sorted lists are equal: strings are anagrams → return True
-- If sorted lists differ: strings are not anagrams → return False
+Anagrams must have the same length and contain the exact same characters, just in different orders. By sorting both strings, we normalize their character order, allowing for a direct comparison:
+- If lengths differ: cannot be anagrams → return False
+- If sorted strings are equal: strings are anagrams → return True
+- If sorted strings differ: strings are not anagrams → return False
 
-This approach is straightforward and leverages Python's built-in sorting functionality, which automatically sorts characters in lexicographic order.`,
+The early length check is an optimization that avoids unnecessary sorting when the strings clearly cannot be anagrams.`,
         code: `class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s_list = sorted(list(s))
-        t_list = sorted(list(t))
-        if s_list == t_list:
-            return True
-        return False`,
+        if len(s) != len(t):
+            return False
+        return sorted(s) == sorted(t)`,
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(n)',
         starred: false
@@ -228,6 +229,7 @@ const topics = [
                 ],
                 status: 'solved',
                 leetcodeUrl: 'https://leetcode.com/problems/contains-duplicate/',
+                videoUrl: 'https://www.youtube.com/watch?v=e_gugWmMt6U',
                 explanation: `This solution efficiently checks for duplicates by leveraging the properties of a Python set.
 
 **How it works:**
@@ -261,26 +263,26 @@ This approach is elegant because it lets Python's built-in data structure handle
                 ],
                 status: 'solved',
                 leetcodeUrl: 'https://leetcode.com/problems/valid-anagram/',
-                explanation: `This solution checks if two strings are anagrams by sorting and comparing them.
+                videoUrl: 'https://www.youtube.com/watch?v=N_yShHLVskk',
+                explanation: `This solution checks if two strings are anagrams by first verifying their lengths, then sorting and comparing them.
 
 **How it works:**
-1. Convert both strings s and t into lists of characters.
-2. Sort both lists lexicographically (alphabetically). When calling the sort function on a string converted to a list, Python sorts the characters in lexicographic (dictionary) order.
-3. Compare the sorted lists. If they are identical, the strings are anagrams.
+1. First, check if the lengths of strings s and t are equal. If they're not, they cannot be anagrams, so return False immediately.
+2. If the lengths are equal, sort both strings and compare them directly. In Python, sorted() can be called directly on strings, which returns a sorted list of characters.
+3. If the sorted strings are equal, the strings are anagrams → return True. Otherwise, return False.
 
 **Why this works:**
-Anagrams contain the exact same characters, just in different orders. When sorted lexicographically, both strings will produce the same sequence of characters. By comparing the sorted versions, we can determine if they contain the same characters:
-- If sorted lists are equal: strings are anagrams → return True
-- If sorted lists differ: strings are not anagrams → return False
+Anagrams must have the same length and contain the exact same characters, just in different orders. By sorting both strings, we normalize their character order, allowing for a direct comparison:
+- If lengths differ: cannot be anagrams → return False
+- If sorted strings are equal: strings are anagrams → return True
+- If sorted strings differ: strings are not anagrams → return False
 
-This approach is straightforward and leverages Python's built-in sorting functionality, which automatically sorts characters in lexicographic order.`,
+The early length check is an optimization that avoids unnecessary sorting when the strings clearly cannot be anagrams.`,
                 code: `class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s_list = sorted(list(s))
-        t_list = sorted(list(t))
-        if s_list == t_list:
-            return True
-        return False`,
+        if len(s) != len(t):
+            return False
+        return sorted(s) == sorted(t)`,
                 timeComplexity: 'O(n log n)',
                 spaceComplexity: 'O(n)',
                 starred: false

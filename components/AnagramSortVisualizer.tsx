@@ -4,9 +4,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 /** VISUAL IDEA
- * 1) Raw strings -> list(list(s)), list(list(t))
- * 2) Animated sort of both lists
- * 3) Compare arrays -> banner TRUE / FALSE
+ * 1) Check lengths first
+ * 2) If equal, sort both strings
+ * 3) Compare sorted strings -> banner TRUE / FALSE
  */
 
 const Button = ({ children, onClick, disabled, variant = "default" }: any) => (
@@ -24,7 +24,7 @@ const Button = ({ children, onClick, disabled, variant = "default" }: any) => (
   </button>
 );
 
-type Phase = "idle" | "split" | "sorting_s" | "sorting_t" | "compare" | "done";
+type Phase = "idle" | "check_length" | "sorting_s" | "sorting_t" | "compare" | "done";
 
 function useInterval(cb: () => void, delay: number | null) {
   const saved = useRef(cb);
@@ -84,23 +84,33 @@ export default function AnagramSortVisualizer() {
   // step machine
   const step = () => {
     if (phase === "idle") {
-      setActiveLine(3); // s_list = sorted(list(s))
-      setPhase("split");
-      setSArr([...sChars]);
-      setTArr([...tChars]);
+      setActiveLine(3); // if len(s) != len(t):
+      setPhase("check_length");
       return;
     }
 
-    if (phase === "split") {
-      setActiveLine(3); // s_list = sorted(list(s)) - start sorting s
+    if (phase === "check_length") {
+      setActiveLine(3); // if len(s) != len(t):
+      if (s.length !== t.length) {
+        // Lengths are different, return False
+        setActiveLine(4); // return False
+        setResult(false);
+        setPhase("done");
+        setActiveLine(null);
+        return;
+      }
+      // Lengths are equal, proceed to sorting
+      setSArr([...sChars]);
+      setTArr([...tChars]);
+      setActiveLine(5); // return sorted(s) == sorted(t)
       setPhase("sorting_s");
       setI(0);
       return;
     }
 
     if (phase === "sorting_s") {
-      // Sort s_list first - Line 3 active
-      setActiveLine(3); // s_list = sorted(list(s))
+      // Sort s first - Line 5 active
+      setActiveLine(5); // return sorted(s) == sorted(t)
       const nextI = i + 1;
       const sSorted = [...sArr].slice(0, nextI).sort();
       setSArr((prev) => [...sSorted, ...prev.slice(nextI)]);
@@ -109,7 +119,6 @@ export default function AnagramSortVisualizer() {
       if (nextI >= sArr.length) {
         // Final sort of s_arr
         setSArr((prev) => [...prev].sort());
-        setActiveLine(4); // t_list = sorted(list(t)) - move to sorting t
         setPhase("sorting_t");
         setI(0); // Reset index for sorting t
       }
@@ -118,8 +127,8 @@ export default function AnagramSortVisualizer() {
     }
 
     if (phase === "sorting_t") {
-      // Sort t_list - Line 4 active
-      setActiveLine(4); // t_list = sorted(list(t))
+      // Sort t - Line 5 still active
+      setActiveLine(5); // return sorted(s) == sorted(t)
       const nextI = i + 1;
       const tSorted = [...tArr].slice(0, nextI).sort();
       setTArr((prev) => [...tSorted, ...prev.slice(nextI)]);
@@ -128,7 +137,6 @@ export default function AnagramSortVisualizer() {
       if (nextI >= tArr.length) {
         // Final sort of t_arr
         setTArr((prev) => [...prev].sort());
-        setActiveLine(5); // if s_list == t_list:
         setPhase("compare");
       }
 
@@ -136,13 +144,8 @@ export default function AnagramSortVisualizer() {
     }
 
     if (phase === "compare") {
-      setActiveLine(5); // if s_list == t_list:
+      setActiveLine(5); // return sorted(s) == sorted(t)
       const ok = sArr.length === tArr.length && sArr.every((c, k) => c === tArr[k]);
-      if (ok) {
-        setActiveLine(6); // return True
-      } else {
-        setActiveLine(7); // return False
-      }
       setResult(ok);
       setPhase("done");
       setActiveLine(null);
@@ -174,7 +177,7 @@ export default function AnagramSortVisualizer() {
       <div className="mb-2 flex items-center justify-between">
         <h3 className="text-sm uppercase tracking-widest text-white/60">{label}</h3>
         <span className="text-xs text-white/60">
-          {isSorting ? "sorting…" : phase === "split" ? "converted to list" : ""}
+          {isSorting ? "sorting…" : ""}
         </span>
       </div>
       <div className="flex flex-wrap gap-2 min-h-[48px]">
@@ -192,7 +195,7 @@ export default function AnagramSortVisualizer() {
           <div>
             <h2 className="text-2xl font-bold">Valid Anagram — Sorting Visualizer</h2>
             <p className="text-white/60 text-sm mt-1">
-              Algorithm shown: <code className="bg-white/10 px-2 py-1 rounded">sorted(list(s)) == sorted(list(t))</code>
+              Algorithm shown: <code className="bg-white/10 px-2 py-1 rounded">if len(s) != len(t): return False; return sorted(s) == sorted(t)</code>
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -221,19 +224,13 @@ export default function AnagramSortVisualizer() {
                 {'    '}<span className="text-purple-400">def</span> <span className="text-blue-400">isAnagram</span>(<span className="text-green-400">self</span>, <span className="text-orange-400">s</span>: <span className="text-blue-400">str</span>, <span className="text-orange-400">t</span>: <span className="text-blue-400">str</span>) <span className="text-purple-400">-&gt;</span> <span className="text-blue-400">bool</span>:
               </div>
               <div className={`px-2 py-1 rounded transition-colors ${activeLine === 3 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
-                {'        '}<span className="text-orange-400">s_list</span> = <span className="text-blue-400">sorted</span>(<span className="text-blue-400">list</span>(<span className="text-orange-400">s</span>))
+                {'        '}<span className="text-purple-400">if</span> <span className="text-blue-400">len</span>(<span className="text-orange-400">s</span>) != <span className="text-blue-400">len</span>(<span className="text-orange-400">t</span>):
               </div>
-              <div className={`px-2 py-1 rounded transition-colors ${activeLine === 4 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
-                {'        '}<span className="text-orange-400">t_list</span> = <span className="text-blue-400">sorted</span>(<span className="text-blue-400">list</span>(<span className="text-orange-400">t</span>))
+              <div className={`px-2 py-1 rounded transition-colors ${activeLine === 4 ? 'bg-rose-500/20 border-l-2 border-rose-400' : ''}`}>
+                {'            '}<span className="text-purple-400">return</span> <span className="text-blue-400">False</span>
               </div>
               <div className={`px-2 py-1 rounded transition-colors ${activeLine === 5 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
-                {'        '}<span className="text-purple-400">if</span> <span className="text-orange-400">s_list</span> == <span className="text-orange-400">t_list</span>:
-              </div>
-              <div className={`px-2 py-1 rounded transition-colors ${activeLine === 6 ? 'bg-emerald-500/20 border-l-2 border-emerald-400' : ''}`}>
-                {'            '}<span className="text-purple-400">return</span> <span className="text-blue-400">True</span>
-              </div>
-              <div className={`px-2 py-1 rounded transition-colors ${activeLine === 7 ? 'bg-rose-500/20 border-l-2 border-rose-400' : ''}`}>
-                {'        '}<span className="text-purple-400">return</span> <span className="text-blue-400">False</span>
+                {'        '}<span className="text-purple-400">return</span> <span className="text-blue-400">sorted</span>(<span className="text-orange-400">s</span>) == <span className="text-blue-400">sorted</span>(<span className="text-orange-400">t</span>)
               </div>
             </code>
           </pre>
@@ -260,41 +257,54 @@ export default function AnagramSortVisualizer() {
               <div>
                 <div className="text-xs text-white/60 mb-1">s (string)</div>
                 <div className="rounded-lg bg-slate-800/80 px-3 py-2 font-mono">{s}</div>
+                <div className="text-xs text-white/60 mt-1">length: {s.length}</div>
               </div>
               <div>
                 <div className="text-xs text-white/60 mb-1">t (string)</div>
                 <div className="rounded-lg bg-slate-800/80 px-3 py-2 font-mono">{t}</div>
+                <div className="text-xs text-white/60 mt-1">length: {t.length}</div>
               </div>
             </div>
           </section>
 
-          {/* Arrow */}
-          <div className="flex items-center justify-center my-2">
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-white/60 text-sm"
-            >
-              ▼ convert with <code>list()</code>
-            </motion.div>
-          </div>
+          {/* Length check */}
+          {phase === "check_length" && (
+            <div className="flex items-center justify-center my-2">
+              <motion.div
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-white/60 text-sm"
+              >
+                {s.length === t.length ? (
+                  <span className="text-emerald-400">✓ Lengths are equal ({s.length} == {t.length})</span>
+                ) : (
+                  <span className="text-rose-400">✗ Lengths are different ({s.length} != {t.length})</span>
+                )}
+              </motion.div>
+            </div>
+          )}
 
-          {/* Stage 2 — lists + sorting */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {renderRow("list(s)", sArr, phase === "sorting_s" ? i : undefined, phase === "sorting_s")}
-            {renderRow("list(t)", tArr, phase === "sorting_t" ? i : undefined, phase === "sorting_t")}
-          </div>
+          {/* Show sorting only if lengths are equal */}
+          {s.length === t.length && (phase === "sorting_s" || phase === "sorting_t" || phase === "compare" || phase === "done") && (
+            <>
+              {/* Arrow */}
+              <div className="flex items-center justify-center my-2">
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-white/60 text-sm"
+                >
+                  ▼ applying <code>sorted()</code>
+                </motion.div>
+              </div>
 
-          {/* Arrow */}
-          <div className="flex items-center justify-center my-2">
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-white/60 text-sm"
-            >
-              ▼ apply <code>sorted()</code> to both
-            </motion.div>
-          </div>
+              {/* Stage 2 — sorting */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {renderRow("sorted(s)", sArr, phase === "sorting_s" ? i : undefined, phase === "sorting_s")}
+                {renderRow("sorted(t)", tArr, phase === "sorting_t" ? i : undefined, phase === "sorting_t")}
+              </div>
+            </>
+          )}
 
           {/* Result */}
           <AnimatePresence>
@@ -309,8 +319,9 @@ export default function AnagramSortVisualizer() {
                     : "bg-rose-500/10 border-rose-400/20 text-rose-200"
                 }`}
               >
-                {result ? "sorted(list(s)) == sorted(list(t)) → True (anagram)" :
-                           "Not equal → False (not an anagram)"}
+                {result ? "sorted(s) == sorted(t) → True (anagram)" :
+                           s.length !== t.length ? "len(s) != len(t) → False (not an anagram)" :
+                           "sorted(s) != sorted(t) → False (not an anagram)"}
               </motion.div>
             )}
           </AnimatePresence>
