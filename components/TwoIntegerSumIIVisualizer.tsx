@@ -31,9 +31,9 @@ function useInterval(cb: () => void, delay: number | null) {
 const Chip = ({ id, v, tone = "slate", pulse = false, floatingText }: { id: string; v: number; tone?: "slate"|"emerald"|"amber"|"rose"; pulse?: boolean; floatingText?: string }) => (
   <motion.div layout layoutId={`chip-${id}`} className="relative">
     <motion.div
-      className={`rounded-full px-5 py-2.5 text-base font-semibold select-none shadow min-w-[56px] flex items-center justify-center
+      className={`rounded-full px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 text-sm sm:text-base font-semibold select-none shadow min-w-[48px] sm:min-w-[56px] flex items-center justify-center
         ${tone === "emerald" ? "bg-emerald-600" : tone === "amber" ? "bg-amber-500" : tone === "rose" ? "bg-rose-600" : "bg-slate-700"}
-        text-white ${pulse ? "ring-4 ring-white/20" : ""}`}
+        text-white ${pulse ? "ring-2 sm:ring-4 ring-white/20" : ""}`}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: pulse ? 1.06 : 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -42,7 +42,7 @@ const Chip = ({ id, v, tone = "slate", pulse = false, floatingText }: { id: stri
     </motion.div>
     {floatingText && (
       <motion.div
-        className="absolute -top-6 left-1/2 -translate-x-1/2 rounded-md px-1.5 py-[2px] text-[10px] font-mono bg-white/90 text-black shadow-sm z-10 whitespace-nowrap"
+        className="absolute -top-5 sm:-top-6 left-1/2 -translate-x-1/2 rounded-md px-1 sm:px-1.5 py-[2px] text-[9px] sm:text-[10px] font-mono bg-white/90 text-black shadow-sm z-10 whitespace-nowrap"
         initial={{ opacity: 0, y: -4 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -162,16 +162,16 @@ export default function TwoIntegerSumIIVisualizer() {
   const found = phase === "done" && !!result;
 
   return (
-    <div className="min-h-screen bg-[#0b0e13] text-white p-6">
-      <div className="mx-auto max-w-6xl space-y-6">
-        <header className="flex items-center justify-between">
+    <div className="min-h-screen bg-[#0b0e13] text-white p-3 sm:p-4 lg:p-6">
+      <div className="mx-auto max-w-6xl space-y-4 sm:space-y-6">
+        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
           <div>
-            <h2 className="text-2xl font-bold">Two Integer Sum II — Hash Map Visualizer</h2>
-            <p className="text-white/60 text-sm mt-1">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">Two Integer Sum II — Hash Map Visualizer</h2>
+            <p className="text-white/60 text-xs sm:text-sm mt-1">
               Sorted array, 1-indexed answer. We track complements in a map.
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Button onClick={() => setPlaying((p) => !p)} variant="accent">
               {playing ? "Pause" : "Play"}
             </Button>
@@ -181,15 +181,15 @@ export default function TwoIntegerSumIIVisualizer() {
         </header>
 
         {/* Code Display with Line-by-Line Highlighting */}
-        <section className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
+        <section className="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+          <div className="mb-2 sm:mb-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+            <h2 className="text-xs sm:text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
             <span className="text-xs text-white/60">
               {currentLine ? `Line ${currentLine} executing...` : 'Ready'}
             </span>
           </div>
-          <pre className="bg-slate-900/80 rounded-lg p-4 overflow-x-auto border border-white/5">
-            <code className="text-sm font-mono text-white/90 leading-relaxed">
+          <pre className="bg-slate-900/80 rounded-lg p-2 sm:p-4 overflow-x-auto border border-white/5">
+            <code className="text-xs sm:text-sm font-mono text-white/90 leading-relaxed">
               <div className={`px-2 py-1 rounded transition-colors ${currentLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
               </div>
@@ -219,8 +219,8 @@ export default function TwoIntegerSumIIVisualizer() {
         </section>
 
         {/* Speed control */}
-        <div className="flex items-center gap-3">
-          <label className="text-sm text-white/70">Speed</label>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <label className="text-xs sm:text-sm text-white/70">Speed</label>
           <input
             type="range"
             min={200}
@@ -228,20 +228,20 @@ export default function TwoIntegerSumIIVisualizer() {
             step={100}
             value={speed}
             onChange={(e) => setSpeed(parseInt(e.target.value))}
-            className="w-32"
+            className="flex-1 sm:w-32 max-w-[200px] sm:max-w-none"
           />
         </div>
 
         <LayoutGroup>
           {/* Array row */}
-          <section className="rounded-xl border border-white/10 bg-white/5 px-4 pt-8 pb-4">
-            <div className="mb-8 flex items-center justify-between">
-              <h3 className="text-sm uppercase tracking-widest text-white/60">Array (sorted)</h3>
+          <section className="rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 pt-6 sm:pt-8 pb-3 sm:pb-4">
+            <div className="mb-4 sm:mb-8 flex items-center justify-between">
+              <h3 className="text-xs sm:text-sm uppercase tracking-widest text-white/60">Array (sorted)</h3>
               <span className="text-xs text-white/60">
                 i = {Math.min(i, numbers.length)}
               </span>
             </div>
-            <div className="flex flex-wrap gap-2 min-h-[80px] items-center pt-8">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 min-h-[70px] sm:min-h-[80px] items-center pt-4 sm:pt-8">
               {numbers.map((v, idx) => {
                 let tone: any = "slate";
                 let pulse = false;
@@ -259,23 +259,23 @@ export default function TwoIntegerSumIIVisualizer() {
 
           {/* Diff bubble */}
           {phase !== "idle" && i < numbers.length && (
-            <section className="rounded-xl border border-indigo-400/20 bg-indigo-500/5 p-4">
+            <section className="rounded-xl border border-indigo-400/20 bg-indigo-500/5 p-3 sm:p-4">
               <div className="mb-2 text-xs uppercase tracking-widest text-indigo-200/90">Compute & Check</div>
-              <div className="font-mono text-white/90 text-sm">
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="rounded-lg bg-indigo-600/30 px-3 py-2">
+              <div className="font-mono text-white/90 text-xs sm:text-sm">
+                <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2 sm:gap-3">
+                  <div className="rounded-lg bg-indigo-600/30 px-2 sm:px-3 py-1.5 sm:py-2 break-all sm:break-normal">
                     diff = target - n = {target} - {n} = <span className="font-bold text-indigo-200">{diff}</span>
                   </div>
-                  <span className="text-white/70">check map for diff</span>
+                  <span className="text-white/70 text-xs sm:text-sm">check map for diff</span>
                 </div>
               </div>
             </section>
           )}
 
           {/* Hash Map - vertical stack */}
-          <section className="rounded-xl border border-emerald-400/20 bg-emerald-500/5 p-4">
-            <div className="mb-2 flex items-center justify-between">
-              <h3 className="text-sm uppercase tracking-widest text-emerald-300/90">Hash Map (value → index +1 shown)</h3>
+          <section className="rounded-xl border border-emerald-400/20 bg-emerald-500/5 p-3 sm:p-4">
+            <div className="mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+              <h3 className="text-xs sm:text-sm uppercase tracking-widest text-emerald-300/90">Hash Map (value → index +1 shown)</h3>
               <span className="text-xs text-white/60">
                 size = {Object.keys(mapHM).length}
               </span>
@@ -327,13 +327,13 @@ export default function TwoIntegerSumIIVisualizer() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className={`rounded-xl border p-4 text-center text-lg font-semibold ${
+                className={`rounded-xl border p-3 sm:p-4 text-center text-base sm:text-lg font-semibold ${
                   result
                     ? "bg-emerald-500/10 border-emerald-400/20 text-emerald-200"
                     : "bg-rose-500/10 border-rose-400/20 text-rose-200"
                 }`}
               >
-                Return <span className="font-mono">[{result[0]}, {result[1]}]</span>
+                Return <span className="font-mono text-sm sm:text-base">[{result[0]}, {result[1]}]</span>
               </motion.div>
             )}
           </AnimatePresence>

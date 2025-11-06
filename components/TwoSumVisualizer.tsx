@@ -195,15 +195,15 @@ export default function TwoSumVisualizer() {
         </header>
 
         {/* Code Display with Line-by-Line Highlighting */}
-        <section className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
+        <section className="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+          <div className="mb-2 sm:mb-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+            <h2 className="text-xs sm:text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
             <span className="text-xs text-white/60">
               {activeLine ? `Line ${activeLine} executing...` : 'Ready'}
             </span>
           </div>
-          <pre className="bg-slate-900/80 rounded-lg p-4 overflow-x-auto border border-white/5">
-            <code className="text-sm font-mono text-white/90 leading-relaxed">
+          <pre className="bg-slate-900/80 rounded-lg p-2 sm:p-4 overflow-x-auto border border-white/5">
+            <code className="text-xs sm:text-sm font-mono text-white/90 leading-relaxed">
               <div className={`px-2 py-1 rounded transition-colors ${activeLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
               </div>

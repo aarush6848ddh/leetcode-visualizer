@@ -23,7 +23,7 @@ const Button = ({ children, onClick, disabled, variant = "default" }: any) => (
 const Chip = ({ id, value, active, duplicate, inSet, unprocessed, current }: any) => (
   <motion.div
     layoutId={`chip-${id}`}
-    className={`rounded-full px-12 py-4 text-base font-bold tracking-wide shadow-lg min-w-[60px] flex items-center justify-center
+    className={`rounded-full px-4 sm:px-6 lg:px-12 py-2 sm:py-3 lg:py-4 text-sm sm:text-base font-bold tracking-wide shadow-lg min-w-[48px] sm:min-w-[56px] lg:min-w-[60px] flex items-center justify-center
       ${
         duplicate ? "bg-purple-600 shadow-purple-600/50" 
         : inSet ? "bg-emerald-600 shadow-emerald-600/50" 
@@ -119,26 +119,26 @@ export default function ContainsDuplicateVisualizer() {
   const setItems = seen.map((v, idx) => ({ id: `set-${idx}-${v}`, v, idx }));
 
   return (
-    <div className="w-full bg-[#0c0f14] text-white rounded-xl border border-gray-800 p-8 shadow-xl">
+    <div className="w-full bg-[#0c0f14] text-white rounded-xl border border-gray-800 p-4 sm:p-6 lg:p-8 shadow-xl">
       {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-3xl font-bold mb-2">Contains Duplicate — Visualizer</h2>
-        <p className="text-white/70 text-sm">
+      <div className="mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">Contains Duplicate — Visualizer</h2>
+        <p className="text-white/70 text-xs sm:text-sm">
           Algorithm: compare len(nums) to len(set(nums)) conceptually; here we simulate the set-building.
         </p>
       </div>
 
 
       {/* Code Display with Line-by-Line Highlighting */}
-      <section className="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
+      <section className="mb-4 sm:mb-6 rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+        <div className="mb-2 sm:mb-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+          <h2 className="text-xs sm:text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
           <span className="text-xs text-white/60">
             {activeLine ? `Line ${activeLine} executing...` : 'Ready'}
           </span>
         </div>
-        <pre className="bg-slate-900/80 rounded-lg p-4 overflow-x-auto border border-white/5">
-          <code className="text-sm font-mono text-white/90 leading-relaxed">
+        <pre className="bg-slate-900/80 rounded-lg p-2 sm:p-4 overflow-x-auto border border-white/5">
+          <code className="text-xs sm:text-sm font-mono text-white/90 leading-relaxed">
             <div className={`px-2 py-1 rounded transition-colors ${activeLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
               <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
             </div>
@@ -166,12 +166,12 @@ export default function ContainsDuplicateVisualizer() {
 
       <LayoutGroup>
         {/* Array Section */}
-        <section className="mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm uppercase tracking-widest text-white/80 font-semibold">ARRAY</h3>
-            <span className="text-white/70 text-sm font-mono">i = {Math.min(i, parsed.length)}</span>
+        <section className="mb-4 sm:mb-6">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <h3 className="text-xs sm:text-sm uppercase tracking-widest text-white/80 font-semibold">ARRAY</h3>
+            <span className="text-white/70 text-xs sm:text-sm font-mono">i = {Math.min(i, parsed.length)}</span>
           </div>
-          <div className="flex flex-wrap gap-3 items-center min-h-[60px]">
+          <div className="flex flex-wrap gap-2 sm:gap-3 items-center min-h-[50px] sm:min-h-[60px]">
             {arrayItems.map(({ id, v, idx }) => {
               const active = result === null && idx === i;
               const alreadyProcessed = idx < i;

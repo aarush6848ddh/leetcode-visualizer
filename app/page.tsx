@@ -25,26 +25,26 @@ export default function Home() {
     <div className="min-h-screen bg-[#0a0a0a] text-[#fafafa]">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#0a0a0a] border-b border-white/10">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-between"
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0"
           >
             <div>
-              <h1 className="text-2xl font-semibold tracking-normal text-green-600 mb-0.5">
+              <h1 className="text-xl sm:text-2xl font-semibold tracking-normal text-green-600 mb-0.5">
                 LeetCode Journey
               </h1>
-              <p className="text-sm text-white/80 font-normal">
+              <p className="text-xs sm:text-sm text-white/80 font-normal">
                 Documenting solutions with visualizations
               </p>
             </div>
-            <nav className="flex items-center gap-6">
+            <nav className="flex items-center gap-2 sm:gap-6 flex-wrap">
               <button
                 onClick={() => setView('roadmap')}
-                className={`font-medium text-sm transition-colors ${
+                className={`font-medium text-xs sm:text-sm transition-colors ${
                   view === 'roadmap'
-                    ? 'bg-green-800 text-white px-3 py-1.5 rounded'
+                    ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded'
                     : 'text-white hover:text-green-600'
                 }`}
               >
@@ -52,9 +52,9 @@ export default function Home() {
               </button>
               <button
                 onClick={() => setView('topics')}
-                className={`font-medium text-sm transition-colors ${
+                className={`font-medium text-xs sm:text-sm transition-colors ${
                   view === 'topics'
-                    ? 'bg-green-800 text-white px-3 py-1.5 rounded'
+                    ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded'
                     : 'text-white hover:text-green-600'
                 }`}
               >
@@ -62,9 +62,9 @@ export default function Home() {
               </button>
               <button
                 onClick={() => setView('problems')}
-                className={`font-medium text-sm transition-colors ${
+                className={`font-medium text-xs sm:text-sm transition-colors ${
                   view === 'problems'
-                    ? 'bg-green-800 text-white px-3 py-1.5 rounded'
+                    ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded'
                     : 'text-white hover:text-green-600'
                 }`}
               >
@@ -76,7 +76,7 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className={view === 'roadmap' ? '' : 'container mx-auto px-6 py-8'}>
+      <main className={view === 'roadmap' ? '' : 'container mx-auto px-4 sm:px-6 py-6 sm:py-8'}>
         {/* Roadmap View */}
         {view === 'roadmap' && (
           <motion.div
@@ -97,9 +97,9 @@ export default function Home() {
             className="mb-8"
           >
             <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-6">
-                <h2 className="text-4xl font-semibold tracking-normal mb-3 gradient-text">Overall Progress</h2>
-                <p className="text-gray-400/80 text-lg font-light">
+              <div className="text-center mb-4 sm:mb-6">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-normal mb-2 sm:mb-3 gradient-text">Overall Progress</h2>
+                <p className="text-gray-400/80 text-base sm:text-lg font-light">
                   {solvedCount} of {totalCount} problems solved
                 </p>
               </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col items-center"
               >
-                <h2 className="text-3xl font-semibold tracking-normal mb-8 gradient-text text-center">Topics</h2>
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-normal mb-6 sm:mb-8 gradient-text text-center">Topics</h2>
                 {topics.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
                     {topics.map((topic, index) => (
@@ -141,14 +141,14 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col items-center"
               >
-                <div className="flex items-center justify-between mb-6 w-full max-w-4xl">
-                  <h2 className="text-3xl font-semibold tracking-normal gradient-text text-center">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4 sm:mb-6 w-full max-w-4xl">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-normal gradient-text text-center sm:text-left">
                     {selectedTopic ? `Problems: ${selectedTopic}` : 'All Problems'}
                   </h2>
                   {selectedTopic && (
                     <button
                       onClick={() => setSelectedTopic(null)}
-                      className="px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
+                      className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
                     >
                       Clear Filter
                     </button>

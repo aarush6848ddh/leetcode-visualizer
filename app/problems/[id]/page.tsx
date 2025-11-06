@@ -51,31 +51,31 @@ export default function ProblemPage({ params }: ProblemPageProps) {
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-4"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-2 sm:mb-4 text-sm sm:text-base"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
             Back to Gallery
           </Link>
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-6xl mx-auto"
         >
           {/* Problem Header */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="flex-1">
-                <h1 className="text-4xl font-bold mb-4">{problem.title}</h1>
-                <div className="flex items-center gap-4 flex-wrap">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{problem.title}</h1>
+                <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
                   <span
-                    className={`px-3 py-1 rounded-lg text-sm font-medium border ${getDifficultyBgColor(
+                    className={`px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border ${getDifficultyBgColor(
                       problem.difficulty
                     )} ${getDifficultyColor(problem.difficulty)}`}
                   >
@@ -84,7 +84,7 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   {problem.topics.map((topic) => (
                     <span
                       key={topic}
-                      className="px-3 py-1 rounded-lg text-sm text-gray-300 bg-gray-800 border border-gray-700"
+                      className="px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm text-gray-300 bg-gray-800 border border-gray-700"
                     >
                       {topic}
                     </span>
@@ -94,10 +94,11 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                       href={problem.leetcodeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-sm text-blue-400 hover:text-blue-300 bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-colors"
+                      className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm text-blue-400 hover:text-blue-300 bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-colors"
                     >
-                      <ExternalLink className="w-4 h-4" />
-                      View on LeetCode
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span className="hidden sm:inline">View on LeetCode</span>
+                      <span className="sm:hidden">LeetCode</span>
                     </a>
                   )}
                 </div>
@@ -105,20 +106,20 @@ export default function ProblemPage({ params }: ProblemPageProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
             {/* Main Content */}
-            <div className="lg:col-span-5 space-y-8 flex flex-col items-center">
+            <div className="lg:col-span-5 space-y-6 sm:space-y-8 flex flex-col items-center">
               {/* Explanation */}
               {problem.explanation && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 w-full max-w-full"
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 sm:p-6 w-full max-w-full"
                 >
-                  <div className="flex items-center gap-2 mb-4">
-                    <BookOpen className="w-5 h-5 text-green-400" />
-                    <h2 className="text-2xl font-bold">Explanation</h2>
+                  <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                    <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                    <h2 className="text-xl sm:text-2xl font-bold">Explanation</h2>
                   </div>
                   <div className="prose prose-invert max-w-none">
                     <div className="text-gray-300 leading-relaxed space-y-4">
@@ -176,14 +177,14 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 w-full max-w-full"
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 sm:p-6 w-full max-w-full"
                 >
-                  <div className="flex items-center gap-2 mb-4">
-                    <Code className="w-5 h-5 text-green-400" />
-                    <h2 className="text-2xl font-bold">Solution</h2>
+                  <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                    <Code className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                    <h2 className="text-xl sm:text-2xl font-bold">Solution</h2>
                   </div>
                   <pre className="overflow-x-auto">
-                    <code className="text-sm text-gray-300 font-mono">
+                    <code className="text-xs sm:text-sm text-gray-300 font-mono">
                       {problem.code}
                     </code>
                   </pre>
@@ -191,16 +192,16 @@ export default function ProblemPage({ params }: ProblemPageProps) {
               )}
 
               {/* Complexity and Status - Moved here but separate */}
-              <div className="grid grid-cols-2 gap-4 w-full max-w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-full">
                 {/* Complexity */}
                 {(problem.timeComplexity || problem.spaceComplexity) && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                    className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 sm:p-6"
                   >
-                    <h3 className="text-lg font-bold mb-4">Complexity</h3>
+                    <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Complexity</h3>
                     <div className="space-y-3">
                       {problem.timeComplexity && (
                         <div>
@@ -231,9 +232,9 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-6"
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 sm:p-6"
                 >
-                  <h3 className="text-lg font-bold mb-4">Status</h3>
+                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Status</h3>
                   <div className="flex items-center gap-2">
                     {problem.status === 'solved' ? (
                       <>
@@ -254,12 +255,12 @@ export default function ProblemPage({ params }: ProblemPageProps) {
             </div>
 
             {/* Right Sidebar - Algorithm Visualization */}
-            <div className="lg:col-span-7 flex flex-col items-center space-y-6">
+            <div className="lg:col-span-7 flex flex-col items-center space-y-4 sm:space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="w-full"
+                className="w-full -mx-4 sm:mx-0"
               >
                 {problem.id === 'contains-duplicate' ? (
                   <ContainsDuplicateVisualizer />
@@ -287,11 +288,11 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-8 w-full"
+                  className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 sm:p-6 lg:p-8 w-full -mx-4 sm:mx-0"
                 >
-                  <div className="flex items-center gap-2 mb-6">
-                    <Play className="w-6 h-6 text-green-400" />
-                    <h2 className="text-3xl font-bold">Video Explanation</h2>
+                  <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                    <Play className="w-5 h-5 sm:w-6 sm:h-6 text-green-400" />
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">Video Explanation</h2>
                   </div>
                   <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                     <iframe

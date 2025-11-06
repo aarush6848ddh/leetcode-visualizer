@@ -32,7 +32,7 @@ const Chip = ({ id, ch, active, filtered, matched }: { id: string; ch: string; a
   <motion.div
     layout
     layoutId={id}
-    className={`rounded-md px-3 py-1.5 text-sm font-semibold shadow min-w-[40px] flex items-center justify-center
+    className={`rounded-md px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold shadow min-w-[36px] sm:min-w-[40px] flex items-center justify-center
                 ${matched ? "bg-emerald-600" : active ? "bg-amber-500" : filtered ? "bg-slate-600" : "bg-slate-700"} text-white`}
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: active ? 1.06 : 1 }}
@@ -167,16 +167,16 @@ export default function ValidPalindromeVisualizer() {
   const currentCompareRightIdx = phase === "compare" ? compareIdx : -1;
 
   return (
-    <div className="min-h-screen bg-[#0b0e13] text-white p-6">
-      <div className="mx-auto max-w-6xl space-y-6">
-        <header className="flex items-center justify-between">
+    <div className="min-h-screen bg-[#0b0e13] text-white p-3 sm:p-4 lg:p-6">
+      <div className="mx-auto max-w-6xl space-y-4 sm:space-y-6">
+        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
           <div>
-            <h2 className="text-2xl font-bold">Valid Palindrome — Visualizer</h2>
-            <p className="text-white/60 text-sm mt-1">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">Valid Palindrome — Visualizer</h2>
+            <p className="text-white/60 text-xs sm:text-sm mt-1">
               Filter alphanumeric characters, convert to lowercase, then compare with reversed string.
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Button onClick={() => setPlaying((p) => !p)} variant="accent">
               {playing ? "Pause" : "Play"}
             </Button>
@@ -200,15 +200,15 @@ export default function ValidPalindromeVisualizer() {
         </div>
 
         {/* Code Display with Line-by-Line Highlighting */}
-        <section className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
+        <section className="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+          <div className="mb-2 sm:mb-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+            <h2 className="text-xs sm:text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h2>
             <span className="text-xs text-white/60">
               {activeLine ? `Line ${activeLine} executing...` : 'Ready'}
             </span>
           </div>
-          <pre className="bg-slate-900/80 rounded-lg p-4 overflow-x-auto border border-white/5">
-            <code className="text-sm font-mono text-white/90 leading-relaxed">
+          <pre className="bg-slate-900/80 rounded-lg p-2 sm:p-4 overflow-x-auto border border-white/5">
+            <code className="text-xs sm:text-sm font-mono text-white/90 leading-relaxed">
               <div className={`px-2 py-1 rounded transition-colors ${activeLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
               </div>

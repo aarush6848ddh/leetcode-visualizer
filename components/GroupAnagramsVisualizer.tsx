@@ -48,9 +48,9 @@ const Chip = ({ id, text, tone = "slate", pulse = false }: { id: string; text: s
   <motion.div
     layout
     layoutId={`chip-${id}`}
-    className={`rounded-full px-4 py-2 text-sm font-semibold shadow whitespace-pre min-w-[56px] flex items-center justify-center
+    className={`rounded-full px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-xs sm:text-sm font-semibold shadow whitespace-pre min-w-[44px] sm:min-w-[50px] lg:min-w-[56px] flex items-center justify-center
       ${tone === "emerald" ? "bg-emerald-600" : tone === "amber" ? "bg-amber-500" : tone === "indigo" ? "bg-indigo-600" : "bg-slate-700"}
-      text-white ${pulse ? "ring-4 ring-white/20" : ""}`}
+      text-white ${pulse ? "ring-2 sm:ring-4 ring-white/20" : ""}`}
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: pulse ? 1.06 : 1 }}
     transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -151,15 +151,15 @@ export default function GroupAnagramsVisualizer() {
 
   // ---------- Render ----------
   return (
-    <div className="w-full bg-[#0b0e13] text-white p-6 rounded-xl border border-gray-800">
-      <div className="mx-auto max-w-[1400px] w-full space-y-6">
+    <div className="w-full bg-[#0b0e13] text-white p-3 sm:p-4 lg:p-6 rounded-xl border border-gray-800">
+      <div className="mx-auto max-w-[1400px] w-full space-y-4 sm:space-y-6">
         {/* Top Row: Header, Controls */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-3 sm:gap-4 items-start">
           <div>
-            <h2 className="text-2xl font-bold mb-1.5">Group Anagrams — Visualizer</h2>
-            <p className="text-white/60 text-sm mt-1">We compute a <span className="font-semibold">signature</span> by sorting characters, then bucket strings by that signature.</p>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1.5">Group Anagrams — Visualizer</h2>
+            <p className="text-white/60 text-xs sm:text-sm mt-1">We compute a <span className="font-semibold">signature</span> by sorting characters, then bucket strings by that signature.</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Button onClick={() => setPlaying((p) => !p)} variant="accent">{playing ? "Pause" : "Play"}</Button>
             <Button onClick={step} disabled={phase === "done"}>Step</Button>
             <Button onClick={reset} variant="ghost">Reset</Button>
@@ -252,15 +252,15 @@ export default function GroupAnagramsVisualizer() {
         </LayoutGroup>
 
         {/* Code pane - At bottom */}
-        <aside className="rounded-lg border border-white/10 bg-white/5 p-4.5">
-          <div className="flex items-center justify-between mb-3.5">
-            <h3 className="text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h3>
+        <aside className="rounded-lg border border-white/10 bg-white/5 p-3 sm:p-4 lg:p-4.5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mb-2 sm:mb-3 lg:mb-3.5">
+            <h3 className="text-xs sm:text-sm uppercase tracking-widest text-white/60 font-semibold">Python Code Execution</h3>
             <span className="text-white/60 text-xs">
               {currentLine ? `Line ${currentLine}` : 'Ready'}
             </span>
           </div>
-          <pre className="bg-slate-900/80 rounded-lg p-3 overflow-x-auto border border-white/5">
-            <code className="text-sm font-mono text-white/90 leading-relaxed">
+          <pre className="bg-slate-900/80 rounded-lg p-2 sm:p-3 overflow-x-auto border border-white/5">
+            <code className="text-xs sm:text-sm font-mono text-white/90 leading-relaxed">
               <div className={`px-2 py-1.5 rounded transition-colors ${currentLine === 1 ? 'bg-amber-500/20 border-l-2 border-amber-400' : ''}`}>
                 <span className="text-purple-400">class</span> <span className="text-blue-400">Solution</span>:
               </div>

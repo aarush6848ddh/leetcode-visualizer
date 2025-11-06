@@ -1647,7 +1647,7 @@ function Home() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
                 className: "sticky top-0 z-50 bg-[#0a0a0a] border-b border-white/10",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "container mx-auto px-6 py-4",
+                    className: "container mx-auto px-4 sm:px-6 py-3 sm:py-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                         initial: {
                             opacity: 0,
@@ -1657,12 +1657,12 @@ function Home() {
                             opacity: 1,
                             y: 0
                         },
-                        className: "flex items-center justify-between",
+                        className: "flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "text-2xl font-semibold tracking-normal text-green-600 mb-0.5",
+                                        className: "text-xl sm:text-2xl font-semibold tracking-normal text-green-600 mb-0.5",
                                         children: "LeetCode Journey"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
@@ -1670,7 +1670,7 @@ function Home() {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm text-white/80 font-normal",
+                                        className: "text-xs sm:text-sm text-white/80 font-normal",
                                         children: "Documenting solutions with visualizations"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
@@ -1684,11 +1684,11 @@ function Home() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                                className: "flex items-center gap-6",
+                                className: "flex items-center gap-2 sm:gap-6 flex-wrap",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setView('roadmap'),
-                                        className: `font-medium text-sm transition-colors ${view === 'roadmap' ? 'bg-green-800 text-white px-3 py-1.5 rounded' : 'text-white hover:text-green-600'}`,
+                                        className: `font-medium text-xs sm:text-sm transition-colors ${view === 'roadmap' ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded' : 'text-white hover:text-green-600'}`,
                                         children: "Roadmap"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
@@ -1697,7 +1697,7 @@ function Home() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setView('topics'),
-                                        className: `font-medium text-sm transition-colors ${view === 'topics' ? 'bg-green-800 text-white px-3 py-1.5 rounded' : 'text-white hover:text-green-600'}`,
+                                        className: `font-medium text-xs sm:text-sm transition-colors ${view === 'topics' ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded' : 'text-white hover:text-green-600'}`,
                                         children: "Topics"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
@@ -1706,7 +1706,7 @@ function Home() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setView('problems'),
-                                        className: `font-medium text-sm transition-colors ${view === 'problems' ? 'bg-green-800 text-white px-3 py-1.5 rounded' : 'text-white hover:text-green-600'}`,
+                                        className: `font-medium text-xs sm:text-sm transition-colors ${view === 'problems' ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded' : 'text-white hover:text-green-600'}`,
                                         children: "Problems"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
@@ -1736,7 +1736,7 @@ function Home() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-                className: view === 'roadmap' ? '' : 'container mx-auto px-6 py-8',
+                className: view === 'roadmap' ? '' : 'container mx-auto px-4 sm:px-6 py-6 sm:py-8',
                 children: [
                     view === 'roadmap' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                         initial: {
@@ -1775,10 +1775,10 @@ function Home() {
                             className: "max-w-2xl mx-auto",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-center mb-6",
+                                    className: "text-center mb-4 sm:mb-6",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-4xl font-semibold tracking-normal mb-3 gradient-text",
+                                            className: "text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-normal mb-2 sm:mb-3 gradient-text",
                                             children: "Overall Progress"
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.tsx",
@@ -1786,7 +1786,7 @@ function Home() {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-gray-400/80 text-lg font-light",
+                                            className: "text-gray-400/80 text-base sm:text-lg font-light",
                                             children: [
                                                 solvedCount,
                                                 " of ",
@@ -1836,7 +1836,7 @@ function Home() {
                         className: "flex flex-col items-center",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "text-3xl font-semibold tracking-normal mb-8 gradient-text text-center",
+                                className: "text-2xl sm:text-3xl font-semibold tracking-normal mb-6 sm:mb-8 gradient-text text-center",
                                 children: "Topics"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.tsx",
@@ -1891,10 +1891,10 @@ function Home() {
                         className: "flex flex-col items-center",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center justify-between mb-6 w-full max-w-4xl",
+                                className: "flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4 sm:mb-6 w-full max-w-4xl",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-3xl font-semibold tracking-normal gradient-text text-center",
+                                        className: "text-xl sm:text-2xl lg:text-3xl font-semibold tracking-normal gradient-text text-center sm:text-left",
                                         children: selectedTopic ? `Problems: ${selectedTopic}` : 'All Problems'
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
@@ -1903,7 +1903,7 @@ function Home() {
                                     }, this),
                                     selectedTopic && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setSelectedTopic(null),
-                                        className: "px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10",
+                                        className: "px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10",
                                         children: "Clear Filter"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
