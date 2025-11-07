@@ -44,3 +44,8 @@ next-env.d.ts
 .DS_Store
 Thumbs.db
 
+# Video files (too large for git, using YouTube embeds instead)
+/videos/
+*.mov
+*.mp4
+

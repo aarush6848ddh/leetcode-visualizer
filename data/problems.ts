@@ -92,6 +92,7 @@ The early length check is an optimization that avoids unnecessary sorting when t
     topics: ['Arrays & Hashing'],
     status: 'solved',
     leetcodeUrl: 'https://leetcode.com/problems/two-sum/',
+    videoUrl: 'https://www.youtube.com/watch?v=2OgkjKhz8Io',
     explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target.
 
 **How it works:**
@@ -125,6 +126,7 @@ The hashmap allows us to "remember" previous numbers and their positions, making
     topics: ['Arrays & Hashing'],
     status: 'solved',
     leetcodeUrl: 'https://leetcode.com/problems/group-anagrams/',
+    videoUrl: 'https://www.youtube.com/watch?v=TXtZ-GKO2i8',
     explanation: `This solution groups anagrams together using a hashmap with sorted character keys.
 
 **How it works:**
@@ -264,6 +266,7 @@ The early length check is an optimization that avoids unnecessary sorting when t
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/two-sum/',
+        videoUrl: 'https://www.youtube.com/watch?v=2OgkjKhz8Io',
         explanation: `This solution uses a hashmap (dictionary) to efficiently find two numbers that add up to the target.
 
 **How it works:**
@@ -297,6 +300,7 @@ The hashmap allows us to "remember" previous numbers and their positions, making
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/group-anagrams/',
+        videoUrl: 'https://www.youtube.com/watch?v=TXtZ-GKO2i8',
         explanation: `This solution groups anagrams together using a hashmap with sorted character keys.
 
 **How it works:**
