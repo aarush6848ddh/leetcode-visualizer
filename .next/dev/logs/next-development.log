@@ -1,13 +1,13 @@
-[00:00:02.148] Server  LOG      ✓ Ready in 1620ms
-[00:00:06.811] Server  LOG      ○ Compiling / ...
-[00:00:09.072] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:09.073] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:24.903] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:39.256] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:39.256] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:42.833] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:42.833] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:48.983] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:48.984] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:52.938] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
-[00:00:52.938] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[00:00:02.470] Server  LOG      ✓ Ready in 1764ms
+[00:00:09.675] Server  LOG      ○ Compiling / ...
+[00:00:12.794] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[00:00:12.794] Browser WARN    [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[00:00:47.732] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:02:01.457] Server  LOG      ✓ Compiled in 97ms
+[00:02:04.916] Server  LOG      ✓ Compiled in 43ms
+[00:02:06.425] Server  LOG      ✓ Compiled in 76ms
+[00:02:15.014] Server  LOG      ✓ Compiled in 41ms
+[00:02:16.172] Server  LOG      ✓ Compiled in 47ms
+[00:02:17.008] Server  LOG      ✓ Compiled in 38ms
+[00:02:24.115] Server  LOG      ✓ Compiled in 39ms
+[00:03:23.261] Server  LOG      ✓ Compiled in 37ms

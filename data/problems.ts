@@ -158,6 +158,50 @@ The hashmap enables O(1) lookup and insertion, making the grouping process effic
     starred: false,
   },
   {
+    id: 'top-k-frequent-elements',
+    title: 'Top K Frequent Elements',
+    difficulty: 'Medium',
+    topics: ['Arrays & Hashing'],
+    status: 'solved',
+    leetcodeUrl: 'https://leetcode.com/problems/top-k-frequent-elements/',
+    explanation: `This solution uses a bucket sort approach to efficiently find the K most frequent elements.
+
+**How it works:**
+1. Count the frequency of each number using Counter, which creates a dictionary mapping each number to its count.
+2. Create a frequency array (bucket) where the index represents the frequency count, and the value is a list of numbers with that frequency.
+3. Iterate through the count dictionary and place each number into the appropriate frequency bucket.
+4. Iterate backwards through the frequency array (from highest frequency to lowest) and collect numbers until we have K elements.
+
+**Why this works:**
+The bucket sort approach is optimal because:
+- Counting frequencies: O(n) time
+- Bucket creation: O(n) time and space
+- Collecting top K: O(n) worst case, but typically much faster since we stop at K elements
+- Overall: O(n) time complexity, which is better than sorting approaches that take O(n log n)
+
+This approach leverages the fact that the maximum frequency cannot exceed the array length, making bucket sort perfect for this problem.`,
+    code: `from collections import Counter
+from typing import List
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = Counter(nums)
+        freq = [[] for _ in range(len(nums) + 1)]
+        
+        for num, cnt in count.items():
+            freq[cnt].append(num)
+        
+        res = []
+        for i in range(len(freq) - 1, 0, -1):    
+            for n in freq[i]:                    
+                res.append(n)
+                if len(res) == k:
+                    return res`,
+    timeComplexity: 'O(n)',
+    spaceComplexity: 'O(n)',
+    starred: false,
+  },
+  {
     id: 'valid-palindrome',
     title: 'Valid Palindrome',
     difficulty: 'Easy',
@@ -331,7 +375,50 @@ The hashmap enables O(1) lookup and insertion, making the grouping process effic
         spaceComplexity: 'O(n * k)',
         starred: false,
       },
-      createProblem('Top K Frequent Elements', 'Medium', 'Arrays & Hashing'),
+      {
+        id: 'top-k-frequent-elements',
+        title: 'Top K Frequent Elements',
+        difficulty: 'Medium',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/top-k-frequent-elements/',
+        explanation: `This solution uses a bucket sort approach to efficiently find the K most frequent elements.
+
+**How it works:**
+1. Count the frequency of each number using Counter, which creates a dictionary mapping each number to its count.
+2. Create a frequency array (bucket) where the index represents the frequency count, and the value is a list of numbers with that frequency.
+3. Iterate through the count dictionary and place each number into the appropriate frequency bucket.
+4. Iterate backwards through the frequency array (from highest frequency to lowest) and collect numbers until we have K elements.
+
+**Why this works:**
+The bucket sort approach is optimal because:
+- Counting frequencies: O(n) time
+- Bucket creation: O(n) time and space
+- Collecting top K: O(n) worst case, but typically much faster since we stop at K elements
+- Overall: O(n) time complexity, which is better than sorting approaches that take O(n log n)
+
+This approach leverages the fact that the maximum frequency cannot exceed the array length, making bucket sort perfect for this problem.`,
+        code: `from collections import Counter
+from typing import List
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = Counter(nums)
+        freq = [[] for _ in range(len(nums) + 1)]
+        
+        for num, cnt in count.items():
+            freq[cnt].append(num)
+        
+        res = []
+        for i in range(len(freq) - 1, 0, -1):    
+            for n in freq[i]:                    
+                res.append(n)
+                if len(res) == k:
+                    return res`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false,
+      },
       createProblem('Encode and Decode Strings', 'Medium', 'Arrays & Hashing'),
       createProblem('Product of Array Except Self', 'Medium', 'Arrays & Hashing'),
       createProblem('Valid Sudoku', 'Medium', 'Arrays & Hashing'),

@@ -93,11 +93,13 @@
     --color-blue-400: #54a2ff;
     --color-blue-500: #3080ff;
     --color-blue-600: #155dfc;
+    --color-indigo-100: #e0e7ff;
     --color-indigo-200: #c7d2ff;
     --color-indigo-300: #a4b3ff;
     --color-indigo-400: #7d87ff;
     --color-indigo-500: #625fff;
     --color-indigo-600: #4f39f6;
+    --color-indigo-700: #432dd7;
     --color-purple-400: #c07eff;
     --color-purple-600: #9810fa;
     --color-rose-200: #ffccd3;
@@ -192,11 +194,13 @@
       --color-blue-400: lab(65.0361% -1.42065 -56.9802);
       --color-blue-500: lab(54.1736% 13.3369 -74.6839);
       --color-blue-600: lab(44.0605% 29.0279 -86.0352);
+      --color-indigo-100: lab(91.6577% 1.04591 -12.7199);
       --color-indigo-200: lab(84.4329% 3.18977 -23.9688);
       --color-indigo-300: lab(74.0235% 8.54138 -41.6075);
       --color-indigo-400: lab(59.866% 22.4834 -64.4485);
       --color-indigo-500: lab(48.295% 38.3129 -81.9673);
       --color-indigo-600: lab(38.4009% 52.6132 -92.3857);
+      --color-indigo-700: lab(32.4486% 49.2217 -84.6695);
       --color-purple-400: lab(63.6946% 47.6127 -59.2066);
       --color-purple-600: lab(43.0295% 75.21 -86.5669);
       --color-rose-200: lab(86.806% 19.1909 4.07754);
@@ -733,6 +737,10 @@
     min-height: 70px;
   }
 
+  .min-h-\[80px\] {
+    min-height: 80px;
+  }
+
   .min-h-\[100px\] {
     min-height: 100px;
   }
@@ -1147,6 +1155,16 @@
     }
   }
 
+  .border-indigo-300\/20 {
+    border-color: #a4b3ff33;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-indigo-300\/20 {
+      border-color: color-mix(in oklab, var(--color-indigo-300) 20%, transparent);
+    }
+  }
+
   .border-indigo-400\/20 {
     border-color: #7d87ff33;
   }
@@ -1345,6 +1363,16 @@
     background-color: var(--color-emerald-600);
   }
 
+  .bg-emerald-600\/70 {
+    background-color: #009767b3;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-emerald-600\/70 {
+      background-color: color-mix(in oklab, var(--color-emerald-600) 70%, transparent);
+    }
+  }
+
   .bg-emerald-700\/10 {
     background-color: #0079561a;
   }
@@ -1352,6 +1380,16 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-emerald-700\/10 {
       background-color: color-mix(in oklab, var(--color-emerald-700) 10%, transparent);
+    }
+  }
+
+  .bg-emerald-700\/20 {
+    background-color: #00795633;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-emerald-700\/20 {
+      background-color: color-mix(in oklab, var(--color-emerald-700) 20%, transparent);
     }
   }
 
@@ -1528,6 +1566,16 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-indigo-600\/30 {
       background-color: color-mix(in oklab, var(--color-indigo-600) 30%, transparent);
+    }
+  }
+
+  .bg-indigo-700\/80 {
+    background-color: #432dd7cc;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-indigo-700\/80 {
+      background-color: color-mix(in oklab, var(--color-indigo-700) 80%, transparent);
     }
   }
 
@@ -2096,6 +2144,16 @@
     color: var(--color-emerald-300);
   }
 
+  .text-emerald-300\/30 {
+    color: #5ee9b54d;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-emerald-300\/30 {
+      color: color-mix(in oklab, var(--color-emerald-300) 30%, transparent);
+    }
+  }
+
   .text-emerald-300\/50 {
     color: #5ee9b580;
   }
@@ -2190,8 +2248,22 @@
     color: var(--color-green-600);
   }
 
+  .text-indigo-100 {
+    color: var(--color-indigo-100);
+  }
+
   .text-indigo-200 {
     color: var(--color-indigo-200);
+  }
+
+  .text-indigo-200\/80 {
+    color: #c7d2ffcc;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-indigo-200\/80 {
+      color: color-mix(in oklab, var(--color-indigo-200) 80%, transparent);
+    }
   }
 
   .text-indigo-200\/90 {
@@ -2206,6 +2278,26 @@
 
   .text-indigo-300 {
     color: var(--color-indigo-300);
+  }
+
+  .text-indigo-300\/80 {
+    color: #a4b3ffcc;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-indigo-300\/80 {
+      color: color-mix(in oklab, var(--color-indigo-300) 80%, transparent);
+    }
+  }
+
+  .text-indigo-300\/90 {
+    color: #a4b3ffe6;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-indigo-300\/90 {
+      color: color-mix(in oklab, var(--color-indigo-300) 90%, transparent);
+    }
   }
 
   .text-orange-400 {
@@ -2331,6 +2423,10 @@
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .opacity-75 {
+    opacity: .75;
   }
 
   .shadow {

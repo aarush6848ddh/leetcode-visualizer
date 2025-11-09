@@ -14,6 +14,7 @@ import TwoSumVisualizer from '@/components/TwoSumVisualizer';
 import GroupAnagramsVisualizer from '@/components/GroupAnagramsVisualizer';
 import ValidPalindromeVisualizer from '@/components/ValidPalindromeVisualizer';
 import TwoIntegerSumIIVisualizer from '@/components/TwoIntegerSumIIVisualizer';
+import TopKFrequentVisualizer from '@/components/TopKFrequentVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -274,6 +275,8 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <ValidPalindromeVisualizer />
                 ) : problem.id === 'two-integer-sum-ii' ? (
                   <TwoIntegerSumIIVisualizer />
+                ) : problem.id === 'top-k-frequent-elements' ? (
+                  <TopKFrequentVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}
