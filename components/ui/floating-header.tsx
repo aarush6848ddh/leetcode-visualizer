@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Code, MenuIcon } from 'lucide-react';
-import { Sheet, SheetContent, SheetFooter } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetFooter, SheetTitle } from '@/components/ui/sheet';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -67,6 +67,7 @@ export function FloatingHeader({ view, setView }: FloatingHeaderProps) {
 							showClose={false}
 							side="left"
 						>
+							<SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 							<div className="grid gap-y-2 overflow-y-auto px-4 pt-12 pb-5">
 								{links.map((link) => (
 									<button

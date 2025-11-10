@@ -1,10 +1,10 @@
 'use client';
 
 import { use } from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Code, BookOpen, Play } from 'lucide-react';
-import Link from 'next/link';
+import { ExternalLink, Code, BookOpen, Play } from 'lucide-react';
+import { FloatingHeader } from '@/components/ui/floating-header';
 import { getProblemById } from '@/data/problems';
 import { getDifficultyColor, getDifficultyBgColor } from '@/lib/utils';
 import AlgorithmVisualizer from '@/components/AlgorithmVisualizer';
@@ -15,6 +15,8 @@ import GroupAnagramsVisualizer from '@/components/GroupAnagramsVisualizer';
 import ValidPalindromeVisualizer from '@/components/ValidPalindromeVisualizer';
 import TwoIntegerSumIIVisualizer from '@/components/TwoIntegerSumIIVisualizer';
 import TopKFrequentVisualizer from '@/components/TopKFrequentVisualizer';
+import ScoreOfStringVisualizer from '@/components/ScoreOfStringVisualizer';
+import ConcatenationOfArrayVisualizer from '@/components/ConcatenationOfArrayVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -23,10 +25,15 @@ interface ProblemPageProps {
 export default function ProblemPage({ params }: ProblemPageProps) {
   const { id } = use(params);
   const problem = getProblemById(id);
+  const router = useRouter();
 
   if (!problem) {
     notFound();
   }
+
+  const handleViewChange = (view: 'hero' | 'topics' | 'problems') => {
+    router.push(`/?view=${view}`);
+  };
 
   // Placeholder steps for visualization - will be customized per problem
   const visualizationSteps = [
@@ -49,19 +56,11 @@ export default function ProblemPage({ params }: ProblemPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-2 sm:mb-4 text-sm sm:text-base"
-          >
-            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-            Back to Gallery
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
+      {/* Navigation Header */}
+      <div className="w-full flex justify-center px-4 pt-5">
+        <FloatingHeader view="problems" setView={handleViewChange} />
+      </div>
 
       <main className="w-full flex justify-center py-6 sm:py-8">
         <div className="w-full max-w-7xl px-4 sm:px-6">
@@ -280,6 +279,10 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <TwoIntegerSumIIVisualizer />
                 ) : problem.id === 'top-k-frequent-elements' ? (
                   <TopKFrequentVisualizer />
+                ) : problem.id === 'score-of-a-string' ? (
+                  <ScoreOfStringVisualizer />
+                ) : problem.id === 'concatenation-of-array' ? (
+                  <ConcatenationOfArrayVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}

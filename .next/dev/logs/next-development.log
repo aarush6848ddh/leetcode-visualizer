@@ -1,61 +1,95 @@
-[00:00:01.661] Server  LOG      ✓ Ready in 1237ms
-[00:00:06.633] Server  LOG      ○ Compiling / ...
-[00:00:47.170] Server  LOG      ✓ Compiled in 61ms
-[00:03:02.559] Server  LOG      ✓ Compiled in 54ms
-[00:03:03.962] Server  LOG      ✓ Compiled in 50ms
-[00:05:20.469] Server  LOG      ✓ Compiled in 127ms
-[00:05:24.517] Server  LOG      ✓ Compiled in 44ms
-[00:05:24.621] Browser ERROR   ./app/page.tsx:162:10
-Parsing ecmascript source code failed
-  160 |             </motion.div>
-  161 |           </div>
-> 162 |         )}
-      |          ^
-  163 |       </main>
-  164 |     </div>
-  165 |   );
+[00:00:01.377] Server  LOG      ✓ Ready in 1031ms
+[00:00:08.545] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
 
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:00:08.545] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:08.545] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:00:08.545] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:30.276] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:00:30.276] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:30.276] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:00:30.276] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:34.940] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:05.934] Server  LOG      ✓ Compiled in 50ms
+[00:01:44.770] Server  LOG      ✓ Compiled in 39ms
+[00:03:48.314] Server  LOG      ✓ Compiled in 53ms
+[00:03:48.420] Browser ERROR   ./data/problems.ts:464:38
+Parsing ecmascript source code failed
+  462 | 
+  463 | **How it works:**
+> 464 | 1. Initialize an empty result array `ans`.
+      |                                      ^^^
+  465 | 2. Iterate twice (using `range(2)`) to duplicate the array.
+  466 | 3. For each iteration, loop through all elements in `nums` and append them to `ans`.
+  467 | 4. After both iterations, `ans` contains all elements from `nums` followed by all elements from `nums` again.
+
+Expected ',', got 'ans'
 
 Import traces:
   Client Component Browser:
+    ./data/problems.ts [Client Component Browser]
     ./app/page.tsx [Client Component Browser]
     ./app/page.tsx [Server Component]
 
   Client Component SSR:
+    ./data/problems.ts [Client Component SSR]
     ./app/page.tsx [Client Component SSR]
     ./app/page.tsx [Server Component]
-[00:06:12.591] Server  LOG      ✓ Compiled in 41ms
-[00:06:49.835] Server  LOG      ✓ Compiled in 40ms
-[00:07:38.965] Server  LOG      ✓ Compiled in 62ms
-[00:08:58.106] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:09:29.213] Server  LOG      ✓ Compiled in 52ms
-[00:09:31.422] Server  LOG      ✓ Compiled in 98ms
-[00:09:45.093] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:10:26.453] Server  LOG      ✓ Compiled in 46ms
-[00:12:00.683] Server  LOG      ✓ Compiled in 45ms
-[00:12:00.787] Browser ERROR   ./app/problems/[id]/page.tsx:330:14
+[00:03:55.811] Browser ERROR   ./data/problems.ts:464:38
 Parsing ecmascript source code failed
-  328 |           </div>
-  329 |         </motion.div>
-> 330 |       </main>
-      |              ^
-> 331 |     </div>
-      | ^^^^^
-  332 |   );
-  333 | }
-  334 |
+  462 | 
+  463 | **How it works:**
+> 464 | 1. Initialize an empty result array `ans`.
+      |                                      ^^^
+  465 | 2. Iterate twice (using `range(2)`) to duplicate the array.
+  466 | 3. For each iteration, loop through all elements in `nums` and append them to `ans`.
+  467 | 4. After both iterations, `ans` contains all elements from `nums` followed by all elements from `nums` again.
 
-Expected '</', got 'jsx text (
-    )'
+Expected ',', got 'ans'
 
 Import traces:
   Client Component Browser:
-    ./app/problems/[id]/page.tsx [Client Component Browser]
-    ./app/problems/[id]/page.tsx [Server Component]
+    ./data/problems.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
 
   Client Component SSR:
-    ./app/problems/[id]/page.tsx [Client Component SSR]
-    ./app/problems/[id]/page.tsx [Server Component]
-[00:13:16.184] Server  LOG      ✓ Compiled in 39ms
-[00:13:16.774] Server  LOG      ✓ Compiled in 38ms
+    ./data/problems.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:04:36.822] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:04:36.822] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:34.510] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:34.510] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:44.861] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:44.861] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:03.597] Server  LOG      ✓ Compiled in 103ms
+[00:06:04.430] Server  LOG      ✓ Compiled in 65ms
+[00:06:05.499] Server  LOG      ✓ Compiled in 66ms
+[00:06:17.491] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:17.491] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:12.783] Server  LOG      ✓ Compiled in 93ms
+[00:07:16.173] Server  LOG      ✓ Compiled in 116ms
+[00:07:19.967] Server  LOG      ✓ Compiled in 164ms
+[00:07:20.069] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:07:21.140] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:07:21.257] Server  LOG      ✓ Compiled in 49ms
+[00:07:21.419] Server  ERROR    ⨯ ReferenceError: Link is not defined
+[00:07:21.438] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:07:22.050] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:07:23.248] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:07:37.097] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

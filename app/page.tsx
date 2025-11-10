@@ -7,15 +7,30 @@ import ProblemCard from '@/components/ProblemCard';
 import ProgressBar from '@/components/ProgressBar';
 import HeroSection from '@/components/HeroSection';
 import { FloatingHeader } from '@/components/ui/floating-header';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
   const allProblems = getAllProblems();
   const solvedCount = allProblems.filter(p => p.status === 'solved').length;
   const totalCount = allProblems.length;
+  const searchParams = useSearchParams();
   
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
-  const [view, setView] = useState<'hero' | 'topics' | 'problems'>('hero');
+  const [view, setView] = useState<'hero' | 'topics' | 'problems'>(() => {
+    const viewParam = searchParams.get('view');
+    if (viewParam === 'topics' || viewParam === 'problems' || viewParam === 'hero') {
+      return viewParam;
+    }
+    return 'hero';
+  });
+
+  useEffect(() => {
+    const viewParam = searchParams.get('view');
+    if (viewParam === 'topics' || viewParam === 'problems' || viewParam === 'hero') {
+      setView(viewParam);
+    }
+  }, [searchParams]);
 
   const filteredProblems = useMemo(() => {
     if (!selectedTopic) return allProblems;

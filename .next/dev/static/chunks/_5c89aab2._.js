@@ -451,8 +451,73 @@ class Solution:
                 spaceComplexity: 'O(n)',
                 starred: false
             },
-            createProblem('Score of a String', 'Easy', 'Arrays & Hashing'),
-            createProblem('Concatenation of Array', 'Easy', 'Arrays & Hashing'),
+            {
+                id: 'score-of-a-string',
+                title: 'Score of a String',
+                difficulty: 'Easy',
+                topics: [
+                    'Arrays & Hashing'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/score-of-a-string/',
+                explanation: `This solution calculates the score of a string by summing the absolute differences between ASCII values of adjacent characters.
+
+**How it works:**
+1. Convert the string to a list of characters for easier iteration.
+2. Initialize a result variable to 0.
+3. Iterate through the string from the first character to the second-to-last character.
+4. For each pair of adjacent characters, calculate the absolute difference between their ASCII values using ord().
+5. Add this difference to the result.
+6. Return the accumulated result.
+
+**Why this works:**
+The score is defined as the sum of absolute differences between ASCII values of adjacent characters. By iterating through the string and comparing each character with its neighbor, we can calculate all the required differences and sum them up. The absolute value ensures we always get a positive difference regardless of which character has a higher ASCII value.
+
+Example: For "code", we calculate |'o' - 'c'| + |'d' - 'o'| + |'e' - 'd'| = |111 - 99| + |100 - 111| + |101 - 100| = 12 + 11 + 1 = 24.`,
+                code: `class Solution:
+    def scoreOfString(self, s: str) -> int:
+        s_list = list(s)
+        res = 0
+        for i in range(len(s_list) - 1):
+            res += abs(ord(s_list[i]) - ord(s_list[i + 1]))
+        return res`,
+                timeComplexity: 'O(n)',
+                spaceComplexity: 'O(n)',
+                starred: false
+            },
+            {
+                id: 'concatenation-of-array',
+                title: 'Concatenation of Array',
+                difficulty: 'Easy',
+                topics: [
+                    'Arrays & Hashing'
+                ],
+                status: 'solved',
+                leetcodeUrl: 'https://leetcode.com/problems/concatenation-of-array/',
+                explanation: `This solution creates a new array by concatenating the input array with itself.
+
+**How it works:**
+1. Initialize an empty result array ans.
+2. Iterate twice (using range(2)) to duplicate the array.
+3. For each iteration, loop through all elements in nums and append them to ans.
+4. After both iterations, ans contains all elements from nums followed by all elements from nums again.
+5. Return the concatenated array.
+
+**Why this works:**
+The problem requires creating an array of length 2n where the first n elements are the original array and the next n elements are the same array again. By iterating twice and appending all elements in each iteration, we effectively duplicate the entire array, creating the concatenation [nums[0], nums[1], ..., nums[n-1], nums[0], nums[1], ..., nums[n-1]].
+
+Example: For nums = [1,4,1,2], after the first iteration ans = [1,4,1,2], and after the second iteration ans = [1,4,1,2,1,4,1,2].`,
+                code: `class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        ans = []
+        for i in range(2):
+            for n in nums:
+                ans.append(n)
+        return ans`,
+                timeComplexity: 'O(n)',
+                spaceComplexity: 'O(n)',
+                starred: false
+            },
             createProblem('Replace Elements With Greatest Element On Right Side', 'Easy', 'Arrays & Hashing'),
             createProblem('Is Subsequence', 'Easy', 'Arrays & Hashing'),
             createProblem('Append Characters to String to Make Subsequence', 'Medium', 'Arrays & Hashing'),
@@ -1849,14 +1914,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-left.js [app-client] (ecmascript) <export default as ArrowLeft>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$problems$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/data/problems.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProblemCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ProblemCard.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProgressBar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ProgressBar.tsx [app-client] (ecmascript)");
 'use client';
-;
-;
 ;
 ;
 ;
@@ -1879,32 +1940,32 @@ function TopicPage({ params }) {
                 className: "border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "container mx-auto px-4 sm:px-6 py-3 sm:py-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Link, {
                         href: "/",
                         className: "inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-2 sm:mb-4 text-sm sm:text-base",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__["ArrowLeft"], {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ArrowLeft, {
                                 className: "w-3 h-3 sm:w-4 sm:h-4"
                             }, void 0, false, {
                                 fileName: "[project]/app/topics/[id]/page.tsx",
-                                lineNumber: 36,
+                                lineNumber: 35,
                                 columnNumber: 13
                             }, this),
                             "Back to Gallery"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/topics/[id]/page.tsx",
-                        lineNumber: 32,
+                        lineNumber: 31,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/topics/[id]/page.tsx",
-                    lineNumber: 31,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/topics/[id]/page.tsx",
-                lineNumber: 30,
+                lineNumber: 29,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1930,7 +1991,7 @@ function TopicPage({ params }) {
                                         children: topic.name
                                     }, void 0, false, {
                                         fileName: "[project]/app/topics/[id]/page.tsx",
-                                        lineNumber: 51,
+                                        lineNumber: 50,
                                         columnNumber: 15
                                     }, this),
                                     totalCount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1949,7 +2010,7 @@ function TopicPage({ params }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/topics/[id]/page.tsx",
-                                                        lineNumber: 55,
+                                                        lineNumber: 54,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1961,13 +2022,13 @@ function TopicPage({ params }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/topics/[id]/page.tsx",
-                                                        lineNumber: 58,
+                                                        lineNumber: 57,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/topics/[id]/page.tsx",
-                                                lineNumber: 54,
+                                                lineNumber: 53,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProgressBar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1975,19 +2036,19 @@ function TopicPage({ params }) {
                                                 total: totalCount
                                             }, void 0, false, {
                                                 fileName: "[project]/app/topics/[id]/page.tsx",
-                                                lineNumber: 62,
+                                                lineNumber: 61,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/topics/[id]/page.tsx",
-                                        lineNumber: 53,
+                                        lineNumber: 52,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/topics/[id]/page.tsx",
-                                lineNumber: 50,
+                                lineNumber: 49,
                                 columnNumber: 13
                             }, this),
                             topic.problems.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1997,12 +2058,12 @@ function TopicPage({ params }) {
                                         index: index
                                     }, problem.id, false, {
                                         fileName: "[project]/app/topics/[id]/page.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 70,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/topics/[id]/page.tsx",
-                                lineNumber: 69,
+                                lineNumber: 68,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "text-center py-16",
@@ -2011,34 +2072,34 @@ function TopicPage({ params }) {
                                     children: "No problems in this topic yet. Add problems to get started!"
                                 }, void 0, false, {
                                     fileName: "[project]/app/topics/[id]/page.tsx",
-                                    lineNumber: 76,
+                                    lineNumber: 75,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/topics/[id]/page.tsx",
-                                lineNumber: 75,
+                                lineNumber: 74,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/topics/[id]/page.tsx",
-                        lineNumber: 44,
+                        lineNumber: 43,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/topics/[id]/page.tsx",
-                    lineNumber: 43,
+                    lineNumber: 42,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/topics/[id]/page.tsx",
-                lineNumber: 42,
+                lineNumber: 41,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/topics/[id]/page.tsx",
-        lineNumber: 28,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }

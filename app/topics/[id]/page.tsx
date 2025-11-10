@@ -1,10 +1,9 @@
 'use client';
 
 import { use } from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { FloatingHeader } from '@/components/ui/floating-header';
 import { getTopicById } from '@/data/problems';
 import ProblemCard from '@/components/ProblemCard';
 import ProgressBar from '@/components/ProgressBar';
@@ -16,6 +15,7 @@ interface TopicPageProps {
 export default function TopicPage({ params }: TopicPageProps) {
   const { id } = use(params);
   const topic = getTopicById(id);
+  const router = useRouter();
 
   if (!topic) {
     notFound();
@@ -24,20 +24,21 @@ export default function TopicPage({ params }: TopicPageProps) {
   const solvedCount = topic.problems.filter(p => p.status === 'solved').length;
   const totalCount = topic.problems.length;
 
+  const handleViewChange = (view: 'hero' | 'topics' | 'problems') => {
+    if (view === 'topics') {
+      // Already on topics page, do nothing or scroll to top
+      return;
+    }
+    // Navigate to home page with the selected view
+    router.push(`/?view=${view}`);
+  };
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-2 sm:mb-4 text-sm sm:text-base"
-          >
-            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-            Back to Gallery
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
+      {/* Navigation Header */}
+      <div className="w-full flex justify-center px-4 pt-5">
+        <FloatingHeader view="topics" setView={handleViewChange} />
+      </div>
 
       <main className="w-full flex justify-center py-6 sm:py-8">
         <div className="w-full max-w-7xl px-4 sm:px-6">

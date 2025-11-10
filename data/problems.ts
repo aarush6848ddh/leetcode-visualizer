@@ -419,8 +419,69 @@ class Solution:
         spaceComplexity: 'O(n)',
         starred: false,
       },
-      createProblem('Score of a String', 'Easy', 'Arrays & Hashing'),
-      createProblem('Concatenation of Array', 'Easy', 'Arrays & Hashing'),
+      {
+        id: 'score-of-a-string',
+        title: 'Score of a String',
+        difficulty: 'Easy',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/score-of-a-string/',
+        explanation: `This solution calculates the score of a string by summing the absolute differences between ASCII values of adjacent characters.
+
+**How it works:**
+1. Convert the string to a list of characters for easier iteration.
+2. Initialize a result variable to 0.
+3. Iterate through the string from the first character to the second-to-last character.
+4. For each pair of adjacent characters, calculate the absolute difference between their ASCII values using ord().
+5. Add this difference to the result.
+6. Return the accumulated result.
+
+**Why this works:**
+The score is defined as the sum of absolute differences between ASCII values of adjacent characters. By iterating through the string and comparing each character with its neighbor, we can calculate all the required differences and sum them up. The absolute value ensures we always get a positive difference regardless of which character has a higher ASCII value.
+
+Example: For "code", we calculate |'o' - 'c'| + |'d' - 'o'| + |'e' - 'd'| = |111 - 99| + |100 - 111| + |101 - 100| = 12 + 11 + 1 = 24.`,
+        code: `class Solution:
+    def scoreOfString(self, s: str) -> int:
+        s_list = list(s)
+        res = 0
+        for i in range(len(s_list) - 1):
+            res += abs(ord(s_list[i]) - ord(s_list[i + 1]))
+        return res`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false,
+      },
+      {
+        id: 'concatenation-of-array',
+        title: 'Concatenation of Array',
+        difficulty: 'Easy',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/concatenation-of-array/',
+        explanation: `This solution creates a new array by concatenating the input array with itself.
+
+**How it works:**
+1. Initialize an empty result array ans.
+2. Iterate twice (using range(2)) to duplicate the array.
+3. For each iteration, loop through all elements in nums and append them to ans.
+4. After both iterations, ans contains all elements from nums followed by all elements from nums again.
+5. Return the concatenated array.
+
+**Why this works:**
+The problem requires creating an array of length 2n where the first n elements are the original array and the next n elements are the same array again. By iterating twice and appending all elements in each iteration, we effectively duplicate the entire array, creating the concatenation [nums[0], nums[1], ..., nums[n-1], nums[0], nums[1], ..., nums[n-1]].
+
+Example: For nums = [1,4,1,2], after the first iteration ans = [1,4,1,2], and after the second iteration ans = [1,4,1,2,1,4,1,2].`,
+        code: `class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        ans = []
+        for i in range(2):
+            for n in nums:
+                ans.append(n)
+        return ans`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false,
+      },
       createProblem('Replace Elements With Greatest Element On Right Side', 'Easy', 'Arrays & Hashing'),
       createProblem('Is Subsequence', 'Easy', 'Arrays & Hashing'),
       createProblem('Append Characters to String to Make Subsequence', 'Medium', 'Arrays & Hashing'),
