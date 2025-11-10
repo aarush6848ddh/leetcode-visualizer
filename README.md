@@ -22,13 +22,13 @@
 
 ## **About the Project**
 
-**LeetCode Journey** is my personal documentation platform for tracking my progress through the NeetCode 150 roadmap. This project features interactive algorithm visualizations, detailed solution explanations that I've written, and a visual roadmap showing my learning journey through different problem categories.
+**LeetCode Journey** is my personal documentation platform for tracking my progress through Data Structures & Algorithms. This project features interactive algorithm visualizations, detailed solution explanations that I've written, and a visual roadmap showing my learning journey through different problem categories.
 
 Built with modern web technologies, this project combines clean UI/UX design with powerful data visualization to document my Data Structures & Algorithms learning process. As I work through coding interview preparation and problem-solving challenges, this platform helps me track solutions, visualize algorithms, and monitor my progress across different topics.
 
 ## **Key Features**
 
-- **Interactive Roadmap** - Visual tree structure showing my NeetCode 150 learning path with prerequisite relationships
+- **Interactive Roadmap** - Visual tree structure showing my DSA learning path with prerequisite relationships
 - **Algorithm Visualizations** - Step-by-step animated visualizations for algorithms I've implemented
 - **Progress Tracking** - Monitor my personal progress across topics and problems
 - **Detailed Solutions** - My comprehensive explanations with code implementations
@@ -131,7 +131,7 @@ leetcode-visualizer/
 ```
 
 
-## **NeetCode 150 Topics Covered**
+## **NeetCode Topics Covered**
 
 1. **Arrays & Hashing** - Foundation of data structures
 2. **Two Pointers** - Efficient array manipulation
@@ -157,11 +157,10 @@ leetcode-visualizer/
 
 ## **Acknowledgments**
 
-- **NeetCode** for the excellent 150 problem roadmap structure
 - **Next.js Team** for the amazing framework
 - **ReactFlow** for powerful graph visualization
 - **Framer Motion** for beautiful animations
-- **LeetCode** for providing the problem set
+- **LeetCode** for providing the problem set and platform
 
 ---
 
