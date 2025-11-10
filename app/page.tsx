@@ -7,10 +7,10 @@ import ProblemCard from '@/components/ProblemCard';
 import ProgressBar from '@/components/ProgressBar';
 import HeroSection from '@/components/HeroSection';
 import { FloatingHeader } from '@/components/ui/floating-header';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function Home() {
+function HomeContent() {
   const allProblems = getAllProblems();
   const solvedCount = allProblems.filter(p => p.status === 'solved').length;
   const totalCount = allProblems.length;
@@ -182,5 +182,19 @@ export default function Home() {
         )}
       </main>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-green-400 text-xl">Loading...</div>
+        </div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }
