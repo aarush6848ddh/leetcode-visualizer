@@ -39,45 +39,47 @@ export default function TopicPage({ params }: TopicPageProps) {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Topic Header */}
-          <div className="mb-6 sm:mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{topic.name}</h1>
-            {totalCount > 0 && (
-              <div className="max-w-2xl">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-400 text-sm sm:text-base">
-                    {solvedCount} of {totalCount} problems solved
-                  </span>
-                  <span className="text-xs sm:text-sm font-medium text-white">
-                    ({Math.round((solvedCount / totalCount) * 100)}%)
-                  </span>
+      <main className="w-full flex justify-center py-6 sm:py-8">
+        <div className="w-full max-w-7xl px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center"
+          >
+            {/* Topic Header */}
+            <div className="mb-6 sm:mb-8 w-full flex flex-col items-center">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-center">{topic.name}</h1>
+              {totalCount > 0 && (
+                <div className="w-full max-w-2xl mx-auto">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-gray-400 text-sm sm:text-base">
+                      {solvedCount} of {totalCount} problems solved
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-white">
+                      ({Math.round((solvedCount / totalCount) * 100)}%)
+                    </span>
+                  </div>
+                  <ProgressBar solved={solvedCount} total={totalCount} />
                 </div>
-                <ProgressBar solved={solvedCount} total={totalCount} />
+              )}
+            </div>
+
+            {/* Problems List */}
+            {topic.problems.length > 0 ? (
+              <div className="grid grid-cols-1 gap-3 w-full max-w-5xl mx-auto">
+                {topic.problems.map((problem, index) => (
+                  <ProblemCard key={problem.id} problem={problem} index={index} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-gray-400 text-lg">
+                  No problems in this topic yet. Add problems to get started!
+                </p>
               </div>
             )}
-          </div>
-
-          {/* Problems List */}
-          {topic.problems.length > 0 ? (
-            <div className="grid grid-cols-1 gap-3 max-w-5xl mx-auto">
-              {topic.problems.map((problem, index) => (
-                <ProblemCard key={problem.id} problem={problem} index={index} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <p className="text-gray-400 text-lg">
-                No problems in this topic yet. Add problems to get started!
-              </p>
-            </div>
-          )}
-        </motion.div>
+          </motion.div>
+        </div>
       </main>
     </div>
   );

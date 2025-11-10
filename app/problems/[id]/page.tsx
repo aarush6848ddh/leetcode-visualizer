@@ -63,51 +63,54 @@ export default function ProblemPage({ params }: ProblemPageProps) {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Problem Header */}
-          <div className="mb-6 sm:mb-8">
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <div className="flex-1">
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{problem.title}</h1>
-                <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
-                  <span
-                    className={`px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border ${getDifficultyBgColor(
-                      problem.difficulty
-                    )} ${getDifficultyColor(problem.difficulty)}`}
-                  >
-                    {problem.difficulty}
-                  </span>
-                  {problem.topics.map((topic) => (
-                    <span
-                      key={topic}
-                      className="px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm text-gray-300 bg-gray-800 border border-gray-700"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                  {problem.leetcodeUrl && (
-                    <a
-                      href={problem.leetcodeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm text-blue-400 hover:text-blue-300 bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-colors"
-                    >
-                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="hidden sm:inline">View on LeetCode</span>
-                      <span className="sm:hidden">LeetCode</span>
-                    </a>
-                  )}
+      <main className="w-full flex justify-center py-6 sm:py-8">
+        <div className="w-full max-w-7xl px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center"
+          >
+            {/* Problem Header */}
+            <div className="mb-6 sm:mb-8 w-full flex flex-col items-center">
+              <div className="w-full max-w-7xl mx-auto">
+                <div className="flex items-start justify-center gap-4 mb-4">
+                  <div className="flex-1 flex flex-col items-center">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-center">{problem.title}</h1>
+                    <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
+                      <span
+                        className={`px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border ${getDifficultyBgColor(
+                          problem.difficulty
+                        )} ${getDifficultyColor(problem.difficulty)}`}
+                      >
+                        {problem.difficulty}
+                      </span>
+                      {problem.topics.map((topic) => (
+                        <span
+                          key={topic}
+                          className="px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm text-gray-300 bg-gray-800 border border-gray-700"
+                        >
+                          {topic}
+                        </span>
+                      ))}
+                      {problem.leetcodeUrl && (
+                        <a
+                          href={problem.leetcodeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm text-blue-400 hover:text-blue-300 bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-colors"
+                        >
+                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline">View on LeetCode</span>
+                          <span className="sm:hidden">LeetCode</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+            <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
             {/* Main Content */}
             <div className="lg:col-span-5 space-y-6 sm:space-y-8 flex flex-col items-center">
               {/* Explanation */}
@@ -322,8 +325,9 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                 </motion.div>
               )}
             </div>
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </main>
     </div>
   );

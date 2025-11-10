@@ -5,7 +5,8 @@ import { topics, getAllProblems } from '@/data/problems';
 import TopicCard from '@/components/TopicCard';
 import ProblemCard from '@/components/ProblemCard';
 import ProgressBar from '@/components/ProgressBar';
-import RoadmapTree from '@/components/RoadmapTree';
+import HeroSection from '@/components/HeroSection';
+import { FloatingHeader } from '@/components/ui/floating-header';
 import { useState, useMemo } from 'react';
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
   const totalCount = allProblems.length;
   
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
-  const [view, setView] = useState<'roadmap' | 'topics' | 'problems'>('roadmap');
+  const [view, setView] = useState<'hero' | 'topics' | 'problems'>('hero');
 
   const filteredProblems = useMemo(() => {
     if (!selectedTopic) return allProblems;
@@ -22,157 +23,149 @@ export default function Home() {
   }, [selectedTopic, allProblems]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#fafafa]">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0a0a0a] border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0"
-          >
-            <div>
-              <h1 className="text-xl sm:text-2xl font-semibold tracking-normal text-green-600 mb-0.5">
-                LeetCode Journey
-              </h1>
-              <p className="text-xs sm:text-sm text-white/80 font-normal">
-                Documenting solutions with visualizations
-              </p>
-            </div>
-            <nav className="flex items-center gap-2 sm:gap-6 flex-wrap">
-              <button
-                onClick={() => setView('roadmap')}
-                className={`font-medium text-xs sm:text-sm transition-colors ${
-                  view === 'roadmap'
-                    ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded'
-                    : 'text-white hover:text-green-600'
-                }`}
-              >
-                Roadmap
-              </button>
-              <button
-                onClick={() => setView('topics')}
-                className={`font-medium text-xs sm:text-sm transition-colors ${
-                  view === 'topics'
-                    ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded'
-                    : 'text-white hover:text-green-600'
-                }`}
-              >
-                Topics
-              </button>
-              <button
-                onClick={() => setView('problems')}
-                className={`font-medium text-xs sm:text-sm transition-colors ${
-                  view === 'problems'
-                    ? 'bg-green-800 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded'
-                    : 'text-white hover:text-green-600'
-                }`}
-              >
-                Problems
-              </button>
-            </nav>
-          </motion.div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
+      {/* Navigation Header */}
+      <div className="w-full flex justify-center px-4 pt-5">
+        <FloatingHeader view={view} setView={setView} />
+      </div>
 
       {/* Main Content */}
-      <main className={view === 'roadmap' ? '' : 'container mx-auto px-4 sm:px-6 py-6 sm:py-8'}>
-        {/* Roadmap View */}
-        {view === 'roadmap' && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="h-[calc(100vh-80px)]"
-          >
-            <RoadmapTree topics={topics} />
-          </motion.div>
+      <main className="flex-1 w-full">
+        {/* Hero View */}
+        {view === 'hero' && (
+          <HeroSection solvedCount={solvedCount} totalCount={totalCount} />
         )}
 
-        {/* Overall Progress for other views */}
-        {view !== 'roadmap' && totalCount > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
-          >
-            <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-4 sm:mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-normal mb-2 sm:mb-3 gradient-text">Overall Progress</h2>
-                <p className="text-gray-400/80 text-base sm:text-lg font-light">
-                  {solvedCount} of {totalCount} problems solved
-                </p>
-              </div>
-              <ProgressBar solved={solvedCount} total={totalCount} />
-            </div>
-          </motion.div>
-        )}
-
-            {/* Topics View */}
-            {view === 'topics' && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-col items-center"
-              >
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-normal mb-6 sm:mb-8 gradient-text text-center">Topics</h2>
-                {topics.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
-                    {topics.map((topic, index) => (
-                      <TopicCard key={topic.id} topic={topic} index={index} />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-16">
-                    <p className="text-gray-400 text-lg">
-                      No topics available yet. Problems will be organized by topic.
-                    </p>
-                  </div>
-                )}
-              </motion.div>
-            )}
-
-            {/* Problems View */}
-            {view === 'problems' && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-col items-center"
-              >
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4 sm:mb-6 w-full max-w-4xl">
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-normal gradient-text text-center sm:text-left">
-                    {selectedTopic ? `Problems: ${selectedTopic}` : 'All Problems'}
-                  </h2>
-                  {selectedTopic && (
-                    <button
-                      onClick={() => setSelectedTopic(null)}
-                      className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
-                    >
-                      Clear Filter
-                    </button>
-                  )}
+        {/* Topics View */}
+        {view === 'topics' && (
+          <>
+            {totalCount > 0 && (
+              <div className="w-full flex justify-center py-8 sm:py-12">
+                <div className="w-full max-w-2xl px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="w-full flex flex-col items-center"
+                  >
+                    <div className="text-center mb-4 sm:mb-6 w-full">
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2 sm:mb-3 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                        Overall Progress
+                      </h2>
+                      <p className="text-gray-400 text-base sm:text-lg">
+                        {solvedCount} of {totalCount} problems solved
+                      </p>
+                    </div>
+                    <div className="w-full">
+                      <ProgressBar solved={solvedCount} total={totalCount} />
+                    </div>
+                  </motion.div>
                 </div>
-                {filteredProblems.length > 0 ? (
-                  <div className="grid grid-cols-1 gap-3 max-w-5xl mx-auto w-full">
-                    {filteredProblems.map((problem, index) => (
-                      <ProblemCard key={problem.id} problem={problem} index={index} />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-16">
-                    <p className="text-gray-400 text-lg">
-                      {selectedTopic
-                        ? 'No problems found for this topic.'
-                        : 'No problems available yet. Add your solutions to get started!'}
-                    </p>
-                  </div>
-                )}
-              </motion.div>
+              </div>
             )}
+            <div className="w-full flex justify-center pb-8 sm:pb-12">
+              <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="flex flex-col items-center"
+                >
+                  <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent text-center">
+                    Topics
+                  </h2>
+                  
+                  {topics.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
+                      {topics.map((topic, index) => (
+                        <TopicCard key={topic.id} topic={topic} index={index} />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-16">
+                      <p className="text-gray-400 text-lg">
+                        No topics available yet.
+                      </p>
+                    </div>
+                  )}
+                </motion.div>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* Problems View */}
+        {view === 'problems' && (
+          <>
+            {totalCount > 0 && (
+              <div className="w-full flex justify-center py-8 sm:py-12">
+                <div className="w-full max-w-2xl px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="w-full flex flex-col items-center"
+                  >
+                    <div className="text-center mb-4 sm:mb-6 w-full">
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2 sm:mb-3 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                        Overall Progress
+                      </h2>
+                      <p className="text-gray-400 text-base sm:text-lg">
+                        {solvedCount} of {totalCount} problems solved
+                      </p>
+                    </div>
+                    <div className="w-full">
+                      <ProgressBar solved={solvedCount} total={totalCount} />
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            )}
+            <div className="w-full flex justify-center pb-8 sm:pb-12">
+              <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="w-full max-w-5xl mx-auto">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 mb-6 relative">
+                      <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent text-center">
+                        {selectedTopic ? `Problems: ${selectedTopic}` : 'All Problems'}
+                      </h2>
+                      {selectedTopic && (
+                        <button
+                          onClick={() => setSelectedTopic(null)}
+                          className="absolute right-0 px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10"
+                        >
+                          Clear Filter
+                        </button>
+                      )}
+                    </div>
+
+                    {filteredProblems.length > 0 ? (
+                      <div className="grid grid-cols-1 gap-3">
+                        {filteredProblems.map((problem, index) => (
+                          <ProblemCard key={problem.id} problem={problem} index={index} />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-center py-16">
+                        <p className="text-gray-400 text-lg">
+                          {selectedTopic
+                            ? 'No problems found for this topic.'
+                            : 'No problems available yet.'}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
 }
-
