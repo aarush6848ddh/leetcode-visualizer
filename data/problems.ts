@@ -164,6 +164,7 @@ The hashmap enables O(1) lookup and insertion, making the grouping process effic
     topics: ['Arrays & Hashing'],
     status: 'solved',
     leetcodeUrl: 'https://leetcode.com/problems/top-k-frequent-elements/',
+    videoUrl: 'https://www.youtube.com/watch?v=X2azb5oiplg',
     explanation: `This solution uses a bucket sort approach to efficiently find the K most frequent elements.
 
 **How it works:**
@@ -382,6 +383,7 @@ The hashmap enables O(1) lookup and insertion, making the grouping process effic
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/top-k-frequent-elements/',
+        videoUrl: 'https://www.youtube.com/watch?v=X2azb5oiplg',
         explanation: `This solution uses a bucket sort approach to efficiently find the K most frequent elements.
 
 **How it works:**
@@ -426,6 +428,7 @@ class Solution:
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/score-of-a-string/',
+        videoUrl: 'https://www.youtube.com/watch?v=Hhvgr0SBkso',
         explanation: `This solution calculates the score of a string by summing the absolute differences between ASCII values of adjacent characters.
 
 **How it works:**
@@ -458,6 +461,7 @@ Example: For "code", we calculate |'o' - 'c'| + |'d' - 'o'| + |'e' - 'd'| = |111
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/concatenation-of-array/',
+        videoUrl: 'https://www.youtube.com/watch?v=yLD4c8pJDac',
         explanation: `This solution creates a new array by concatenating the input array with itself.
 
 **How it works:**
@@ -545,7 +549,56 @@ Example: For nums = [1,4,1,2], after the first iteration ans = [1,4,1,2], and af
       createProblem('Sort the People', 'Easy', 'Arrays & Hashing'),
       createProblem('Sort Array by Increasing Frequency', 'Easy', 'Arrays & Hashing'),
       createProblem('Custom Sort String', 'Medium', 'Arrays & Hashing'),
-      createProblem('Encode and Decode Strings', 'Medium', 'Arrays & Hashing'),
+      {
+        id: 'encode-and-decode-strings',
+        title: 'Encode and Decode Strings',
+        difficulty: 'Medium',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/encode-and-decode-strings/',
+        explanation: `This solution uses a length-prefix encoding scheme to encode and decode a list of strings.
+
+**How it works (Encode):**
+1. Iterate through each string in the input list.
+2. For each string, prepend its length followed by a "#" delimiter.
+3. Concatenate all encoded strings together.
+4. Example: ["neet", "code"] becomes "4#neet4#code"
+
+**How it works (Decode):**
+1. Initialize a result list and a pointer i at the start of the encoded string.
+2. While i is within the string length:
+   - Find the position j where the "#" delimiter appears (this marks the end of the length prefix).
+   - Extract the length by converting the substring from i to j to an integer.
+   - Extract the actual string by reading length characters after the "#".
+   - Add the decoded string to the result list.
+   - Move the pointer i to the start of the next encoded string.
+3. Return the decoded list of strings.
+
+**Why this works:**
+The "#" delimiter ensures we can distinguish between the length prefix and the actual string content. By storing the length before each string, we know exactly how many characters to read, which handles edge cases like strings containing numbers or special characters. This encoding scheme is unambiguous and allows perfect reconstruction of the original string list.`,
+        code: `class Solution:
+    def encode(self, strs: List[str]) -> str:
+        res = ""
+        for s in strs:
+            res += str(len(s)) + "#" + s
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        res = []
+        i = 0
+
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            length = int(s[i:j])
+            res.append(s[j + 1 : j + 1 + length])
+            i = j + 1 + length
+        return res`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        starred: false,
+      },
       createProblem('Range Sum Query 2D Immutable', 'Medium', 'Arrays & Hashing'),
       createProblem('Analyze User Website Visit Pattern', 'Medium', 'Arrays & Hashing'),
       createProblem('Product of Array Except Self', 'Medium', 'Arrays & Hashing'),

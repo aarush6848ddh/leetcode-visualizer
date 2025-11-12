@@ -17,6 +17,7 @@ import TwoIntegerSumIIVisualizer from '@/components/TwoIntegerSumIIVisualizer';
 import TopKFrequentVisualizer from '@/components/TopKFrequentVisualizer';
 import ScoreOfStringVisualizer from '@/components/ScoreOfStringVisualizer';
 import ConcatenationOfArrayVisualizer from '@/components/ConcatenationOfArrayVisualizer';
+import EncodeDecodeStringsVisualizer from '@/components/EncodeDecodeStringsVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -283,6 +284,8 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <ScoreOfStringVisualizer />
                 ) : problem.id === 'concatenation-of-array' ? (
                   <ConcatenationOfArrayVisualizer />
+                ) : problem.id === 'encode-and-decode-strings' ? (
+                  <EncodeDecodeStringsVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}
