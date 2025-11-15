@@ -556,6 +556,7 @@ Example: For nums = [1,4,1,2], after the first iteration ans = [1,4,1,2], and af
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/encode-and-decode-strings/',
+        videoUrl: 'https://www.youtube.com/watch?v=CgyPe-FaFsE',
         explanation: `This solution uses a length-prefix encoding scheme to encode and decode a list of strings.
 
 **How it works (Encode):**
