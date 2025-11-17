@@ -144,7 +144,7 @@ leetcode-visualizer/
 9. **Heap / Priority Queue** - Priority-based processing
 10. **Backtracking** - Recursive problem solving
 11. **Graphs** - Graph traversal and algorithms
-12. **Advanced Graphs** - Complex graph problems
+12. **Advanced Graphs** - Complex image.pnggraph problems
 13. **1-D Dynamic Programming** - Linear DP
 14. **2-D Dynamic Programming** - Matrix DP
 15. **Greedy** - Greedy algorithms

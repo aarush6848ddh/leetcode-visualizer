@@ -18,6 +18,7 @@ import TopKFrequentVisualizer from '@/components/TopKFrequentVisualizer';
 import ScoreOfStringVisualizer from '@/components/ScoreOfStringVisualizer';
 import ConcatenationOfArrayVisualizer from '@/components/ConcatenationOfArrayVisualizer';
 import EncodeDecodeStringsVisualizer from '@/components/EncodeDecodeStringsVisualizer';
+import IsSubsequenceVisualizer from '@/components/IsSubsequenceVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -30,6 +31,16 @@ export default function ProblemPage({ params }: ProblemPageProps) {
 
   if (!problem) {
     notFound();
+  }
+
+  // Debug: Log problem data to verify explanation and videoUrl are present
+  if (typeof window !== 'undefined' && problem.id === 'is-subsequence') {
+    console.log('Problem data:', {
+      hasExplanation: !!problem.explanation,
+      hasVideoUrl: !!problem.videoUrl,
+      explanationLength: problem.explanation?.length,
+      videoUrl: problem.videoUrl
+    });
   }
 
   const handleViewChange = (view: 'hero' | 'topics' | 'problems') => {
@@ -286,6 +297,8 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <ConcatenationOfArrayVisualizer />
                 ) : problem.id === 'encode-and-decode-strings' ? (
                   <EncodeDecodeStringsVisualizer />
+                ) : problem.id === 'is-subsequence' ? (
+                  <IsSubsequenceVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}

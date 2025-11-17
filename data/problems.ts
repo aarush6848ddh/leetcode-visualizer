@@ -234,6 +234,44 @@ This approach is straightforward and leverages Python's string manipulation capa
     spaceComplexity: 'O(n)',
     starred: false,
   },
+  {
+    id: 'is-subsequence',
+    title: 'Is Subsequence',
+    difficulty: 'Easy',
+    topics: ['Two Pointers'],
+    status: 'solved',
+    leetcodeUrl: 'https://leetcode.com/problems/is-subsequence/',
+    videoUrl: 'https://www.youtube.com/watch?v=V7B5CeB20Ow',
+    explanation: `This solution uses two pointers to check if string s is a subsequence of string t.
+
+**How it works:**
+1. Initialize two pointers i and j to 0, pointing to the start of strings s and t respectively.
+2. While both pointers are within their string bounds:
+   - If s[i] matches t[j], increment i (we found a matching character in order).
+   - Always increment j to continue searching through string t.
+3. After the loop, check if i equals the length of s. If it does, all characters of s were found in order in t → return True. Otherwise, return False.
+
+**Why this works:**
+A subsequence means characters appear in the same relative order, but not necessarily consecutively. By using two pointers:
+- Pointer i tracks our progress through s (the subsequence we're looking for).
+- Pointer j scans through t (the string we're searching in).
+- When we find a match, we advance i, meaning we've found that character of s in t.
+- We always advance j to continue searching.
+- If i reaches the end of s, we've found all characters in order → True.
+
+This approach efficiently checks for subsequence in O(n) time where n is the length of t.`,
+    code: `class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i = j = 0
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i += 1
+            j += 1
+        return i == len(s)`,
+    timeComplexity: 'O(n)',
+    spaceComplexity: 'O(1)',
+    starred: false,
+  },
 ];
 
 export const topics: Topic[] = [
@@ -732,6 +770,44 @@ The solution returns 1-indexed positions as required by the problem.`,
             my_hashmap[n] = i`,
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
+        starred: false,
+      },
+      {
+        id: 'is-subsequence',
+        title: 'Is Subsequence',
+        difficulty: 'Easy',
+        topics: ['Two Pointers'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/is-subsequence/',
+        videoUrl: 'https://www.youtube.com/watch?v=V7B5CeB20Ow',
+        explanation: `This solution uses two pointers to check if string s is a subsequence of string t.
+
+**How it works:**
+1. Initialize two pointers i and j to 0, pointing to the start of strings s and t respectively.
+2. While both pointers are within their string bounds:
+   - If s[i] matches t[j], increment i (we found a matching character in order).
+   - Always increment j to continue searching through string t.
+3. After the loop, check if i equals the length of s. If it does, all characters of s were found in order in t → return True. Otherwise, return False.
+
+**Why this works:**
+A subsequence means characters appear in the same relative order, but not necessarily consecutively. By using two pointers:
+- Pointer i tracks our progress through s (the subsequence we're looking for).
+- Pointer j scans through t (the string we're searching in).
+- When we find a match, we advance i, meaning we've found that character of s in t.
+- We always advance j to continue searching.
+- If i reaches the end of s, we've found all characters in order → True.
+
+This approach efficiently checks for subsequence in O(n) time where n is the length of t.`,
+        code: `class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i = j = 0
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i += 1
+            j += 1
+        return i == len(s)`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(1)',
         starred: false,
       },
       createProblem('Reverse String', 'Easy', 'Two Pointers'),
@@ -1514,11 +1590,32 @@ The solution returns 1-indexed positions as required by the problem.`,
 ];
 
 export const getAllProblems = (): Problem[] => {
-  return topics.flatMap(topic => topic.problems);
+  // Merge problems from both arrays, with topics array taking precedence
+  const topicsProblems = topics.flatMap(topic => topic.problems);
+  const problemsMap = new Map<string, Problem>();
+  
+  // First, add all problems from the problems array
+  problems.forEach(p => problemsMap.set(p.id, p));
+  
+  // Then, override with problems from topics array (these have priority)
+  topicsProblems.forEach(p => problemsMap.set(p.id, p));
+  
+  return Array.from(problemsMap.values());
 };
 
 export const getProblemById = (id: string): Problem | undefined => {
-  return getAllProblems().find(problem => problem.id === id);
+  const allProblems = getAllProblems();
+  const problem = allProblems.find(problem => problem.id === id);
+  if (id === 'is-subsequence' && problem) {
+    console.log('[getProblemById] Found problem:', {
+      hasExplanation: !!problem.explanation,
+      hasVideoUrl: !!problem.videoUrl,
+      explanationLength: problem.explanation?.length,
+      videoUrl: problem.videoUrl,
+      source: 'merged'
+    });
+  }
+  return problem;
 };
 
 export const getProblemsByTopic = (topicId: string): Problem[] => {
