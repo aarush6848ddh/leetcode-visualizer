@@ -1,27 +1,33 @@
-[00:00:02.110] Server  LOG      ✓ Ready in 1499ms
-[00:00:13.284] Server  LOG      ○ Compiling /problems/[id] ...
-[00:00:15.491] Browser LOG     Problem data: {"hasExplanation":false,"hasVideoUrl":false}
-[00:02:41.568] Server  LOG      ✓ Compiled in 77ms
-[00:02:41.686] Browser LOG     [getProblemById] Found problem: {"hasExplanation":false,"hasVideoUrl":false}
-[00:02:41.686] Browser LOG     Problem data: {"hasExplanation":false,"hasVideoUrl":false}
-[00:02:41.686] Browser LOG     [2;38;2;124;124;124m%s[0m [getProblemById] Found problem: {"hasExplanation":false,"hasVideoUrl":false}
-[00:02:41.686] Browser LOG     [2;38;2;124;124;124m%s[0m Problem data: {"hasExplanation":false,"hasVideoUrl":false}
-[00:03:04.633] Server  LOG     [getProblemById] Found problem: {}
-[00:03:05.676] Browser LOG     [getProblemById] Found problem: {"hasExplanation":false,"hasVideoUrl":false}
-[00:03:05.676] Browser LOG     Problem data: {"hasExplanation":false,"hasVideoUrl":false}
-[00:09:38.963] Server  LOG      ✓ Compiled in 61ms
-[00:09:39.067] Browser LOG     [getProblemById] Found problem: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"source":"merged","videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
-[00:09:39.079] Browser LOG     Problem data: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
-[00:09:39.079] Browser LOG     [2;38;2;124;124;124m%s[0m [getProblemById] Found problem: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"source":"merged","videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
-[00:09:39.079] Browser LOG     [2;38;2;124;124;124m%s[0m Problem data: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
-[00:09:56.623] Server  LOG     [getProblemById] Found problem: {}
-[00:09:57.269] Browser LOG     [getProblemById] Found problem: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"source":"merged","videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
-[00:09:57.269] Browser LOG     Problem data: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
-[00:14:35.784] Server  LOG      ✓ Compiled in 59ms
-[00:14:37.044] Server  LOG      ✓ Compiled in 42ms
-[00:14:46.450] Server  LOG      ✓ Compiled in 47ms
-[00:16:13.514] Server  LOG      ✓ Compiled in 50ms
-[00:16:29.224] Server  LOG      ✓ Compiled in 68ms
-[00:16:46.232] Server  LOG      ✓ Compiled in 44ms
-[00:16:59.783] Server  LOG      ✓ Compiled in 46ms
-[00:17:14.411] Server  LOG      ✓ Compiled in 43ms
+[00:00:02.325] Server  LOG      ✓ Ready in 1705ms
+[00:00:08.626] Server  LOG      ○ Compiling / ...
+[00:00:17.155] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:21.015] Browser LOG     [getProblemById] Found problem: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"source":"merged","videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
+[00:00:21.015] Browser LOG     Problem data: {"explanationLength":1126,"hasExplanation":true,"hasVideoUrl":true,"videoUrl":"https://www.youtube.com/watch?v=V7B5CeB20Ow"}
+[00:03:36.906] Server  LOG      ✓ Compiled in 85ms
+[00:03:49.528] Server  LOG      ✓ Compiled in 61ms
+[00:03:49.633] Browser ERROR   ./components/ReplaceElementsVisualizer.tsx:163:9
+Ecmascript file had an error
+  161 |   const inTransition = useRef(false);
+  162 |   
+> 163 |   const step = () => {
+      |         ^^^^
+  164 |     if (!isRunning || result !== null || inTransition.current) return;
+  165 |     
+  166 |     // ... rest of step function
+
+the name `step` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/ReplaceElementsVisualizer.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Client Component Browser]
+    ./app/problems/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ReplaceElementsVisualizer.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Client Component SSR]
+    ./app/problems/[id]/page.tsx [Server Component]
+[00:06:05.770] Server  LOG      ✓ Compiled in 118ms
+[00:07:14.732] Server  LOG      ✓ Compiled in 69ms
+[00:08:07.577] Server  LOG      ✓ Compiled in 44ms
+[00:08:09.652] Server  LOG      ✓ Compiled in 100ms

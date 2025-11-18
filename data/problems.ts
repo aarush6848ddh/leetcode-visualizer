@@ -524,7 +524,47 @@ Example: For nums = [1,4,1,2], after the first iteration ans = [1,4,1,2], and af
         spaceComplexity: 'O(n)',
         starred: false,
       },
-      createProblem('Replace Elements With Greatest Element On Right Side', 'Easy', 'Arrays & Hashing'),
+      {
+        id: 'replace-elements-with-greatest-element-on-right-side',
+        title: 'Replace Elements With Greatest Element On Right Side',
+        difficulty: 'Easy',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/',
+        explanation: `This solution efficiently replaces each element with the greatest element to its right by traversing the array from right to left.
+
+**How it works:**
+1. Initialize right_max to -1 (since the last element should be replaced with -1).
+2. Traverse the array from right to left (from the last index to the first).
+3. For each position i:
+   - Store the current value of arr[i] before replacing it.
+   - Replace arr[i] with the current right_max value.
+   - Update right_max to be the maximum of the old right_max and the original arr[i] value.
+4. Return the modified array.
+
+**Why this works:**
+By traversing from right to left, we can maintain the maximum element seen so far in right_max. At each position:
+- We know all elements to the right have already been processed.
+- The right_max contains the maximum of all elements to the right of the current position.
+- We replace the current element with right_max, then update right_max to include the current element's original value.
+
+This approach is efficient because:
+- Single pass through the array: O(n) time complexity
+- In-place modification: O(1) space complexity (excluding the output array)
+
+The last element is correctly replaced with -1 because right_max starts at -1 and no elements exist to its right.`,
+        code: `class Solution:
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        right_max = -1
+        for i in range(len(arr) - 1, -1, -1):
+            new_max = max(right_max, arr[i])
+            arr[i] = right_max
+            right_max = new_max
+        return arr`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(1)',
+        starred: false,
+      },
       createProblem('Is Subsequence', 'Easy', 'Arrays & Hashing'),
       createProblem('Append Characters to String to Make Subsequence', 'Medium', 'Arrays & Hashing'),
       createProblem('Length of Last Word', 'Easy', 'Arrays & Hashing'),
@@ -640,7 +680,52 @@ The "#" delimiter ensures we can distinguish between the length prefix and the a
       },
       createProblem('Range Sum Query 2D Immutable', 'Medium', 'Arrays & Hashing'),
       createProblem('Analyze User Website Visit Pattern', 'Medium', 'Arrays & Hashing'),
-      createProblem('Product of Array Except Self', 'Medium', 'Arrays & Hashing'),
+      {
+        id: 'product-of-array-except-self',
+        title: 'Product of Array Except Self',
+        difficulty: 'Medium',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/product-of-array-except-self/',
+        explanation: `This solution efficiently computes the product of all elements except self using two passes: one for prefix products and one for postfix products.
+
+**How it works:**
+1. Initialize result array with all 1s (same length as input).
+2. **First pass (left to right):** Calculate prefix products:
+   - For each index i, store the product of all elements to the left of i in res[i].
+   - Update prefix by multiplying it with nums[i] for the next iteration.
+3. **Second pass (right to left):** Multiply by postfix products:
+   - For each index i, multiply res[i] by the product of all elements to the right of i.
+   - Update postfix by multiplying it with nums[i] for the next iteration.
+4. Return the result array.
+
+**Why this works:**
+- The first pass stores prefix products (product of all elements to the left) in each position.
+- The second pass multiplies each position by the postfix product (product of all elements to the right).
+- Combining prefix and postfix gives us the product of all elements except the current one.
+
+This approach is efficient because:
+- Two passes through the array: O(n) time complexity
+- Only uses the result array: O(1) space complexity (excluding output array)
+- No division operation needed, avoiding division by zero issues`,
+        code: `class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res = [1] * (len(nums))
+
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
+        return res`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(1)',
+        starred: false,
+      },
       createProblem('Minimum Number of Operations to Move All Balls to Each Box', 'Medium', 'Arrays & Hashing'),
       createProblem('Valid Sudoku', 'Medium', 'Arrays & Hashing'),
       createProblem('Longest Consecutive Sequence', 'Medium', 'Arrays & Hashing'),

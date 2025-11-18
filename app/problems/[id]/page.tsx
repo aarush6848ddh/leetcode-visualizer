@@ -19,6 +19,8 @@ import ScoreOfStringVisualizer from '@/components/ScoreOfStringVisualizer';
 import ConcatenationOfArrayVisualizer from '@/components/ConcatenationOfArrayVisualizer';
 import EncodeDecodeStringsVisualizer from '@/components/EncodeDecodeStringsVisualizer';
 import IsSubsequenceVisualizer from '@/components/IsSubsequenceVisualizer';
+import ReplaceElementsVisualizer from '@/components/ReplaceElementsVisualizer';
+import ProductOfArrayExceptSelfVisualizer from '@/components/ProductOfArrayExceptSelfVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -299,6 +301,10 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <EncodeDecodeStringsVisualizer />
                 ) : problem.id === 'is-subsequence' ? (
                   <IsSubsequenceVisualizer />
+                ) : problem.id === 'replace-elements-with-greatest-element-on-right-side' ? (
+                  <ReplaceElementsVisualizer />
+                ) : problem.id === 'product-of-array-except-self' ? (
+                  <ProductOfArrayExceptSelfVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}
