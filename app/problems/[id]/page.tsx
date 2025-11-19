@@ -21,6 +21,8 @@ import EncodeDecodeStringsVisualizer from '@/components/EncodeDecodeStringsVisua
 import IsSubsequenceVisualizer from '@/components/IsSubsequenceVisualizer';
 import ReplaceElementsVisualizer from '@/components/ReplaceElementsVisualizer';
 import ProductOfArrayExceptSelfVisualizer from '@/components/ProductOfArrayExceptSelfVisualizer';
+import LengthOfLastWordVisualizer from '@/components/LengthOfLastWordVisualizer';
+import ValidSudokuVisualizer from '@/components/ValidSudokuVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -305,6 +307,10 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <ReplaceElementsVisualizer />
                 ) : problem.id === 'product-of-array-except-self' ? (
                   <ProductOfArrayExceptSelfVisualizer />
+                ) : problem.id === 'length-of-last-word' ? (
+                  <LengthOfLastWordVisualizer />
+                ) : problem.id === 'valid-sudoku' ? (
+                  <ValidSudokuVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}

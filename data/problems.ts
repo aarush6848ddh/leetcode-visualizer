@@ -531,6 +531,7 @@ Example: For nums = [1,4,1,2], after the first iteration ans = [1,4,1,2], and af
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/',
+        videoUrl: 'https://www.youtube.com/watch?v=P_1CJ14VVwA',
         explanation: `This solution efficiently replaces each element with the greatest element to its right by traversing the array from right to left.
 
 **How it works:**
@@ -567,7 +568,43 @@ The last element is correctly replaced with -1 because right_max starts at -1 an
       },
       createProblem('Is Subsequence', 'Easy', 'Arrays & Hashing'),
       createProblem('Append Characters to String to Make Subsequence', 'Medium', 'Arrays & Hashing'),
-      createProblem('Length of Last Word', 'Easy', 'Arrays & Hashing'),
+      {
+        id: 'length-of-last-word',
+        title: 'Length of Last Word',
+        difficulty: 'Easy',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/length-of-last-word/',
+        explanation: `This solution finds the length of the last word in a string by traversing from right to left.
+
+**How it works:**
+1. We iterate through the string from right to left (from the end to the beginning).
+2. For each character, we check if it's alphanumeric (part of a word).
+3. If we encounter an alphanumeric character, we increment our length counter.
+4. Once we've started counting (length > 0) and encounter a non-alphanumeric character (space), we've found the end of the last word, so we return the length.
+5. If we reach the beginning of the string while counting, we return the accumulated length.
+
+**Why this works:**
+By starting from the right, we skip any trailing spaces and immediately start counting characters of the last word. The algorithm efficiently handles:
+- Trailing spaces: ignored until we find the first character
+- Multiple spaces: once we start counting, encountering a space means we've finished the last word
+- Single word strings: we count all characters until the beginning
+
+This approach is optimal because we only traverse the string once from right to left, stopping as soon as we've processed the last word.`,
+        code: `class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        length = 0
+        for i in range(len(s) - 1, -1, -1):
+            if s[i].isalnum():
+                length += 1
+            if length > 0:
+                if not s[i].isalnum():
+                    return length
+        return length`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(1)',
+        starred: false,
+      },
       createProblem('Number of Senior Citizens', 'Easy', 'Arrays & Hashing'),
       createProblem('Max Consecutive Ones', 'Easy', 'Arrays & Hashing'),
       createProblem('Longest Common Prefix', 'Easy', 'Arrays & Hashing'),
@@ -687,6 +724,7 @@ The "#" delimiter ensures we can distinguish between the length prefix and the a
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/product-of-array-except-self/',
+        videoUrl: 'https://www.youtube.com/watch?v=H08rq3Wd2uY&t=581s',
         explanation: `This solution efficiently computes the product of all elements except self using two passes: one for prefix products and one for postfix products.
 
 **How it works:**
@@ -727,7 +765,61 @@ This approach is efficient because:
         starred: false,
       },
       createProblem('Minimum Number of Operations to Move All Balls to Each Box', 'Medium', 'Arrays & Hashing'),
-      createProblem('Valid Sudoku', 'Medium', 'Arrays & Hashing'),
+      {
+        id: 'valid-sudoku',
+        title: 'Valid Sudoku',
+        difficulty: 'Medium',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/valid-sudoku/',
+        explanation: `This solution validates a Sudoku board by checking rows, columns, and 3x3 sub-boxes for duplicates using hash sets.
+
+**How it works:**
+1. We maintain three separate data structures: one for rows, one for columns, and one for 3x3 sub-boxes.
+2. We iterate through each cell in the 9x9 board.
+3. For each non-empty cell (not "."), we check if the number already exists in:
+   - The current row (rows[r])
+   - The current column (cols[c])
+   - The current 3x3 sub-box (squares[(r // 3, c // 3)])
+4. If the number is found in any of these sets, the board is invalid → return False.
+5. If the number is not found, we add it to all three sets.
+6. If we complete the iteration without finding duplicates, the board is valid → return True.
+
+**Why this works:**
+Sudoku rules require that each number (1-9) appears exactly once in:
+- Each row
+- Each column
+- Each 3x3 sub-box
+
+By using sets to track seen numbers in each row, column, and sub-box, we can detect duplicates in O(1) time. The sub-box index is calculated as (r // 3, c // 3), which groups cells into 9 distinct 3x3 boxes:
+- Box (0,0): rows 0-2, cols 0-2
+- Box (0,1): rows 0-2, cols 3-5
+- Box (0,2): rows 0-2, cols 6-8
+- And so on...
+
+This approach efficiently validates the entire board in a single pass.`,
+        code: `class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        cols = defaultdict(set)
+        rows = defaultdict(set)
+        squares = defaultdict(set)
+        
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == ".":
+                    continue
+                if (board[r][c] in rows[r] or 
+                    board[r][c] in cols[c] or 
+                    board[r][c] in squares[(r // 3, c // 3)]):
+                    return False
+                cols[c].add(board[r][c])
+                rows[r].add(board[r][c])
+                squares[(r // 3, c // 3)].add(board[r][c])
+        return True`,
+        timeComplexity: 'O(1)',
+        spaceComplexity: 'O(1)',
+        starred: false,
+      },
       createProblem('Longest Consecutive Sequence', 'Medium', 'Arrays & Hashing'),
       createProblem('Encode and Decode TinyURL', 'Medium', 'Arrays & Hashing'),
       createProblem('Brick Wall', 'Medium', 'Arrays & Hashing'),
