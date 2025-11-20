@@ -3,7 +3,7 @@
     chunks: [
   "static/chunks/components_TopKFrequentVisualizer_tsx_bf347d7f._.js",
   "static/chunks/components_ValidSudokuVisualizer_tsx_095ebdea._.js",
-  "static/chunks/components_24640d6b._.js",
+  "static/chunks/components_e2389dd8._.js",
   "static/chunks/_0e3db240._.js",
   "static/chunks/node_modules_de536f1c._.js"
 ],

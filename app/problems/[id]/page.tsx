@@ -23,6 +23,7 @@ import ReplaceElementsVisualizer from '@/components/ReplaceElementsVisualizer';
 import ProductOfArrayExceptSelfVisualizer from '@/components/ProductOfArrayExceptSelfVisualizer';
 import LengthOfLastWordVisualizer from '@/components/LengthOfLastWordVisualizer';
 import ValidSudokuVisualizer from '@/components/ValidSudokuVisualizer';
+import NumberOfSeniorCitizensVisualizer from '@/components/NumberOfSeniorCitizensVisualizer';
 
 interface ProblemPageProps {
   params: Promise<{ id: string }>;
@@ -311,6 +312,8 @@ export default function ProblemPage({ params }: ProblemPageProps) {
                   <LengthOfLastWordVisualizer />
                 ) : problem.id === 'valid-sudoku' ? (
                   <ValidSudokuVisualizer />
+                ) : problem.id === 'number-of-senior-citizens' ? (
+                  <NumberOfSeniorCitizensVisualizer />
                 ) : (
                   <AlgorithmVisualizer
                     steps={visualizationSteps}

@@ -605,7 +605,43 @@ This approach is optimal because we only traverse the string once from right to 
         spaceComplexity: 'O(1)',
         starred: false,
       },
-      createProblem('Number of Senior Citizens', 'Easy', 'Arrays & Hashing'),
+      {
+        id: 'number-of-senior-citizens',
+        title: 'Number of Senior Citizens',
+        difficulty: 'Easy',
+        topics: ['Arrays & Hashing'],
+        status: 'solved',
+        leetcodeUrl: 'https://leetcode.com/problems/number-of-senior-citizens/',
+        explanation: `This solution counts passengers who are strictly older than 60 years by extracting and checking the age from each passenger's details string.
+
+**How it works:**
+1. Initialize a counter to 0.
+2. Iterate through each passenger detail string in the array.
+3. For each string, extract the age substring from indices 11 to 13 (characters at positions 11 and 12).
+4. Convert the age substring to an integer.
+5. If the age is greater than 60, increment the counter.
+6. Return the total count.
+
+**String Format:**
+Each detail string has a fixed length of 15 characters:
+- Indices 0-9: Phone number (10 digits)
+- Index 10: Gender ('M', 'F', or '0')
+- Indices 11-12: Age (2 digits)
+- Indices 13-14: Seat number (2 characters)
+
+**Why this works:**
+By using string slicing s[11:13], we directly access the age portion of each passenger's compressed information. Converting to an integer allows us to perform numeric comparison with 60. This approach is efficient because it processes each passenger exactly once.`,
+        code: `class Solution:
+    def countSeniors(self, details: List[str]) -> int:
+        count = 0
+        for s in details:
+            if int(s[11:13]) > 60:
+                count += 1
+        return count`,
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(1)',
+        starred: false,
+      },
       createProblem('Max Consecutive Ones', 'Easy', 'Arrays & Hashing'),
       createProblem('Longest Common Prefix', 'Easy', 'Arrays & Hashing'),
       createProblem('String Matching in an Array', 'Easy', 'Arrays & Hashing'),
