@@ -612,6 +612,7 @@ This approach is optimal because we only traverse the string once from right to 
         topics: ['Arrays & Hashing'],
         status: 'solved',
         leetcodeUrl: 'https://leetcode.com/problems/number-of-senior-citizens/',
+        videoUrl: 'https://www.youtube.com/watch?v=e8P2kq1435o',
         explanation: `This solution counts passengers who are strictly older than 60 years by extracting and checking the age from each passenger's details string.
 
 **How it works:**
